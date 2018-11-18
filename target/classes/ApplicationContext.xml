@@ -12,6 +12,8 @@
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     <bean id="sensor" class="com.sensor.domain.Sensor" autowire="byType">
     </bean>
+    <bean id="sensorService" class="com.sensor.service.SensorService" autowire="byType">
+    </bean>
     <!-- 配置一个 bean -->
     <!--  定义一个使用DBCP实现的数据源 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"

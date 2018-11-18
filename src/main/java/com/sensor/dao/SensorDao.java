@@ -24,11 +24,11 @@ public class SensorDao {
     private final static String DELETE_SENSOR_SQL = "delete from sensor_info where sensor_id = ?";
     private final static String QUERY_ALL_SENSORS_SQL = "SELECT * FROM sensor_info ";
     private final static String QUERY_SENSOR_SQL= "SELECT * FROM sensor_info WHERE sensor_id like ? or name like ?  ";
-    private final static String QUERY_SENSOR_SQLByName = "SELECT * FROM sensor_info WHERE name = ? ";
     //查询匹配传感器的个数
     private final static String MATCH_SENSOR_SQL = "SELECT count(*) FROM sensor_info WHERE sensor_id like ?  or name like ?  ";
     //根据编号查询传感器
-    private final static String GET_SENSOR_SQL = "SELECT * FROM sensor_info where sensor_id = ? ";
+    private final static String GET_SENSOR_SQL = "SELECT * FROM sensor_info where sensor_id like ? ";
+    private final static String EDIT_SENSOR_SQL = "update sensor_info set name = ?,address = ?, introduction = ?,price = ?,state = ? where sensor_id=?";
 
     public int matchSensor(String searchWord) {
         String swcx = "%" + searchWord + "%";
@@ -49,6 +49,27 @@ public class SensorDao {
                     sensor.setSensorAddress(resultSet.getString("address"));
                     sensor.setPrice(resultSet.getBigDecimal("price"));
                     sensor.setSensorState(resultSet.getByte("state"));
+                    sensors.add(sensor);
+                }
+            }
+        });
+        return sensors;
+    }
+
+    public ArrayList<Sensor> querySensorById(String sw) {
+        String swcx = "%" + sw + "%";
+        final ArrayList<Sensor> sensors = new ArrayList<Sensor>();
+        jdbcTemplate.query(GET_SENSOR_SQL, new Object[]{swcx}, new RowCallbackHandler() {
+            public void processRow(ResultSet resultSet) throws SQLException {
+                resultSet.beforeFirst();
+                while (resultSet.next()) {
+                    Sensor sensor = new Sensor();
+                    sensor.setSensorIntroduction(resultSet.getString("introduction"));
+                    sensor.setSensorAddress(resultSet.getString("address"));
+                    sensor.setPrice(resultSet.getBigDecimal("price"));
+                    sensor.setSensorState(resultSet.getByte("state"));
+                    sensor.setSenserName(resultSet.getString("name"));
+                    sensor.setSensorId(resultSet.getLong("sensor_id"));
                     sensors.add(sensor);
                 }
             }
@@ -77,28 +98,6 @@ public class SensorDao {
         return sensors;
     }
 
-    public ArrayList<Sensor> getAllSensorsByName(String sw) {
-        String swcx = "%" + sw + "%";
-        System.out.println("test1");
-        final ArrayList<Sensor> sensors = new ArrayList<Sensor>();
-        jdbcTemplate.query(QUERY_SENSOR_SQLByName, new Object[]{swcx}, new RowCallbackHandler() {
-            public void processRow(ResultSet resultSet) throws SQLException {
-                resultSet.beforeFirst();
-                while (resultSet.next()) {
-                    Sensor sensor = new Sensor();
-                    System.out.println("test");
-                    sensor.setSensorIntroduction(resultSet.getString("introduction"));
-                    sensor.setSensorAddress(resultSet.getString("address"));
-                    sensor.setPrice(resultSet.getBigDecimal("price"));
-                    sensor.setSensorState(resultSet.getByte("state"));
-                    sensor.setSenserName(resultSet.getString("name"));
-                    sensor.setSensorId(resultSet.getLong("sensor_id"));
-                    sensors.add(sensor);
-                }
-            }
-        });
-        return sensors;
-    }
 
     public int deleteSensor(long sensorId){
         return jdbcTemplate.update(DELETE_SENSOR_SQL,sensorId);
@@ -112,5 +111,15 @@ public class SensorDao {
         int state = sensor.getSensorState();
         long sensorId = sensor.getSensorId();
         return jdbcTemplate.update(ADD_SENSOR_SQL,new Object[]{sensorId,name,address,introduction,price,state});
+    }
+
+    public int editSensor(Sensor sensor){
+        BigDecimal price = sensor.getPrice();
+        String name = sensor.getSenserName();
+        String address = sensor.getSensorAddress();
+        String introduction = sensor.getSensorIntroduction();
+        int state = sensor.getSensorState();
+        long sensorId = sensor.getSensorId();
+        return jdbcTemplate.update(EDIT_SENSOR_SQL,new Object[]{name,address,introduction,price,state,sensorId});
     }
 }
