@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.sensor.dao"/>
+    <context:component-scan base-package="com.sensor.service"/>
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <bean id="sensor" class="com.sensor.domain.Sensor" autowire="byType">
+    </bean>
+    <bean id="sensorService" class="com.sensor.service.SensorService" autowire="byType">
+    </bean>
+    <!-- 配置一个 bean -->
+    <!--  定义一个使用DBCP实现的数据源 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close"
+          p:driverClassName="com.mysql.jdbc.Driver"
+          p:url="jdbc:mysql://119.23.248.55:3306/sensor?aoseUnicode=true&amp;characterEncoding=UTF8"
+          p:username="root"
+          p:password="123456"/>
+    <!-- 定义JDBC模板Bean   -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+          p:dataSource-ref="dataSource"/>
+
+</beans>
