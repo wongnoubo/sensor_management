@@ -110,6 +110,7 @@
             <thead>
             <tr>
                 <th>传感器名</th>
+                <th>读数</th>
                 <th>位置</th>
                 <th>价格</th>
                 <th>详情</th>
@@ -120,6 +121,7 @@
             <tbody>
             <c:forEach items="${sensors}" var="sensor">
                 <tr>
+                    <td><c:out value="${sensor.name}"></c:out></td>
                     <td><c:out value="${sensor.name}"></c:out></td>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
                     <td><c:out value="${sensor.price}"></c:out></td>

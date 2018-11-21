@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Sensor {
     private long id;
     private String name;
+    private double value;
     private String sensorAddress;
     private String sensorIntroduction;
     private BigDecimal price;
@@ -57,6 +58,15 @@ public class Sensor {
     public void setSensorState(int sensorState) {
         this.sensorState = sensorState;
     }
+
+    public void setValue(double value){
+        this.value = value;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
     @Override
     public String toString(){
         if(sensorState==1)

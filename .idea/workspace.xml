@@ -2,42 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81bbe4e1-f806-4e32-bb06-548a5c610ecf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorAddCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ApplicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ApplicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/sql/sensor.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/sensor.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ApplicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ApplicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/domain/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/domain/Sensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/service/SensorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/service/SensorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/web/SensorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/web/SensorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sensor.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/ApplicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/ApplicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/domain/Sensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/domain/Sensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/service/SensorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/service/SensorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/web/SensorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/web/SensorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_repasswd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_repasswd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.BaseJunitTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.BaseJunitTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.AdminDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.AdminDaoTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.TestSensorDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.TestSensorDao.xml" afterDir="false" />
@@ -46,9 +22,8 @@
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.AdminDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.AdminDaoTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.TestSensorDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.TestSensorDao.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.service.SensorServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.service.SensorServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sensor/dao/TestSensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/sensor/dao/TestSensorDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/work/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fmain_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/work/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fmain_jsp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/work/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005frepasswd_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/work/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fedit_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/work/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fedit_jsp.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SensorController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SensorController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="98" column="37" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
+            <state relative-caret-position="150">
+              <caret line="104" column="69" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2239#2240#0" expanded="true" />
@@ -75,11 +50,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_sensor_add.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
+      <file leaf-file-name="admin_main.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+            <state relative-caret-position="-733">
+              <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_sensors.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="124" column="67" selection-start-line="124" selection-start-column="67" selection-end-line="124" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -87,8 +71,17 @@
       <file leaf-file-name="admin_sensor_edit.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="63" column="45" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+            <state relative-caret-position="-2033">
+              <caret line="7" column="64" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_sensor_add.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-923">
+              <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -96,17 +89,23 @@
       <file leaf-file-name="admin_sensor_detail.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+            <state relative-caret-position="111">
+              <caret line="70" column="43" lean-forward="true" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sensor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Sensor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+            <state relative-caret-position="317">
+              <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+              <folding>
+                <element signature="e#1291#1292#0" expanded="true" />
+                <element signature="e#1324#1325#0" expanded="true" />
+                <element signature="e#1357#1358#0" expanded="true" />
+                <element signature="e#1385#1386#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,17 +173,17 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_details.jsp" />
         <option value="$PROJECT_DIR$/src/main/sql/sensor.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/ApplicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorAddCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorAddCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java" />
       </list>
     </option>
   </component>
@@ -742,7 +741,7 @@
       <workItem from="1542458427717" duration="31475000" />
       <workItem from="1542561503808" duration="10468000" />
       <workItem from="1542611138926" duration="16724000" />
-      <workItem from="1542642356735" duration="15960000" />
+      <workItem from="1542642356735" duration="20523000" />
     </task>
     <servers />
   </component>
@@ -779,7 +778,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74627000" />
+    <option name="totallyTimeSpent" value="79190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -805,8 +804,8 @@
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="bottom" id="Run" order="9" weight="0.33238232" />
       <window_info anchor="bottom" id="Spring" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3281027" />
-      <window_info content_ui="combo" id="Project" order="6" weight="0.2077748" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3281027" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2077748" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="7" />
       <window_info id="Learn" order="4" weight="0.3297587" />
@@ -841,7 +840,7 @@
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="right" id="Maven Projects" order="0" weight="0.2613941" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2077748" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.2077748" />
       <window_info id="Learn" order="4" weight="0.3297587" />
       <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -1132,13 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1173,13 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -1200,27 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="63" column="45" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorAddCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
@@ -1235,21 +1199,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="98" column="37" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
+        <state relative-caret-position="150">
+          <caret line="104" column="69" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2239#2240#0" expanded="true" />
             <element signature="e#2298#2299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2033">
+          <caret line="7" column="64" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-923">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="70" column="43" lean-forward="true" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-733">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="124" column="67" selection-start-line="124" selection-start-column="67" selection-end-line="124" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding>
+            <element signature="e#1291#1292#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+            <element signature="e#1385#1386#0" expanded="true" />
           </folding>
         </state>
       </provider>

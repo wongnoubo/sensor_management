@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 @Controller
 public class SensorController {
@@ -98,14 +99,13 @@ public class SensorController {
         int id=Integer.parseInt( request.getParameter("id"));
         Sensor sensor = new Sensor();
         sensor.setId(id);
-        sensor.setName(sensorAddCommand.getSensorName());
-        sensor.setSensorState(sensorAddCommand.getSensorState());
-        sensor.setSensorIntroduction(sensorAddCommand.getSensorIntroduction());
-        sensor.setPrice(sensorAddCommand.getSensorPrice());
-        sensor.setSensorState(sensorAddCommand.getSensorState());
-        System.out.println("1");
+        sensor.setName(request.getParameter("name"));
+        sensor.setSensorState(Integer.parseInt(request.getParameter("sensorState")));
+        sensor.setSensorIntroduction(request.getParameter("sensorIntroduction"));
+        sensor.setPrice(new BigDecimal(request.getParameter("price")));
+        sensor.setSensorAddress(request.getParameter("sensorAddress"));
+        sensor.setSensorState(Integer.parseInt(request.getParameter("sensorState")));
         System.out.println(sensor);
-        System.out.println("2");
         boolean succ=sensorService.editSensor(sensor);
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
