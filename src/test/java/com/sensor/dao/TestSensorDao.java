@@ -44,7 +44,7 @@ public class TestSensorDao extends BaseJunitTest {
     @Test
     public void testaddSensor(){
         Sensor sensor = new Sensor();
-        sensor.setSenserName("暨南大学20周年生日快乐！");
+        sensor.setName("暨南大学20周年生日快乐！");
         BigDecimal c=new BigDecimal(30.00);
         sensor.setPrice(c);
         sensor.setSensorAddress("珠海市香洲区前山路");
@@ -60,23 +60,21 @@ public class TestSensorDao extends BaseJunitTest {
 
     @Test
     public void testquerySensorById(){
-        ArrayList<Sensor> sensors= new ArrayList<>();
-        sensors = sensorDao.querySensorById("4000005");
-        for( Sensor sensor:sensors){
-            System.out.println(sensor);
-        }
+        Sensor sensor= new Sensor();
+        sensor = sensorDao.querySensorById(4000013);
+        System.out.println(sensor);
     }
 
     @Test
     public void testeditSensor(){
         Sensor sensor = new Sensor();
-        sensor.setSenserName("四川大学");
+        sensor.setName("四川大学");
         BigDecimal c=new BigDecimal(20.00);
         sensor.setPrice(c);
         sensor.setSensorAddress("四川省成都市");
         sensor.setSensorIntroduction("我爱你啊！");
         sensor.setSensorState(0);
-        sensor.setSensorId(4000005);
+        sensor.setId(4000005);
         sensorDao.editSensor(sensor);
         ArrayList<Sensor> sensors= new ArrayList<>();
         sensors=sensorDao.getAllSensors();

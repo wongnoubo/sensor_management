@@ -3,27 +3,27 @@ package com.sensor.domain;
 import java.math.BigDecimal;
 
 public class Sensor {
-    private long sensorId;
-    private String senserName;
+    private long id;
+    private String name;
     private String sensorAddress;
     private String sensorIntroduction;
     private BigDecimal price;
     private int sensorState;
 
-    public long getSensorId() {
-        return sensorId;
+    public long getId() {
+        return id;
     }
 
-    public void setSensorId(long sensorId) {
-        this.sensorId = sensorId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getSenserName() {
-        return senserName;
+    public String getName() {
+        return name;
     }
 
-    public void setSenserName(String senserName) {
-        this.senserName = senserName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSensorAddress() {
@@ -38,8 +38,8 @@ public class Sensor {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setPrice(BigDecimal sensorPrice) {
+        this.price = sensorPrice;
     }
 
     public String getSensorIntroduction() {
@@ -60,10 +60,10 @@ public class Sensor {
     @Override
     public String toString(){
         if(sensorState==1)
-            return "传感器名字为："+senserName+" 传感器位置："+sensorAddress+" 传感器详细信息："
+            return "传感器名字为："+name+" 传感器位置："+sensorAddress+" 传感器详细信息："
                     +sensorIntroduction+" 传感器状态：正常运行";
         else
-            return "传感器名字为："+senserName+" 传感器位置："+sensorAddress+" 传感器详细信息："
+            return "传感器名字为："+name+" 传感器位置："+sensorAddress+" 传感器详细信息："
                     +sensorIntroduction+" 传感器状态：未运行";
     }
 }

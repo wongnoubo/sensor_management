@@ -8,22 +8,22 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `password`) VALUES
-(20180001, '111111');
+(20180001, '123456');
 
 CREATE TABLE `sensor_info` (
-  `sensor_id` bigint(20) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `introduction` text,
-  `price` decimal(10,2) NOT NULL,
-  `state` smallint(6) DEFAULT NULL
+  `sensorId` bigint(20) NOT NULL,
+  `sensorName` varchar(50) NOT NULL,
+  `sensorAddress` varchar(50) NOT NULL,
+  `sensorIntroduction` text,
+  `sensorPrice` decimal(10,2) NOT NULL,
+  `sensorState` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
 -- 转存表中的数据 `sensor_info`
 --
-insert into `sensor_info` (`sensor_id`,`name`,`address`,`introduction`,`price`,`state`) values
+insert into `sensor_info` (`sensorId`,`sensorName`,`sensorAddress`,`sensorIntroduction`,`sensorPrice`,`sensorState`) values
 (01000001,'温度传感器','儿童房','该温度传感器采集儿童房的温度','6','1'),
 (01000002,'温度传感器','厨房','采集厨房的温度','6','1'),
 (01000003,'温度传感器','客厅','采集客厅温度','6','1'),
@@ -43,6 +43,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 ALTER TABLE `sensor_info`
-  ADD PRIMARY KEY (`sensor_id`);
+  ADD PRIMARY KEY (`sensorId`);
 
-alter table sensor_info modify sensor_id int auto_increment;--设置为自增
+alter table sensor_info modify sensorId int auto_increment;

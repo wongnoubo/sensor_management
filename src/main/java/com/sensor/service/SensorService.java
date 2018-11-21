@@ -24,6 +24,10 @@ public class SensorService {
         return sensorDao.getAllSensors();
     }
 
+    public Sensor querySensorById(int sensorId){
+        return sensorDao.querySensorById(sensorId);
+    }
+
     public int deleteSensor(long sensorId){
         return sensorDao.deleteSensor(sensorId);
     }

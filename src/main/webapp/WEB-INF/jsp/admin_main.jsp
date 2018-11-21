@@ -45,20 +45,9 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allbooks.html">全部传感器</a></li>
+                        <li><a href="allsensors.html">全部传感器</a></li>
                         <li class="divider"></li>
-                        <li><a href="book_add.html">增加传感器</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        用户管理
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="allreaders.html">全部用户</a></li>
-                        <li class="divider"></li>
-                        <li><a href="reader_add.html">增加用户</a></li>
+                        <li><a href="sensor_add.html">增加传感器</a></li>
                     </ul>
                 </li>
                 <li >
