@@ -13,6 +13,29 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
+    <script>
+        //异步刷新某个参数，不会有跳跃感
+        function res(param){
+            $.ajax({
+                url :'allsensors.html',
+                data :{aItemId: param},
+                success: function(data){
+                    if(data.data.id > 0){
+                        if(data.data.lastBid >0 ){
+                            var price = parseInt(data.data.lastBid) + parseInt(data.data.increment);
+                            $("#bids").html("<input type='text' value='"+price+"' disabled='disabled' id='bid' />");
+                        }else{
+                            var price2 = parseInt(data.data.initialPrice) + parseInt(data.data.increment)
+                            $("#bids").html("<input type='text' value='"+price2+"' disabled='disabled' id='bid' />");
+                        }
+                    }
+                    if(data.error="error"){
+                        return false;
+                    }
+                }
+            });
+        }
+    </script>
     <style>
         body{
             background-color: rgb(240,242,245);
@@ -124,12 +147,15 @@
                     <td><c:choose>
                         <c:when test="${sensor.name eq '温度传感器'}">
                             <c:out value="${sensor.temperature}"></c:out>
+                            <script>setInterval("res('${sensor.temperature}');",1000*60);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '湿度传感器'}">
                             <c:out value="${sensor.humidity}"></c:out>
+                            <script>setInterval("res('${sensor.humidity}');",1000*60);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '树莓派cpu温度'}">
                             <c:out value="${sensor.cputemp}"></c:out>
+                            <script>setInterval("res('${sensor.cputemp}');",1000*60);</script>
                         </c:when>
                     </c:choose>
                     </td>
