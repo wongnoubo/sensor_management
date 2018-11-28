@@ -65,23 +65,23 @@
             <form action="sensor_edit_do.html?id=${detail.id}" method="post" id="addsensor" >
 
                 <div class="input-group">
-                    <span  class="input-group-addon">传感器</span>
+                    <span  style="width:80px;height:30px" class="input-group-addon">传感器</span>
                     <input type="text" class="form-control" name="name" id="name" value="${detail.name}">
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">价格</span>
+                    <span  style="width:80px;height:30px" class="input-group-addon">价格(元)</span>
                     <input type="text" class="form-control" name="price"  id="price" value="${detail.price}">
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon">位置</span>
+                    <span style="width:80px;height:30px" class="input-group-addon">位置</span>
                     <input type="text" class="form-control" name="sensorAddress" id="sensorAddress" value="${detail.sensorAddress}" >
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">简介</span>
+                    <span  style="width:80px;height:30px" class="input-group-addon">简介</span>
                     <input type="text" class="form-control" name="sensorIntroduction" id="sensorIntroduction"  value="${detail.sensorIntroduction}" >
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">状态</span>
+                    <span  style="width:80px;height:30px" class="input-group-addon">状态</span>
                     <input type="text" class="form-control" name="sensorState" id="sensorState"  value="${detail.sensorState}" >
                 </div>
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">

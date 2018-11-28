@@ -30,9 +30,11 @@ public class SensorController {
             ArrayList<Sensor> sensors = sensorService.querySensor(searchWord);
             ModelAndView modelAndView = new ModelAndView("admin_sensors");
             modelAndView.addObject("sensors",sensors);
+            logger.debug("querysensor.html:传感器匹配");
             return modelAndView;
         }
         else{
+            logger.debug("querysensor.html:没有匹配的传感器");
             return new ModelAndView("admin_sensors","error","没有匹配的传感器");
         }
     }
@@ -42,19 +44,17 @@ public class SensorController {
         ArrayList<Sensor> sensors=sensorService.getAllSensors();
         ModelAndView modelAndView=new ModelAndView("admin_sensors");
         for(Sensor sensor : sensors){
-            logger.debug("获取全部的传感器数据");
             if(sensor.getName().equals("温度传感器")){
                 sensor.setTemperature(sensorService.getNewestTempSensorValue("thtable1"));
-                logger.debug("温度传感器");
-                logger.debug(sensor);
+                logger.debug("allsensors.html:获取温度传感器");
             }
             if(sensor.getName().equals("湿度传感器")){
                 sensor.setHumidity(sensorService.getNewestHumSensorValue("thtable1"));
-                logger.debug(sensor);
+                logger.debug("allsensors.html:获取湿度传感器");
             }
             if(sensor.getName().equals("树莓派cpu温度")){
                 sensor.setCputemp(sensorService.getNewestCputempValue("cputemp"));
-                logger.debug(sensor);
+                logger.debug("allsensors.html:树莓派cpu温度");
             }
         }
         modelAndView.addObject("sensors",sensors);
@@ -68,9 +68,11 @@ public class SensorController {
 
         if (res==1){
             redirectAttributes.addFlashAttribute("succ", "传感器删除成功！");
+            logger.debug("deletesensor.html:传感器删除成功！");
             return "redirect:/allsensors.html";
         }else {
             redirectAttributes.addFlashAttribute("error", "传感器删除失败！");
+            logger.debug("deletesensor.html:传感器删除失败！");
             return "redirect:/allsensors.html";
         }
     }
@@ -94,10 +96,12 @@ public class SensorController {
         ArrayList<Sensor> sensors=sensorService.getAllSensors();
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器添加成功！");
+            logger.debug("sensor_add_do.html:传感器添加成功！");
             return "redirect:/allsensors.html";
         }
         else {
             redirectAttributes.addFlashAttribute("succ", "传感器添加失败！");
+            logger.debug("sensor_add_do.html:传感器添加失败！");
             return "redirect:/allsensors.html";
         }
     }
@@ -126,10 +130,12 @@ public class SensorController {
         boolean succ=sensorService.editSensor(sensor);
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
+            logger.debug("sensor_edit_do.html:传感器修改成功");
             return "redirect:/allsensors.html";
         }
         else {
             redirectAttributes.addFlashAttribute("error", "传感器修改失败！");
+            logger.debug("sensor_edit_do.html:传感器修改失败");
             return "redirect:/allsensors.html";
         }
     }
@@ -138,14 +144,17 @@ public class SensorController {
     public ModelAndView sensorDetail(HttpServletRequest request){
         int sensorId=Integer.parseInt(request.getParameter("sensorId"));
         Sensor sensor = sensorService.querySensorById(sensorId);
-        if(sensor.getName()=="温度传感器"){
+        if(sensor.getName().equals("温度传感器")){
             sensor.setTemperature(sensorService.getNewestTempSensorValue("thtable1"));
+            logger.debug("sensordetail:获取温度成功！");
         }
-        if(sensor.getName()=="湿度传感器"){
+        if(sensor.getName().equals("湿度传感器")){
             sensor.setHumidity(sensorService.getNewestHumSensorValue("thtable1"));
+            logger.debug("sensordetail：获取湿度成功！");
         }
-        if(sensor.getName()=="树莓派cpu温度"){
+        if(sensor.getName().equals("树莓派cpu温度")){
             sensor.setCputemp(sensorService.getNewestCputempValue("cputemp"));
+            logger.debug("sensordetail：获取树莓派cpu温度成功！");
         }
         ModelAndView modelAndView=new ModelAndView("admin_sensor_detail");
         modelAndView.addObject("detail",sensor);

@@ -146,15 +146,15 @@
                     <td><c:out value="${sensor.name}"></c:out></td>
                     <td><c:choose>
                         <c:when test="${sensor.name eq '温度传感器'}">
-                            <c:out value="${sensor.temperature}"></c:out>
+                            <c:out value="${sensor.temperature}℃"></c:out>
                             <script>setInterval("res('${sensor.temperature}');",1000*60);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '湿度传感器'}">
-                            <c:out value="${sensor.humidity}"></c:out>
+                            <c:out value="${sensor.humidity}%rh"></c:out>
                             <script>setInterval("res('${sensor.humidity}');",1000*60);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '树莓派cpu温度'}">
-                            <c:out value="${sensor.cputemp}"></c:out>
+                            <c:out value="${sensor.cputemp}℃"></c:out>
                             <script>setInterval("res('${sensor.cputemp}');",1000*60);</script>
                         </c:when>
                     </c:choose>
@@ -169,6 +169,5 @@
         </table>
     </div>
 </div>
-
 </body>
 </html>
