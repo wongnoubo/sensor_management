@@ -64,7 +64,7 @@ public class SensorService {
         return sensorDao.getNewestCputempValue(tablename);
     }
 
-    public ArrayList<Double> getgetCputempDatas(String tablename){
+    public ArrayList<Double> getCputempDatas(String tablename){
         return sensorDao.getCputempDatas(tablename);
     }
 

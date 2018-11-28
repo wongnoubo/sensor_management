@@ -1,4 +1,5 @@
 com\sensor\BaseJunitTest.class
 com\sensor\dao\TestSensorDao.class
+com\sensor\web\SensorControllerTest.class
 com\sensor\service\SensorServiceTest.class
 com\sensor\dao\AdminDaoTest.class

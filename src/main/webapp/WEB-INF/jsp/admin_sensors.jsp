@@ -122,7 +122,12 @@
             <c:forEach items="${sensors}" var="sensor">
                 <tr>
                     <td><c:out value="${sensor.name}"></c:out></td>
-                    <td><c:out value="${sensor.name}"></c:out></td>
+                    <td><c:choose>
+                        <c:when test="${sensor.name}==温度传感器">
+                            <c:out value="${sensor.temperature}"></c:out>
+                        </c:when>
+                    </c:choose>
+                    </td>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
                     <td><c:out value="${sensor.price}"></c:out></td>
                     <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>

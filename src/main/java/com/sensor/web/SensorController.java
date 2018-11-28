@@ -40,6 +40,18 @@ public class SensorController {
     public ModelAndView allSensor(){
         ArrayList<Sensor> sensors=sensorService.getAllSensors();
         ModelAndView modelAndView=new ModelAndView("admin_sensors");
+        for(Sensor sensor : sensors){
+            System.out.println(sensor.getName());
+            if(sensor.getName()=="温度传感器"){
+                sensor.setTemperature(sensorService.getNewestTempSensorValue("thtable1"));
+            }
+            if(sensor.getName()=="湿度传感器"){
+                sensor.setHumidity(sensorService.getNewestHumSensorValue("thtable1"));
+            }
+            if(sensor.getName()=="树莓派cpu温度"){
+                sensor.setCputemp(sensorService.getNewestCputempValue("cputemp"));
+            }
+        }
         modelAndView.addObject("sensors",sensors);
         return modelAndView;
     }
@@ -121,6 +133,15 @@ public class SensorController {
     public ModelAndView sensorDetail(HttpServletRequest request){
         int sensorId=Integer.parseInt(request.getParameter("sensorId"));
         Sensor sensor = sensorService.querySensorById(sensorId);
+        if(sensor.getName()=="温度传感器"){
+            sensor.setTemperature(sensorService.getNewestTempSensorValue("thtable1"));
+        }
+        if(sensor.getName()=="湿度传感器"){
+            sensor.setHumidity(sensorService.getNewestHumSensorValue("thtable1"));
+        }
+        if(sensor.getName()=="树莓派cpu温度"){
+            sensor.setCputemp(sensorService.getNewestCputempValue("cputemp"));
+        }
         ModelAndView modelAndView=new ModelAndView("admin_sensor_detail");
         modelAndView.addObject("detail",sensor);
         return modelAndView;
