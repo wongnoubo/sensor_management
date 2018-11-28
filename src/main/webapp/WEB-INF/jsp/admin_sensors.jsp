@@ -123,8 +123,14 @@
                 <tr>
                     <td><c:out value="${sensor.name}"></c:out></td>
                     <td><c:choose>
-                        <c:when test="${sensor.name}==温度传感器">
+                        <c:when test="${sensor.name eq '温度传感器'}">
                             <c:out value="${sensor.temperature}"></c:out>
+                        </c:when>
+                        <c:when test="${sensor.name eq '湿度传感器'}">
+                            <c:out value="${sensor.humidity}"></c:out>
+                        </c:when>
+                        <c:when test="${sensor.name eq '树莓派cpu温度'}">
+                            <c:out value="${sensor.cputemp}"></c:out>
                         </c:when>
                     </c:choose>
                     </td>
