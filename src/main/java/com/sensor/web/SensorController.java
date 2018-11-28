@@ -28,6 +28,20 @@ public class SensorController {
         boolean exist=sensorService.matchSensor(searchWord);
         if (exist){
             ArrayList<Sensor> sensors = sensorService.querySensor(searchWord);
+            for(Sensor sensor : sensors){
+                if(sensor.getName().equals("温度传感器")){
+                    sensor.setTemperature(sensorService.getNewestTempSensorValue("thtable1"));
+                    logger.debug("allsensors.html:获取温度传感器");
+                }
+                if(sensor.getName().equals("树莓派cpu温度")){
+                    sensor.setCputemp(sensorService.getNewestCputempValue("cputemp"));
+                    logger.debug("allsensors.html:树莓派cpu温度");
+                }
+                if(sensor.getName().equals("湿度传感器")){
+                    sensor.setHumidity(sensorService.getNewestHumSensorValue("thtable1"));
+                    logger.debug("allsensors.html:获取湿度传感器");
+                }
+            }
             ModelAndView modelAndView = new ModelAndView("admin_sensors");
             modelAndView.addObject("sensors",sensors);
             logger.debug("querysensor.html:传感器匹配");
