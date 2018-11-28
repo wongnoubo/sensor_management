@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.apache.log4j.Logger;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 @Controller
 public class SensorController {
     private SensorService sensorService;
-
+    private static Logger logger = Logger.getLogger(SensorController.class);
     @Autowired
     public void setSensorService(SensorService sensorService){
         this.sensorService = sensorService;
@@ -41,15 +42,19 @@ public class SensorController {
         ArrayList<Sensor> sensors=sensorService.getAllSensors();
         ModelAndView modelAndView=new ModelAndView("admin_sensors");
         for(Sensor sensor : sensors){
-            System.out.println(sensor.getName());
-            if(sensor.getName()=="温度传感器"){
+            logger.debug("获取全部的传感器数据");
+            if(sensor.getName().equals("温度传感器")){
                 sensor.setTemperature(sensorService.getNewestTempSensorValue("thtable1"));
+                logger.debug("温度传感器");
+                logger.debug(sensor);
             }
-            if(sensor.getName()=="湿度传感器"){
+            if(sensor.getName().equals("湿度传感器")){
                 sensor.setHumidity(sensorService.getNewestHumSensorValue("thtable1"));
+                logger.debug(sensor);
             }
-            if(sensor.getName()=="树莓派cpu温度"){
+            if(sensor.getName().equals("树莓派cpu温度")){
                 sensor.setCputemp(sensorService.getNewestCputempValue("cputemp"));
+                logger.debug(sensor);
             }
         }
         modelAndView.addObject("sensors",sensors);
