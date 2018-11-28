@@ -44,4 +44,28 @@ public class SensorService {
         return sensorDao.editSensor(sensor)>0;
     }
 
+    public int getNewestTempSensorValue(String tablename){
+        return sensorDao.getNewestTempSensorValue(tablename);
+    }
+
+    public ArrayList<Integer> getTemperatureSensorDatas(String tablename){
+        return sensorDao.getTemperatureSensorDatas(tablename);
+    }
+
+    public int getNewestHumSensorValue(String tablename){
+        return sensorDao.getNewestHumSensorValue(tablename);
+    }
+
+    public ArrayList<Integer> getHumitySensorDatas(String tableanme){
+        return sensorDao.getHumitySensorDatas(tableanme);
+    }
+
+    public double getNewestCputempValue(String tablename){
+        return sensorDao.getNewestCputempValue(tablename);
+    }
+
+    public ArrayList<Double> getgetCputempDatas(String tablename){
+        return sensorDao.getCputempDatas(tablename);
+    }
+
 }

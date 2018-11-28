@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.nio.DoubleBuffer;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class SensorDao {
     //根据编号查询传感器
     private final static String GET_SENSOR_SQL = "SELECT * FROM sensor_info where sensorId like ? ";
     private final static String EDIT_SENSOR_SQL = "update sensor_info set sensorName = ?,sensorAddress = ?, sensorIntroduction = ?,sensorPrice = ?,sensorState = ? where sensorId=?";
+    private final static String GET_SENSOR_TEMPREATURE  = "select temperature from ";
+    private final static String GET_SENSOR_HUMIDITY = "select humidity from ";
+    private final static String GET_SENSOR_CPUTEMP = "select cputemp from ";
 
     public int matchSensor(String searchWord) {
         String swcx = "%" + searchWord + "%";
@@ -115,5 +119,80 @@ public class SensorDao {
         int sensorState = sensor.getSensorState();
         long sensorId = sensor.getId();
         return jdbcTemplate.update(EDIT_SENSOR_SQL,new Object[]{senserName,sensorAddress,sensorIntroduction,sensorPrice,sensorState,sensorId});
+    }
+
+    public int getNewestTempSensorValue(String tablename){
+        int temperature = 0;
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query("select temperature from "+tablename+" where id like (select max(id) from "+tablename+" );",new RowCallbackHandler(){
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setTemperature(resultSet.getInt("temperature"));
+            }
+        });
+        temperature = sensor.getTemperature();
+        return temperature;
+    }
+
+    public ArrayList<Integer> getTemperatureSensorDatas(String tablename){
+        final ArrayList<Integer> temperatures = new ArrayList<>();
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query(GET_SENSOR_TEMPREATURE + tablename, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setTemperature(resultSet.getInt("temperature"));
+                temperatures.add(sensor.getTemperature());
+            }
+        });
+        return temperatures;
+    }
+
+    public int getNewestHumSensorValue(String tablename){
+        int humidity = 0;
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query(GET_SENSOR_HUMIDITY+tablename+" where id like (select max(id) from "+tablename+" );",new RowCallbackHandler(){
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setHumidity(resultSet.getInt("humidity"));
+            }
+        });
+        humidity = sensor.getHumidity();
+        return humidity;
+    }
+
+    public ArrayList<Integer> getHumitySensorDatas(String tablename){
+        final ArrayList<Integer> humidities = new ArrayList<>();
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query(GET_SENSOR_HUMIDITY + tablename, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setHumidity(resultSet.getInt("humidity"));
+                humidities.add(sensor.getHumidity());
+            }
+        });
+        return humidities;
+    }
+
+   public double getNewestCputempValue(String tablename){
+        double cputemp = 0;
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query(GET_SENSOR_CPUTEMP+tablename+" where id like (select max(id) from "+tablename+" );",new RowCallbackHandler(){
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setCputemp(resultSet.getDouble("cputemp"));
+            }
+        });
+        cputemp = sensor.getCputemp();
+        return cputemp;
+    }
+
+    public ArrayList<Double> getCputempDatas(String tablename){
+        final ArrayList<Double> cputemps = new ArrayList<>();
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query(GET_SENSOR_CPUTEMP + tablename, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setCputemp(resultSet.getDouble("cputemp"));
+                cputemps.add(sensor.getCputemp());
+            }
+        });
+        return cputemps;
     }
 }

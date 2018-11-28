@@ -3,6 +3,7 @@ package com.sensor.dao;
 import com.sensor.BaseJunitTest;
 import com.sensor.domain.Sensor;
 import org.junit.Test;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.math.BigDecimal;
@@ -43,19 +44,7 @@ public class TestSensorDao extends BaseJunitTest {
 
     @Test
     public void testaddSensor(){
-        Sensor sensor = new Sensor();
-        sensor.setName("暨南大学20周年生日快乐！");
-        BigDecimal c=new BigDecimal(30.00);
-        sensor.setPrice(c);
-        sensor.setSensorAddress("珠海市香洲区前山路");
-        sensor.setSensorIntroduction("用于检测3415寝室是否有人");
-        sensor.setSensorState(1);
-        sensorDao.addSensor(sensor);
-        ArrayList<Sensor> sensors= new ArrayList<>();
-        sensors=sensorDao.getAllSensors();
-        for(Sensor sensortemp: sensors){
-            System.out.println(sensortemp);
-        }
+
     }
 
     @Test
@@ -67,19 +56,39 @@ public class TestSensorDao extends BaseJunitTest {
 
     @Test
     public void testeditSensor(){
-        Sensor sensor = new Sensor();
-        sensor.setName("四川大学");
-        BigDecimal c=new BigDecimal(20.00);
-        sensor.setPrice(c);
-        sensor.setSensorAddress("四川省成都市");
-        sensor.setSensorIntroduction("我爱你啊！");
-        sensor.setSensorState(0);
-        sensor.setId(4000005);
-        sensorDao.editSensor(sensor);
-        ArrayList<Sensor> sensors= new ArrayList<>();
-        sensors=sensorDao.getAllSensors();
-        for(Sensor sensortemp: sensors){
-            System.out.println(sensortemp);
+
+
+    }
+
+    @Test
+    public void testgetNewestTempSensorValue(){
+        int tempreature = sensorDao.getNewestTempSensorValue("thtable1");
+        int hum = sensorDao.getNewestHumSensorValue("thtable1");
+        System.out.println("温度："+tempreature);
+        System.out.println("湿度："+hum);
+    }
+
+    @Test
+    public void testetNewestCputempValue(){
+        double cputemp = sensorDao.getNewestCputempValue("cputemp");
+        System.out.println("cpu温度："+cputemp);
+    }
+
+    @Test
+    public void testgetTemperatureSensorDatas(){
+        ArrayList<Integer> temperatures = new ArrayList<>();
+        temperatures = sensorDao.getHumitySensorDatas("thtable1");
+        for(int e: temperatures){
+            System.out.println(e);
+        }
+    }
+
+    @Test
+    public void testgetCputempDatas(){
+        ArrayList<Double> cputemps = new ArrayList<>();
+        cputemps = sensorDao.getCputempDatas("cputemp");
+        for(Double i: cputemps){
+            System.out.println(i);
         }
     }
 }

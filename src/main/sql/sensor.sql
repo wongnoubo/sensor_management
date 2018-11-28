@@ -46,3 +46,20 @@ ALTER TABLE `sensor_info`
   ADD PRIMARY KEY (`sensorId`);
 
 alter table sensor_info modify sensorId int auto_increment;
+
+CREATE TABLE if not exists `thvalue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `thvalue` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE if not exists `cputemp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `cputemp` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE  if not exists `img`(
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `imgname` varchar(50) not null,
+  `imgs` longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

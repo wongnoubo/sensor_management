@@ -10,10 +10,10 @@
 <html>
 <head>
     <title>家+安全系统</title>
-    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
-    <script src="../../static/js/jquery-3.2.1.js"></script>
-    <script src="../../static/js/bootstrap.min.js" ></script>
-    <script src="../../static/js/js.cookie.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/js.cookie.js"></script>
     <style>
         #myCarousel{
             margin-left: 2%;
@@ -181,13 +181,13 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="../../static/images/82839-106.jpg" alt="第一张">
+            <img src="img/82839-106.jpg" alt="第一张">
         </div>
         <div class="item">
-            <img src="../../static/images/105905-106.jpg" alt="第二张">
+            <img src="img/105905-106.jpg" alt="第二张">
         </div>
         <div class="item">
-            <img src="../../static/images/296494-106.jpg" alt="第三张">
+            <img src="img/296494-106.jpg" alt="第三张">
         </div>
 
     </div>

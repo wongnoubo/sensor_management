@@ -9,9 +9,9 @@
 <html>
 <head>
     <title>传感器信息添加</title>
-    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
-    <script src="../../static/js/jquery-3.2.1.js"></script>
-    <script src="../../static/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
     <style>
         body{
             background-color: rgb(240,242,245);

@@ -10,6 +10,9 @@ public class Sensor {
     private String sensorIntroduction;
     private BigDecimal price;
     private int sensorState;
+    private int temperature;
+    private int humidity;
+    private double cputemp;
 
     public long getId() {
         return id;
@@ -65,6 +68,30 @@ public class Sensor {
 
     public double getValue() {
         return value;
+    }
+
+    public int getTemperature(){
+        return this.temperature;
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
+    }
+
+    public void setTemperature(int tempreature) {
+        this.temperature = tempreature;
+    }
+
+    public void setCputemp(double cputemp) {
+        this.cputemp = cputemp;
+    }
+
+    public int getHumidity(){
+        return this.humidity;
+    }
+
+    public double getCputemp(){
+        return this.cputemp;
     }
 
     @Override
