@@ -70,7 +70,7 @@
             <textarea class="form-control" rows="3"  name="sensorIntroduction" id="sensorIntroduction" placeholder="请输入简介"></textarea>
         </div>
         <div class="form-group">
-            <label for="sensorPrice">价格</label>
+            <label for="sensorPrice">价格(单位：元)</label>
             <input type="text" class="form-control"  name="sensorPrice"  id="sensorPrice" placeholder="请输入价格">
         </div>
         <div class="form-group">

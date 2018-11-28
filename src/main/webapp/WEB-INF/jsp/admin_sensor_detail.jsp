@@ -69,7 +69,20 @@
                 </tr>
                 <tr>
                     <th width="15%">示数</th>
-                    <td>${detail.name}</td>
+                    <td><c:choose>
+                        <c:when test="${detail.name eq '温度传感器'}">
+                            <c:out value="${detail.temperature}℃"></c:out>
+                            <script>setInterval("res('${detail.temperature}');",1000*60);</script>
+                        </c:when>
+                        <c:when test="${detail.name eq '湿度传感器'}">
+                            <c:out value="${detail.humidity}%rh"></c:out>
+                            <script>setInterval("res('${detail.humidity}');",1000*60);</script>
+                        </c:when>
+                        <c:when test="${detail.name eq '树莓派cpu温度'}">
+                            <c:out value="${detail.cputemp}℃"></c:out>
+                            <script>setInterval("res('${detail.cputemp}');",1000*60);</script>
+                        </c:when>
+                    </c:choose></td>
                 </tr>
                 <tr>
                     <th>位置</th>
@@ -81,7 +94,7 @@
                 </tr>
                 <tr>
                     <th>价格</th>
-                    <td>${detail.price}</td>
+                    <td>${detail.price}元</td>
                 </tr>
                 <tr>
                     <th>状态</th>

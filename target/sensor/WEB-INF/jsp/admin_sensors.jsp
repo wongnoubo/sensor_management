@@ -13,6 +13,29 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
+    <script>
+        //异步刷新某个参数，不会有跳跃感
+        function res(param){
+            $.ajax({
+                url :'allsensors.html',
+                data :{aItemId: param},
+                success: function(data){
+                    if(data.data.id > 0){
+                        if(data.data.lastBid >0 ){
+                            var price = parseInt(data.data.lastBid) + parseInt(data.data.increment);
+                            $("#bids").html("<input type='text' value='"+price+"' disabled='disabled' id='bid' />");
+                        }else{
+                            var price2 = parseInt(data.data.initialPrice) + parseInt(data.data.increment)
+                            $("#bids").html("<input type='text' value='"+price2+"' disabled='disabled' id='bid' />");
+                        }
+                    }
+                    if(data.error="error"){
+                        return false;
+                    }
+                }
+            });
+        }
+    </script>
     <style>
         body{
             background-color: rgb(240,242,245);
@@ -112,7 +135,6 @@
                 <th>传感器名</th>
                 <th>读数</th>
                 <th>位置</th>
-                <th>价格</th>
                 <th>详情</th>
                 <th>编辑</th>
                 <th>删除</th>
@@ -124,18 +146,20 @@
                     <td><c:out value="${sensor.name}"></c:out></td>
                     <td><c:choose>
                         <c:when test="${sensor.name eq '温度传感器'}">
-                            <c:out value="${sensor.temperature}"></c:out>
+                            <c:out value="${sensor.temperature}℃"></c:out>
+                            <script>setInterval("res('${sensor.temperature}');",1000*60);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '湿度传感器'}">
-                            <c:out value="${sensor.humidity}"></c:out>
+                            <c:out value="${sensor.humidity}%rh"></c:out>
+                            <script>setInterval("res('${sensor.humidity}');",1000*60);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '树莓派cpu温度'}">
-                            <c:out value="${sensor.cputemp}"></c:out>
+                            <c:out value="${sensor.cputemp}℃"></c:out>
+                            <script>setInterval("res('${sensor.cputemp}');",1000*60);</script>
                         </c:when>
                     </c:choose>
                     </td>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
-                    <td><c:out value="${sensor.price}"></c:out></td>
                     <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
                     <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
                     <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
@@ -145,6 +169,5 @@
         </table>
     </div>
 </div>
-
 </body>
 </html>
