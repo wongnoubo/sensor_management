@@ -8,6 +8,7 @@ public class Sensor {
     private double value;
     private String sensorAddress;
     private String sensorIntroduction;
+    private String sensortableName;
     private BigDecimal price;
     private int sensorState;
     private int temperature;
@@ -92,6 +93,14 @@ public class Sensor {
 
     public double getCputemp(){
         return this.cputemp;
+    }
+
+    public String getSensortableName() {
+        return sensortableName;
+    }
+
+    public void setSensortableName(String sensortableName) {
+        this.sensortableName = sensortableName;
     }
 
     @Override

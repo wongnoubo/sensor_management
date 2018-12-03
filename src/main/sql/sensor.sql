@@ -16,6 +16,7 @@ CREATE TABLE `sensor_info` (
   `sensorAddress` varchar(50) NOT NULL,
   `sensorIntroduction` text,
   `sensorPrice` decimal(10,2) NOT NULL,
+  `sensortableName` varchar(50) not null,
   `sensorState` smallint(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

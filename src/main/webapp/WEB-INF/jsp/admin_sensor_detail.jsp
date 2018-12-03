@@ -85,6 +85,10 @@
                     </c:choose></td>
                 </tr>
                 <tr>
+                    <th>数据库表</th>
+                    <td>${detail.sensortableName}</td>
+                </tr>
+                <tr>
                     <th>位置</th>
                     <td>${detail.sensorAddress}</td>
                 </tr>

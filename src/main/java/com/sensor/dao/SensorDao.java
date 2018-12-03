@@ -22,7 +22,7 @@ public class SensorDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private final static String ADD_SENSOR_SQL = "INSERT INTO sensor_info (sensorId,sensorName,sensorAddress,sensorIntroduction,sensorPrice,sensorState) VALUES(?,?,?,?,?,?)";
+    private final static String ADD_SENSOR_SQL = "INSERT INTO sensor_info (sensorId,sensorName,sensorAddress,sensorIntroduction,sensorPrice,sensorState,sensortableName) VALUES(?,?,?,?,?,?,?)";
     private final static String DELETE_SENSOR_SQL = "delete from sensor_info where sensorId = ?";
     private final static String QUERY_ALL_SENSORS_SQL = "SELECT * FROM sensor_info ";
     private final static String QUERY_SENSOR_SQL= "SELECT * FROM sensor_info WHERE sensorId like ? or sensorName like ?  ";
@@ -33,10 +33,11 @@ public class SensorDao {
     private final static String EDIT_SENSOR_SQL = "update sensor_info set sensorName = ?,sensorAddress = ?, sensorIntroduction = ?,sensorPrice = ?,sensorState = ? where sensorId=?";
     private final static String GET_SENSOR_TEMPREATURE  = "select temperature from ";
     private final static String GET_SENSOR_HUMIDITY = "select humidity from ";
-    private final static String GET_SENSOR_CPUTEMP = "select cputemp from ";
+    private final static String GET_SENSOR_CPUTEMP = "select  temperature from ";
     private final static String SET_SENSOR_TABLENAME="insert into sensortablename(tablename,sensortype,sensoraddress) values(?,?,?)";
     private final static String DELETE_SENSOR_TABLENAME="delete from sensortablename where id = ?";
-    private final static String QUERY_SENSORTABLENAME="select * from sensortablename where sensortype like ? and sensoraddress like ?";
+    private final static String QUERY_SENSORTABLENAME ="select * from sensortablename where sensortype like ? and sensoraddress like ?";
+    private final static String QUERY_SENSORTABLENAMEBYID = "select * from sensortablename where id = ?";
     public int matchSensor(String searchWord) {
         String swcx = "%" + searchWord + "%";
         return jdbcTemplate.queryForObject(MATCH_SENSOR_SQL, new Object[]{swcx, swcx}, Integer.class);
@@ -73,6 +74,7 @@ public class SensorDao {
                 sensor.setSensorState(resultSet.getByte("sensorState"));
                 sensor.setName(resultSet.getString("sensorName"));
                 sensor.setId(resultSet.getLong("sensorId"));
+                sensor.setSensortableName(resultSet.getString("sensortableName"));
             }
         });
         return sensor;
@@ -108,10 +110,11 @@ public class SensorDao {
         String sensorName = sensor.getName();
         String sensorAddress = sensor.getSensorAddress();
         String sensorIntroduction = sensor.getSensorIntroduction();
+        String sensortableName = sensor.getSensortableName();
         BigDecimal sensorPrice = sensor.getPrice();
         int sensorState = sensor.getSensorState();
         long sensorId = sensor.getId();
-        return jdbcTemplate.update(ADD_SENSOR_SQL,new Object[]{sensorId,sensorName,sensorAddress,sensorIntroduction,sensorPrice,sensorState});
+        return jdbcTemplate.update(ADD_SENSOR_SQL,new Object[]{sensorId,sensorName,sensorAddress,sensorIntroduction,sensorPrice,sensorState,sensortableName});
     }
 
     public int editSensor(Sensor sensor){
@@ -179,7 +182,7 @@ public class SensorDao {
         final Sensor sensor = new Sensor();
         jdbcTemplate.query(GET_SENSOR_CPUTEMP+tablename+" where id like (select max(id) from "+tablename+" );",new RowCallbackHandler(){
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setCputemp(resultSet.getDouble("cputemp"));
+                sensor.setCputemp(resultSet.getDouble("temperature"));
             }
         });
         cputemp = sensor.getCputemp();
@@ -192,7 +195,7 @@ public class SensorDao {
         jdbcTemplate.query(GET_SENSOR_CPUTEMP + tablename, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setCputemp(resultSet.getDouble("cputemp"));
+                sensor.setCputemp(resultSet.getDouble("temperature"));
                 cputemps.add(sensor.getCputemp());
             }
         });
@@ -207,7 +210,7 @@ public class SensorDao {
         return jdbcTemplate.update(DELETE_SENSOR_TABLENAME,id);
     }
 
-    public SensorNameTable getSensorTableNameId(String sensortype, final String sensorAddress){
+    public SensorNameTable getSensorTableName(String sensortype, final String sensorAddress){
         final SensorNameTable sensorNameTable = new SensorNameTable();
         jdbcTemplate.query(QUERY_SENSORTABLENAME, new Object[]{sensortype, sensorAddress}, new RowCallbackHandler() {
             @Override
@@ -221,8 +224,10 @@ public class SensorDao {
         return sensorNameTable;
     }
 
+
+
     public int createSensorTable(String tablename,String value){
-        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,"+value+" varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,"+value+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8");
     }
 
     public int dropSensorTable(String tablename){

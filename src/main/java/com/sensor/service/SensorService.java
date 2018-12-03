@@ -26,7 +26,7 @@ public class SensorService {
         return sensorDao.getAllSensors();
     }
 
-    public Sensor querySensorById(int sensorId){
+    public Sensor querySensorById(long sensorId){
         return sensorDao.querySensorById(sensorId);
     }
 
@@ -79,7 +79,7 @@ public class SensorService {
     }
 
     public SensorNameTable getSensorTableName(String sensortype,String sensorAddress){
-        return sensorDao.getSensorTableNameId(sensortype,sensorAddress);
+        return sensorDao.getSensorTableName(sensortype,sensorAddress);
     }
 
     public boolean createSensorTable(String tablename,String value){
