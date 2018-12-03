@@ -93,8 +93,8 @@ public class TestSensorDao extends BaseJunitTest {
     }
 
     @Test
-    public void testgetSensorTableNameId(){
-        int id = sensorDao.getSensorTableNameId("湿度传感器","客厅");
+    public void testgetSensorTableName(){
+        int id = sensorDao.getSensorTableNameId("湿度传感器","客厅").getId();
         System.out.println("id:"+id);
     }
 }

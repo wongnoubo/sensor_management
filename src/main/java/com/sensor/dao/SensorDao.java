@@ -37,7 +37,6 @@ public class SensorDao {
     private final static String SET_SENSOR_TABLENAME="insert into sensortablename(tablename,sensortype,sensoraddress) values(?,?,?)";
     private final static String DELETE_SENSOR_TABLENAME="delete from sensortablename where id = ?";
     private final static String QUERY_SENSORTABLENAME="select * from sensortablename where sensortype like ? and sensoraddress like ?";
-
     public int matchSensor(String searchWord) {
         String swcx = "%" + searchWord + "%";
         return jdbcTemplate.queryForObject(MATCH_SENSOR_SQL, new Object[]{swcx, swcx}, Integer.class);
@@ -208,14 +207,25 @@ public class SensorDao {
         return jdbcTemplate.update(DELETE_SENSOR_TABLENAME,id);
     }
 
-    public int getSensorTableNameId(String sensortype,String sensorAddress){
+    public SensorNameTable getSensorTableNameId(String sensortype, final String sensorAddress){
         final SensorNameTable sensorNameTable = new SensorNameTable();
         jdbcTemplate.query(QUERY_SENSORTABLENAME, new Object[]{sensortype, sensorAddress}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
                 sensorNameTable.setId(resultSet.getInt("id"));
+                sensorNameTable.setSensorAddress(resultSet.getString("sensoraddress"));
+                sensorNameTable.setSensortype(resultSet.getString("sensortype"));
+                sensorNameTable.setTablename(resultSet.getString("tablename"));
             }
         });
-        return sensorNameTable.getId();
+        return sensorNameTable;
+    }
+
+    public int createSensorTable(String tablename,String value){
+        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,"+value+" varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+    }
+
+    public int dropSensorTable(String tablename){
+        return jdbcTemplate.update("drop table "+tablename);
     }
 }

@@ -81,7 +81,14 @@ public class SensorController {
         Sensor sensor = sensorService.querySensorById(sensorId);
         String sensortype = sensor.getName();
         String sensorAddress = sensor.getSensorAddress();
-        int id = sensorService.getSensorTableNameId(sensortype,sensorAddress);
+        int id = sensorService.getSensorTableName(sensortype,sensorAddress).getId();
+        String tablename = sensorService.getSensorTableName(sensortype,sensorAddress).getTablename();
+        boolean deleteTableFlag = sensorService.dropSensorTable(tablename);
+        if(deleteTableFlag){
+            logger.debug("删除对应表格"+tablename+"成功");
+        }else{
+            logger.debug("删除对应表格"+tablename+"失败");
+        }
         int restable = sensorService.deleteSensorTableName(id);
         if(restable==1){
             logger.debug(sensor.getName()+"对应的表格删除成功");
@@ -110,7 +117,6 @@ public class SensorController {
         Sensor sensor=new Sensor();
         ArrayList<Sensor> Sensors = new ArrayList<>();
         sensor.setId(0);
-        int sensornum = 0;
         int sensorTempnum = 0;
         int sensorHuminum = 0;
         int raspberryCpuTempNum = 0;
@@ -123,37 +129,77 @@ public class SensorController {
         sensor.setName(sensorAddCommand.getSensorName());
         if(sensorAddCommand.getSensorName().equals("温度传感器")){
             String tempSensorName = "temperatureSensortable";
-            sensorTempnum++;
-            sensorService.setSensorTableName(tempSensorName+sensorTempnum,"温度传感器",sensorAddCommand.getSensorAddress());
-            logger.debug("温度传感器名字建立成功");
+            sensorTempnum = sensorService.querySensor("温度传感器").size();
+            boolean isTempTableNameTrue = sensorService.setSensorTableName(tempSensorName+sensorTempnum,"温度传感器",sensorAddCommand.getSensorAddress());
+            if(isTempTableNameTrue)
+                logger.debug("温度传感器名字建立成功");
+            else
+                logger.debug("温度传感器名字建立失败");
+            boolean isTempTableTrue = sensorService.createSensorTable(tempSensorName+sensorTempnum,"temperature");
+            if(isTempTableTrue)
+                logger.debug("温度传感器对应的数据表建立成功");
+            else
+                logger.debug("温度传感器对应的数据表建立失败");
         }
 
         if(sensorAddCommand.getSensorName().equals("湿度传感器")){
             String humiSensorName = "humiditySensorTable";
-            sensorHuminum++;
-            sensorService.setSensorTableName(humiSensorName+sensorHuminum,"湿度传感器",sensorAddCommand.getSensorAddress());
-            logger.debug("湿度传感器名字建立成功");
+            sensorHuminum = sensorService.querySensor("湿度传感器").size();;
+            boolean isHumiTableNameTrue = sensorService.setSensorTableName(humiSensorName+sensorHuminum,"湿度传感器",sensorAddCommand.getSensorAddress());
+            if(isHumiTableNameTrue)
+                logger.debug("湿度传感器名字建立成功");
+            else
+                logger.debug("湿度传感器名字建立失败");
+            boolean isHumiTableTrue = sensorService.createSensorTable(humiSensorName+sensorHuminum,"humidity");
+            if(isHumiTableTrue)
+                logger.debug("湿度传感器对应的数据表建立成功");
+            else
+                logger.debug("湿度传感器对应的数据表建立失败");
         }
 
         if(sensorAddCommand.getSensorName().equals("树莓派cpu温度")){
             String RaspberryCpuTempTableName = "RaspberryCpuTempTable";
-            raspberryCpuTempNum++;
-            sensorService.setSensorTableName(RaspberryCpuTempTableName+raspberryCpuTempNum,"树莓派cpu温度",sensorAddCommand.getSensorAddress());
-            logger.debug("树莓派cpu温度建立成功");
+            raspberryCpuTempNum = sensorService.querySensor("树莓派cpu温度").size();
+            boolean isRaspberryCpuTempTableNameTrue = sensorService.setSensorTableName(RaspberryCpuTempTableName+raspberryCpuTempNum,"树莓派cpu温度",sensorAddCommand.getSensorAddress());
+            if(isRaspberryCpuTempTableNameTrue)
+                logger.debug("树莓派cpu温度建立成功");
+            else
+                logger.debug("树莓派cpu温度建立成功");
+            boolean isRaspberryCpuTempTableTrue = sensorService.createSensorTable(RaspberryCpuTempTableName+raspberryCpuTempNum,"temperature");
+            if(isRaspberryCpuTempTableTrue)
+                logger.debug("树莓派cpu温度对应的数据表建立成功");
+            else
+                logger.debug("树莓派cpu温度对应的数据表建立失败");
         }
 
         if(sensorAddCommand.getSensorName().equals("有毒气体传感器")){
             String gasSensorTableName = "gasSensorTable";
-            sensorGasNum++;
-            sensorService.setSensorTableName(gasSensorTableName+sensorGasNum,"有毒气体传感器",sensorAddCommand.getSensorAddress());
-            logger.debug("有毒气体传感器建立成功");
+            sensorGasNum = sensorService.querySensor("有毒气体传感器").size();
+            boolean isGasTableNameTrue = sensorService.setSensorTableName(gasSensorTableName+sensorGasNum,"有毒气体传感器",sensorAddCommand.getSensorAddress());
+            if(isGasTableNameTrue)
+                logger.debug("有毒气体传感器建立成功");
+            else
+                logger.debug("有毒气体传感器建立失败");
+            boolean isGasTableTrue = sensorService.createSensorTable(gasSensorTableName+sensorGasNum,"gas");
+            if(isGasTableTrue)
+                logger.debug("有毒气体传感器对应的数据表建立成功");
+            else
+                logger.debug("有毒气体传感器对应的数据表建立失败");
         }
 
         if(sensorAddCommand.getSensorName().equals("红外人体传感器")){
             String humenSensorTable = "humenSensorTable";
-            sensorHumenNum++;
-            sensorService.setSensorTableName(humenSensorTable+sensorHumenNum,"红外人体传感器",sensorAddCommand.getSensorAddress());
-            logger.debug("红外人体传感器建立成功");
+            sensorHumenNum = sensorService.querySensor("红外人体传感器").size();
+            boolean isHumenTableNameTrue = sensorService.setSensorTableName(humenSensorTable+sensorHumenNum,"红外人体传感器",sensorAddCommand.getSensorAddress());
+            if(isHumenTableNameTrue)
+                logger.debug("红外人体传感器建立成功");
+            else
+                logger.debug("红外人体传感器建立失败");
+            boolean isHumenTableTrue = sensorService.createSensorTable(humenSensorTable+sensorHumenNum,"isHumen");
+            if(isHumenTableTrue)
+                logger.debug("红外人体传感器对应的数据表建立成功");
+            else
+                logger.debug("红外人体传感器对应的数据表建立失败");
         }
 
         boolean succ=sensorService.addSensor(sensor);

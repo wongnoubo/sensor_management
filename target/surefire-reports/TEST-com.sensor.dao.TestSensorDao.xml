@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.sensor.dao.TestSensorDao" time="0.448" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.sensor.dao.TestSensorDao" time="0.679" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="CN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\WONGNO~1\AppData\Local\Temp\surefire8833350210724005889\surefirebooter729234541102872869.jar C:\Users\Wongnoubo\AppData\Local\Temp\surefire8833350210724005889 2018-12-03T12-26-09_437-jvmRun1 surefire3131052257037581946tmp surefire_06127575522709308138tmp"/>
+    <property name="sun.java.command" value="C:\Users\WONGNO~1\AppData\Local\Temp\surefire7907890888395782088\surefirebooter3971221666754776530.jar C:\Users\Wongnoubo\AppData\Local\Temp\surefire7907890888395782088 2018-12-03T18-17-52_644-jvmRun1 surefire6355364853483075898tmp surefire_01123920732914801555tmp"/>
     <property name="surefire.test.class.path" value="D:\develop\sensor_management\target\test-classes;D:\develop\sensor_management\target\classes;C:\Users\Wongnoubo\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Wongnoubo\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-core\4.2.1.RELEASE\spring-core-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-beans\4.2.1.RELEASE\spring-beans-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-context\4.2.1.RELEASE\spring-context-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-webmvc\4.2.1.RELEASE\spring-webmvc-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-web\4.2.1.RELEASE\spring-web-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-expression\4.2.1.RELEASE\spring-expression-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-aop\4.2.1.RELEASE\spring-aop-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-jdbc\4.2.1.RELEASE\spring-jdbc-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-tx\4.2.1.RELEASE\spring-tx-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\org\springframework\spring-test\4.2.1.RELEASE\spring-test-4.2.1.RELEASE.jar;C:\Users\Wongnoubo\.m2\repository\commons-dbcp\commons-dbcp\1.4\commons-dbcp-1.4.jar;C:\Users\Wongnoubo\.m2\repository\commons-pool\commons-pool\1.5.4\commons-pool-1.5.4.jar;C:\Users\Wongnoubo\.m2\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar;C:\Users\Wongnoubo\.m2\repository\javax\servlet\servlet-api\3.0-alpha-1\servlet-api-3.0-alpha-1.jar;C:\Users\Wongnoubo\.m2\repository\javax\servlet\jstl\1.2\jstl-1.2.jar;C:\Users\Wongnoubo\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\Wongnoubo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.8.8\jackson-core-2.8.8.jar;C:\Users\Wongnoubo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.8.8\jackson-annotations-2.8.8.jar;C:\Users\Wongnoubo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.8.8\jackson-databind-2.8.8.jar;C:\Users\Wongnoubo\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\8.0.28\tomcat-embed-core-8.0.28.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Wongnoubo"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\WONGNO~1\AppData\Local\Temp\surefire8833350210724005889\surefirebooter729234541102872869.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\WONGNO~1\AppData\Local\Temp\surefire7907890888395782088\surefirebooter3971221666754776530.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_144\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,15 +61,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testaddSensor" classname="com.sensor.dao.TestSensorDao" time="0.002"/>
-  <testcase name="testgetCputempDatas" classname="com.sensor.dao.TestSensorDao" time="0.036"/>
-  <testcase name="testeditSensor" classname="com.sensor.dao.TestSensorDao" time="0.001"/>
-  <testcase name="testquerySensorById" classname="com.sensor.dao.TestSensorDao" time="0.036"/>
-  <testcase name="testgetAllSensors" classname="com.sensor.dao.TestSensorDao" time="0.034"/>
-  <testcase name="testetNewestCputempValue" classname="com.sensor.dao.TestSensorDao" time="0.026"/>
-  <testcase name="testdeleteSensor" classname="com.sensor.dao.TestSensorDao" time="0.076"/>
-  <testcase name="testgetTemperatureSensorDatas" classname="com.sensor.dao.TestSensorDao" time="0.032"/>
-  <testcase name="testquerySensor" classname="com.sensor.dao.TestSensorDao" time="0.032"/>
-  <testcase name="testgetNewestTempSensorValue" classname="com.sensor.dao.TestSensorDao" time="0.067"/>
-  <testcase name="testgetSensorTableNameId" classname="com.sensor.dao.TestSensorDao" time="0.033"/>
+  <testcase name="testaddSensor" classname="com.sensor.dao.TestSensorDao" time="0"/>
+  <testcase name="testgetCputempDatas" classname="com.sensor.dao.TestSensorDao" time="0.029"/>
+  <testcase name="testeditSensor" classname="com.sensor.dao.TestSensorDao" time="0.002"/>
+  <testcase name="testgetSensorTableName" classname="com.sensor.dao.TestSensorDao" time="0.036"/>
+  <testcase name="testquerySensorById" classname="com.sensor.dao.TestSensorDao" time="0.037"/>
+  <testcase name="testgetAllSensors" classname="com.sensor.dao.TestSensorDao" time="0.022"/>
+  <testcase name="testetNewestCputempValue" classname="com.sensor.dao.TestSensorDao" time="0.032"/>
+  <testcase name="testdeleteSensor" classname="com.sensor.dao.TestSensorDao" time="0.063"/>
+  <testcase name="testgetTemperatureSensorDatas" classname="com.sensor.dao.TestSensorDao" time="0.03"/>
+  <testcase name="testquerySensor" classname="com.sensor.dao.TestSensorDao" time="0.33"/>
+  <testcase name="testgetNewestTempSensorValue" classname="com.sensor.dao.TestSensorDao" time="0.054"/>
 </testsuite>

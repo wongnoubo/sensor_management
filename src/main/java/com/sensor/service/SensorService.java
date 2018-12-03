@@ -6,11 +6,13 @@ import java.util.ArrayList;
 
 import com.sensor.dao.SensorDao;
 import com.sensor.domain.Sensor;
+import com.sensor.domain.SensorNameTable;
 
 @Service
 public class SensorService {
 
     private SensorDao sensorDao;
+    private SensorNameTable sensorNameTable;
     @Autowired
     public void setSensorDao(SensorDao sensorDao){
         this.sensorDao = sensorDao;
@@ -76,7 +78,15 @@ public class SensorService {
         return sensorDao.deleteSensorTableName(id);
     }
 
-    public int getSensorTableNameId(String sensortype,String sensorAddress){
+    public SensorNameTable getSensorTableName(String sensortype,String sensorAddress){
         return sensorDao.getSensorTableNameId(sensortype,sensorAddress);
+    }
+
+    public boolean createSensorTable(String tablename,String value){
+        return sensorDao.createSensorTable(tablename,value)>0;
+    }
+
+    public boolean dropSensorTable(String tablename){
+        return sensorDao.dropSensorTable(tablename)>0;
     }
 }
