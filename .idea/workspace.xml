@@ -1,57 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81bbe4e1-f806-4e32-bb06-548a5c610ecf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/service/SensorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/service/SensorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/web/SensorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/web/SensorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/service/SensorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/service/SensorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/web/SensorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/web/SensorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.BaseJunitTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.BaseJunitTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.AdminDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.AdminDaoTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.TestSensorDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.TestSensorDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.service.SensorServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.service.SensorServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.web.SensorControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.web.SensorControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.BaseJunitTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.BaseJunitTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.AdminDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.AdminDaoTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.TestSensorDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.TestSensorDao.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.service.SensorServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.service.SensorServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.web.SensorControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.web.SensorControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sensor/dao/TestSensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/sensor/dao/TestSensorDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/_404_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/_404_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fadd_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fadd_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensors_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensors_jsp.java" beforeDir="false" />
-    </list>
+    <list default="true" id="81bbe4e1-f806-4e32-bb06-548a5c610ecf" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -141,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensorController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SensorController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="191" column="63" selection-start-line="191" selection-start-column="63" selection-end-line="191" selection-end-column="63" />
+            <state relative-caret-position="300">
+              <caret line="230" selection-start-line="230" selection-end-line="231" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,7 +103,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensorService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SensorService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1770">
@@ -814,7 +764,7 @@
       <workItem from="1543367239246" duration="9261000" />
       <workItem from="1543392111319" duration="18500000" />
       <workItem from="1543765540858" duration="19487000" />
-      <workItem from="1543817524679" duration="5299000" />
+      <workItem from="1543817524679" duration="5661000" />
     </task>
     <servers />
   </component>
@@ -851,7 +801,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149528000" />
+    <option name="totallyTimeSpent" value="149890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -1264,16 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="191" column="63" selection-start-line="191" selection-start-column="63" selection-end-line="191" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/sql/sensor.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1285,6 +1225,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1770">
           <caret line="85" column="61" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="230" selection-start-line="230" selection-end-line="231" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

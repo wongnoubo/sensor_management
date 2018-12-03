@@ -80,6 +80,10 @@
                     <span  style="width:80px;height:30px" class="input-group-addon">简介</span>
                     <input type="text" class="form-control" name="sensorIntroduction" id="sensorIntroduction"  value="${detail.sensorIntroduction}" >
                 </div>
+                <div class="input-group">
+                    <span  style="width:80px;height:30px" class="input-group-addon">状态</span>
+                    <input type="text" class="form-control" name="sensorState" id="sensorState"  value="${detail.sensorState}" >
+                </div>
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>
                     function mySubmit(flag){
