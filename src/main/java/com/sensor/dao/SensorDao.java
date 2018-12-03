@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.sensor.domain.Sensor;
+import com.sensor.domain.SensorNameTable;
 @Repository//给持久层的类定义的名字
 public class SensorDao {
     private JdbcTemplate jdbcTemplate;
@@ -33,6 +34,9 @@ public class SensorDao {
     private final static String GET_SENSOR_TEMPREATURE  = "select temperature from ";
     private final static String GET_SENSOR_HUMIDITY = "select humidity from ";
     private final static String GET_SENSOR_CPUTEMP = "select cputemp from ";
+    private final static String SET_SENSOR_TABLENAME="insert into sensortablename(tablename,sensortype,sensoraddress) values(?,?,?)";
+    private final static String DELETE_SENSOR_TABLENAME="delete from sensortablename where id = ?";
+    private final static String QUERY_SENSORTABLENAME="select * from sensortablename where sensortype like ? and sensoraddress like ?";
 
     public int matchSensor(String searchWord) {
         String swcx = "%" + searchWord + "%";
@@ -194,5 +198,24 @@ public class SensorDao {
             }
         });
         return cputemps;
+    }
+
+    public int setSensorTableName(String tablename,String sensortype,String sensorAddress){
+        return jdbcTemplate.update(SET_SENSOR_TABLENAME,new Object[]{tablename,sensortype,sensorAddress});
+    }
+
+    public int deleteSensorTableName(int id){
+        return jdbcTemplate.update(DELETE_SENSOR_TABLENAME,id);
+    }
+
+    public int getSensorTableNameId(String sensortype,String sensorAddress){
+        final SensorNameTable sensorNameTable = new SensorNameTable();
+        jdbcTemplate.query(QUERY_SENSORTABLENAME, new Object[]{sensortype, sensorAddress}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensorNameTable.setId(resultSet.getInt("id"));
+            }
+        });
+        return sensorNameTable.getId();
     }
 }

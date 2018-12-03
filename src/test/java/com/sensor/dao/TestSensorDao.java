@@ -25,7 +25,7 @@ public class TestSensorDao extends BaseJunitTest {
     @Test
     public void testquerySensor(){
         ArrayList<Sensor> sensors= new ArrayList<>();
-        sensors = sensorDao.querySensor("4000004");
+        sensors = sensorDao.querySensor("湿度传感器");
         for( Sensor sensor:sensors){
             System.out.println(sensor);
         }
@@ -50,7 +50,7 @@ public class TestSensorDao extends BaseJunitTest {
     @Test
     public void testquerySensorById(){
         Sensor sensor= new Sensor();
-        sensor = sensorDao.querySensorById(4000013);
+        sensor = sensorDao.querySensorById(28);
         System.out.println(sensor);
     }
 
@@ -90,5 +90,11 @@ public class TestSensorDao extends BaseJunitTest {
         for(Double i: cputemps){
             System.out.println(i);
         }
+    }
+
+    @Test
+    public void testgetSensorTableNameId(){
+        int id = sensorDao.getSensorTableNameId("湿度传感器","客厅");
+        System.out.println("id:"+id);
     }
 }

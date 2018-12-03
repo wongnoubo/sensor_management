@@ -68,4 +68,15 @@ public class SensorService {
         return sensorDao.getCputempDatas(tablename);
     }
 
+    public boolean setSensorTableName(String tablename,String sensortype,String sensorAddress){
+        return sensorDao.setSensorTableName(tablename,sensortype,sensorAddress)>0;
+    }
+
+    public int deleteSensorTableName(int id){
+        return sensorDao.deleteSensorTableName(id);
+    }
+
+    public int getSensorTableNameId(String sensortype,String sensorAddress){
+        return sensorDao.getSensorTableNameId(sensortype,sensorAddress);
+    }
 }

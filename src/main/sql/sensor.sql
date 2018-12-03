@@ -57,3 +57,9 @@ CREATE TABLE  if not exists `img`(
   `imgs` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE  if not exists `sensortablename`(
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `tablename` varchar(50) not null,
+  `sensortype` varchar(50) not null,
+  `sensoraddress` varchar(50) not null
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -75,7 +75,20 @@
         </div>
         <div class="form-group">
             <label for="sensorState">状态</label>
-            <input type="text" class="form-control"  name="sensorState"  id="sensorState"   placeholder="请传感器状态">
+            <input type="text" class="form-control" name="sensorState"  id="sensorState"   placeholder="请输入传感器状态">
+                <select class="form-control" id="stateselect" onchange="statechange(this.id)">
+                    <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
+                    <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
+                </select>
+            <script>
+                function statechange(id) {
+                    var aa = document.getElementById(id);
+                    var i = aa.selectedIndex;
+                    var text = aa.options[i].text;
+                    var value = aa.options[i].value;
+                    document.getElementById("txt").value = text;
+                }
+            </script>
         </div>
         <input type="submit" value="添加" class="btn btn-success btn-sm" class="text-left">
         <script>

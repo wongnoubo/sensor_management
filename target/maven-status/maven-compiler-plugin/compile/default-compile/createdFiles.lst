@@ -3,8 +3,10 @@ com\sensor\dao\AdminDao.class
 com\sensor\service\SensorService.class
 com\sensor\dao\SensorDao$5.class
 com\sensor\dao\SensorDao$9.class
+com\sensor\dao\SensorDao$10.class
 com\sensor\dao\SensorDao$2.class
 com\sensor\dao\SensorDao$6.class
+com\sensor\domain\SensorNameTable.class
 com\sensor\domain\Admin.class
 com\sensor\web\SensorAddCommand.class
 com\sensor\dao\SensorDao$1.class

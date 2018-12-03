@@ -2,15 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81bbe4e1-f806-4e32-bb06-548a5c610ecf" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sensor/domain/SensorNameTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/color.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/sql/sensor.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/sensor.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/dao/SensorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/service/SensorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/service/SensorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/web/SensorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/web/SensorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sensor.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/dao/SensorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/service/SensorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/service/SensorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/web/SensorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/web/SensorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2018-11-29T00-14-14_625-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2018-11-29T00-34-44_386-jvmRun1.dump" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.BaseJunitTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.BaseJunitTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.AdminDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.AdminDaoTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.TestSensorDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.sensor.dao.TestSensorDao.xml" afterDir="false" />
@@ -21,6 +50,17 @@
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.TestSensorDao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.dao.TestSensorDao.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.service.SensorServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.service.SensorServiceTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.sensor.web.SensorControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.sensor.web.SensorControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sensor/dao/TestSensorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/sensor/dao/TestSensorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/_404_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/_404_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fmain_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fmain_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fdetail_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fdetail_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fedit_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensor_005fedit_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensors_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/WEB_002dINF/jsp/admin_005fsensors_jsp.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,47 +87,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin_sensor_edit.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp">
+      <file leaf-file-name="admin_sensor_add.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2430">
-              <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+            <state relative-caret-position="81">
+              <caret line="77" column="52" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#option#0;n#select#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#option#1;n#select#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_sensor_add.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="757">
-              <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
-            </state>
-          </provider>
+      <file leaf-file-name="color.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/color.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="admin_sensors.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2692">
-              <caret line="152" column="63" selection-start-line="152" selection-start-column="63" selection-end-line="152" selection-end-column="63" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="3180">
+              <caret line="155" column="64" selection-start-line="155" selection-start-column="56" selection-end-line="155" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensor.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sensor.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/sql/sensor.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+            <state relative-caret-position="287">
+              <caret line="59" selection-start-line="59" selection-end-line="64" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -95,17 +126,72 @@
       <file leaf-file-name="SensorDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3411">
-              <caret line="185" column="29" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="44" />
+            <state relative-caret-position="3668">
+              <caret line="206" column="15" selection-start-line="206" selection-start-column="15" selection-end-line="206" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2248#3035#0" expanded="true" />
+                <element signature="e#3034#3035#0" expanded="true" />
+                <element signature="e#9632#9633#0" expanded="true" />
+                <element signature="e#9666#9667#0" expanded="true" />
+                <element signature="e#10027#10194#0" expanded="true" />
+                <element signature="e#10193#10194#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensorController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
+      <file leaf-file-name="Sensor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="-1569">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding>
+                <element signature="e#1498#1499#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+                <element signature="e#1582#1583#0" expanded="true" />
+                <element signature="e#1622#1623#0" expanded="true" />
+                <element signature="e#1673#1674#0" expanded="true" />
+                <element signature="e#1719#1720#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SensorNameTable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/SensorNameTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1170">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="e#200#201#0" expanded="true" />
+                <element signature="e#250#251#0" expanded="true" />
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#326#327#0" expanded="true" />
+                <element signature="e#352#353#0" expanded="true" />
+                <element signature="e#377#378#0" expanded="true" />
+                <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#447#448#0" expanded="true" />
+                <element signature="e#480#481#0" expanded="true" />
+                <element signature="e#508#509#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+                <element signature="e#670#671#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
+                <element signature="e#752#753#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
+                <element signature="e#839#840#0" expanded="true" />
+                <element signature="e#890#891#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestSensorDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,20 +199,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_sensor_detail.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp">
+      <file leaf-file-name="SensorController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1731">
-              <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+            <state relative-caret-position="267">
+              <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <file leaf-file-name="SensorService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+            <state relative-caret-position="1161">
+              <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
+              <folding>
+                <element signature="e#2166#2167#0" expanded="true" />
+                <element signature="e#2197#2198#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +230,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -152,6 +245,10 @@
       <find>sensordetail</find>
       <find>mySubmit</find>
       <find>querysensor.html</find>
+      <find>sensor_add</find>
+      <find>ADD_SENSOR_SQL</find>
+      <find>delete</find>
+      <find>querySensorById</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,9 +281,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/sensor/web/SensorControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ApplicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
@@ -194,10 +288,15 @@
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/copyinformation.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/js/color.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" />
         <option value="$PROJECT_DIR$/src/main/sql/sensor.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sensor/domain/SensorNameTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java" />
       </list>
     </option>
   </component>
@@ -241,10 +340,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -253,6 +352,8 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,19 +377,147 @@
               <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../github_learn_project/Ethereum" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -319,34 +548,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestSensorDao.testgetNewestTempSensorValue">
+  <component name="RunManager" selected="JUnit.TestSensorDao.testquerySensorById">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="SensorControllerTest.testallSensor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sensor_management" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sensor.web.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.sensor.web" />
-      <option name="MAIN_CLASS_NAME" value="com.sensor.web.SensorControllerTest" />
-      <option name="METHOD_NAME" value="testallSensor" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="TestSensorDao.testetNewestCputempValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSensorDao.testdeletSensorTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sensor_management" />
       <extension name="coverage">
         <pattern>
@@ -358,7 +564,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.sensor.dao" />
       <option name="MAIN_CLASS_NAME" value="com.sensor.dao.TestSensorDao" />
-      <option name="METHOD_NAME" value="testetNewestCputempValue" />
+      <option name="METHOD_NAME" value="testdeletSensorTable" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -369,7 +575,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TestSensorDao.testgetCputempDatas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSensorDao.testdeleteSensorTableName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sensor_management" />
       <extension name="coverage">
         <pattern>
@@ -381,7 +587,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.sensor.dao" />
       <option name="MAIN_CLASS_NAME" value="com.sensor.dao.TestSensorDao" />
-      <option name="METHOD_NAME" value="testgetCputempDatas" />
+      <option name="METHOD_NAME" value="testdeleteSensorTableName" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -392,7 +598,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TestSensorDao.testgetNewestTempSensorValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSensorDao.testgetSensorTableNameId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sensor_management" />
       <extension name="coverage">
         <pattern>
@@ -404,7 +610,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.sensor.dao" />
       <option name="MAIN_CLASS_NAME" value="com.sensor.dao.TestSensorDao" />
-      <option name="METHOD_NAME" value="testgetNewestTempSensorValue" />
+      <option name="METHOD_NAME" value="testgetSensorTableNameId" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -415,7 +621,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TestSensorDao.testgetTemperatureSensorDatas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSensorDao.testquerySensor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sensor_management" />
       <extension name="coverage">
         <pattern>
@@ -427,7 +633,30 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.sensor.dao" />
       <option name="MAIN_CLASS_NAME" value="com.sensor.dao.TestSensorDao" />
-      <option name="METHOD_NAME" value="testgetTemperatureSensorDatas" />
+      <option name="METHOD_NAME" value="testquerySensor" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="TestSensorDao.testquerySensorById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sensor_management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sensor.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.sensor.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.sensor.dao.TestSensorDao" />
+      <option name="METHOD_NAME" value="testquerySensorById" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -598,19 +827,19 @@
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.Unnamed" />
-      <item itemvalue="JUnit.TestSensorDao.testgetNewestTempSensorValue" />
-      <item itemvalue="JUnit.TestSensorDao.testetNewestCputempValue" />
-      <item itemvalue="JUnit.TestSensorDao.testgetTemperatureSensorDatas" />
-      <item itemvalue="JUnit.TestSensorDao.testgetCputempDatas" />
-      <item itemvalue="JUnit.SensorControllerTest.testallSensor" />
+      <item itemvalue="JUnit.TestSensorDao.testquerySensor" />
+      <item itemvalue="JUnit.TestSensorDao.testgetSensorTableNameId" />
+      <item itemvalue="JUnit.TestSensorDao.testdeleteSensorTableName" />
+      <item itemvalue="JUnit.TestSensorDao.testdeletSensorTable" />
+      <item itemvalue="JUnit.TestSensorDao.testquerySensorById" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestSensorDao.testgetNewestTempSensorValue" />
-        <item itemvalue="JUnit.TestSensorDao.testgetCputempDatas" />
-        <item itemvalue="JUnit.SensorControllerTest.testallSensor" />
-        <item itemvalue="JUnit.TestSensorDao.testgetTemperatureSensorDatas" />
-        <item itemvalue="JUnit.TestSensorDao.testetNewestCputempValue" />
+        <item itemvalue="JUnit.TestSensorDao.testquerySensorById" />
+        <item itemvalue="JUnit.TestSensorDao.testdeletSensorTable" />
+        <item itemvalue="JUnit.TestSensorDao.testdeleteSensorTableName" />
+        <item itemvalue="JUnit.TestSensorDao.testgetSensorTableNameId" />
+        <item itemvalue="JUnit.TestSensorDao.testquerySensor" />
       </list>
     </recent_temporary>
   </component>
@@ -633,51 +862,51 @@
       <workItem from="1543227067524" duration="7358000" />
       <workItem from="1543367239246" duration="9261000" />
       <workItem from="1543392111319" duration="18500000" />
+      <workItem from="1543765540858" duration="16614000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestSensorDao_testetNewestCputempValue - 2018.11.28 at 11h 57m 48s.xml">
-      <configuration name="TestSensorDao.testetNewestCputempValue" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testquerySensor - 2018.12.03 at 00h 13m 00s.xml">
+      <configuration name="TestSensorDao.testquerySensor" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestSensorDao_testgetTemperatureSensorDatas - 2018.11.28 at 15h 25m 20s.xml">
-      <configuration name="TestSensorDao.testgetTemperatureSensorDatas" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testgetSensorTableNameId - 2018.12.03 at 11h 02m 45s.xml">
+      <configuration name="TestSensorDao.testgetSensorTableNameId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestSensorDao_testgetTemperatureSensorDatas - 2018.11.28 at 15h 26m 06s.xml">
-      <configuration name="TestSensorDao.testgetTemperatureSensorDatas" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testgetSensorTableNameId - 2018.12.03 at 11h 03m 22s.xml">
+      <configuration name="TestSensorDao.testgetSensorTableNameId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestSensorDao_testgetTemperatureSensorDatas - 2018.11.28 at 15h 29m 55s.xml">
-      <configuration name="TestSensorDao.testgetTemperatureSensorDatas" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testdeleteSensorTableName - 2018.12.03 at 11h 05m 48s.xml">
+      <configuration name="TestSensorDao.testdeleteSensorTableName" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestSensorDao_testgetCputempDatas - 2018.11.28 at 15h 36m 50s.xml">
-      <configuration name="TestSensorDao.testgetCputempDatas" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testdeletSensorTable - 2018.12.03 at 11h 19m 39s.xml">
+      <configuration name="TestSensorDao.testdeletSensorTable" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SensorControllerTest_testallSensor - 2018.11.28 at 16h 36m 18s.xml">
-      <configuration name="SensorControllerTest.testallSensor" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testdeletSensorTable - 2018.12.03 at 11h 19m 56s.xml">
+      <configuration name="TestSensorDao.testdeletSensorTable" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SensorControllerTest_testallSensor - 2018.11.28 at 16h 37m 29s.xml">
-      <configuration name="SensorControllerTest.testallSensor" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testdeletSensorTable - 2018.12.03 at 11h 20m 08s.xml">
+      <configuration name="TestSensorDao.testdeletSensorTable" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SensorControllerTest_testallSensor - 2018.11.28 at 16h 38m 30s.xml">
-      <configuration name="SensorControllerTest.testallSensor" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testdeletSensorTable - 2018.12.03 at 11h 20m 57s.xml">
+      <configuration name="TestSensorDao.testdeletSensorTable" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestSensorDao_testgetCputempDatas - 2018.11.28 at 19h 16m 25s.xml">
-      <configuration name="TestSensorDao.testgetCputempDatas" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testdeletSensorTable - 2018.12.03 at 11h 21m 13s.xml">
+      <configuration name="TestSensorDao.testdeletSensorTable" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestSensorDao_testgetNewestTempSensorValue - 2018.11.28 at 19h 16m 57s.xml">
-      <configuration name="TestSensorDao.testgetNewestTempSensorValue" configurationId="JUnit" />
+    <history-entry file="TestSensorDao_testquerySensorById - 2018.12.03 at 12h 12m 59s.xml">
+      <configuration name="TestSensorDao.testquerySensorById" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124742000" />
+    <option name="totallyTimeSpent" value="141356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="0" weight="0.2613941" />
+      <window_info anchor="right" id="Maven Projects" order="0" visible="true" weight="0.2613941" />
       <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
       <window_info id="Capture Tool" order="8" />
       <window_info id="Designer" order="0" />
@@ -695,7 +924,7 @@
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="bottom" id="Run" order="9" weight="0.33238232" />
       <window_info anchor="bottom" id="Spring" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32524964" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32524964" />
       <window_info content_ui="combo" id="Project" order="6" weight="0.24329759" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Learn" order="4" weight="0.3297587" />
@@ -719,7 +948,7 @@
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32524964" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32524964" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
@@ -731,7 +960,7 @@
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="right" id="Maven Projects" order="0" weight="0.2613941" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.24329759" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.24329759" />
       <window_info id="Learn" order="4" weight="0.3297587" />
       <window_info anchor="right" id="Database" order="2" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -755,20 +984,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/sensor-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3720">
@@ -973,13 +1188,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/ApplicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -993,21 +1201,6 @@
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="e#1498#1499#0" expanded="true" />
-            <element signature="e#1537#1538#0" expanded="true" />
-            <element signature="e#1582#1583#0" expanded="true" />
-            <element signature="e#1622#1623#0" expanded="true" />
-            <element signature="e#1673#1674#0" expanded="true" />
-            <element signature="e#1719#1720#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1028,18 +1221,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
+        <state relative-caret-position="1170">
           <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/copyinformation.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1047,12 +1230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2430">
           <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1065,54 +1242,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2692">
-          <caret line="152" column="63" selection-start-line="152" selection-start-column="63" selection-end-line="152" selection-end-column="63" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1731">
+        <state relative-caret-position="2880">
           <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/copyinformation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2019">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/color.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3180">
+          <caret line="155" column="64" selection-start-line="155" selection-start-column="56" selection-end-line="155" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="77" column="52" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#option#0;n#select#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#option#1;n#select#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/dao/SensorDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3411">
-          <caret line="185" column="29" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="44" />
+        <state relative-caret-position="3668">
+          <caret line="206" column="15" selection-start-line="206" selection-start-column="15" selection-end-line="206" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2248#3035#0" expanded="true" />
+            <element signature="e#3034#3035#0" expanded="true" />
+            <element signature="e#9632#9633#0" expanded="true" />
+            <element signature="e#9666#9667#0" expanded="true" />
+            <element signature="e#10027#10194#0" expanded="true" />
+            <element signature="e#10193#10194#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/sensor/dao/TestSensorDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="381">
+          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1569">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1582#1583#0" expanded="true" />
+            <element signature="e#1622#1623#0" expanded="true" />
+            <element signature="e#1673#1674#0" expanded="true" />
+            <element signature="e#1719#1720#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/service/SensorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
+          <folding>
+            <element signature="e#2166#2167#0" expanded="true" />
+            <element signature="e#2197#2198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/SensorNameTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#200#201#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+            <element signature="e#890#891#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/sql/sensor.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+        <state relative-caret-position="287">
+          <caret line="59" selection-start-line="59" selection-end-line="64" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
