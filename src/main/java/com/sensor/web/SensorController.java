@@ -2,6 +2,7 @@ package com.sensor.web;
 
 import com.sensor.domain.Sensor;
 import com.sensor.service.SensorService;
+import com.sensor.utils.Tojson;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import net.sf.json.JSONArray;
+
 @Controller
 public class SensorController {
     private SensorService sensorService;
@@ -275,21 +278,31 @@ public class SensorController {
 
     @RequestMapping("/sensordetail.html")
     public ModelAndView sensorDetail(HttpServletRequest request){
+        Tojson tojson = new Tojson();
         int sensorId=Integer.parseInt(request.getParameter("sensorId"));
         Sensor sensor = sensorService.querySensorById(sensorId);
         if(sensor.getName().equals("温度传感器")){
             String tempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
+            ArrayList<Integer> temperatures = new ArrayList<>();
+            temperatures = sensorService.getTemperatureSensorDatas(tempTableName);
+            sensor.setTemperatures(temperatures);
             logger.debug("sensordetail:获取温度成功！");
         }
         if(sensor.getName().equals("湿度传感器")){
             String humiTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setHumidity(sensorService.getNewestHumSensorValue(humiTableName));
+            ArrayList<Integer> humidities = new ArrayList<>();
+            humidities = sensorService.getHumitySensorDatas(humiTableName);
+            sensor.setHumidities(humidities);
             logger.debug("sensordetail：获取湿度成功！");
         }
         if(sensor.getName().equals("树莓派cpu温度")){
             String raspberryCpuTempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setCputemp(sensorService.getNewestCputempValue(raspberryCpuTempTableName));
+            ArrayList<Double> raspberryCpuTemps = new ArrayList<>();
+            raspberryCpuTemps = sensorService.getCputempDatas(raspberryCpuTempTableName);
+            sensor.setCputemps(raspberryCpuTemps);
             logger.debug("sensordetail：获取树莓派cpu温度成功！");
         }
         if(sensor.getName().equals("有毒气体传感器")){

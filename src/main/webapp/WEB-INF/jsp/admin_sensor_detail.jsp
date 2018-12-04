@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/echarts.min.js"></script>
     <style>
         body{
             background-color: rgb(240,242,245);
@@ -112,6 +114,213 @@
                 </tbody>
             </table>
         </div>
+        <div class="panel panel-info">
+            <div class="panel-heading" id="mq2">
+                <h4 class="panel-title">
+                    <p data-toggle="collapse" href="#collapse3"
+                       data-parent="#accordion" align="center">
+                        ${detail.name}曲线图</p>
+                </h4>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                //放置图表的容器
+                if(${detail.name eq '温度传感器'}){
+                var group = $("#temperature");
+                //设置容器的宽度、高度和背景颜色
+                group.css({
+                    "width": "927px",
+                    "height": "400px",
+                    "background-color": "aliceblue"
+                });
+                //创建图表对象
+                var chart = echarts.init(group.get(0));
+                chart.showLoading();//显示等待条
+                //设置图表显示的内容
+                var option = {
+                    legend: {
+                        selectedMode: false,//不可点击
+                        data: ['温度']
+                    },
+                    grid: {
+                        left: 100
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                            splitLine: {//显示分割线
+                                show: true
+                            }
+                        }
+
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            name: '温度',
+                            axisLabel: {
+                                formatter: '{value} ℃'
+                            },
+                            splitLine: {
+                                show: false
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '温度',
+                            type: 'line',
+                            data:${detail.temperatures}
+                        },
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                chart.setOption(option);
+                //两秒后关闭等待进度条
+                setTimeout(function () {
+                    chart.hideLoading();//隐藏等待条
+                }, 2000);
+                }
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                //放置图表的容器
+                if(${detail.name eq '湿度传感器'}){
+                    var group = $("#humidities");
+                    //设置容器的宽度、高度和背景颜色
+                    group.css({
+                        "width": "927px",
+                        "height": "400px",
+                        "background-color": "aliceblue"
+                    });
+                    //创建图表对象
+                    var chart = echarts.init(group.get(0));
+                    chart.showLoading();//显示等待条
+                    //设置图表显示的内容
+                    var option = {
+                        legend: {
+                            selectedMode: false,//不可点击
+                            data: ['湿度']
+                        },
+                        grid: {
+                            left: 100
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                                splitLine: {//显示分割线
+                                    show: true
+                                }
+                            }
+
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '湿度',
+                                axisLabel: {
+                                    formatter: '{value} %rh'
+                                },
+                                splitLine: {
+                                    show: false
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '湿度',
+                                type: 'line',
+                                data:${detail.humidities}
+                            },
+                        ]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    chart.setOption(option);
+                    //两秒后关闭等待进度条
+                    setTimeout(function () {
+                        chart.hideLoading();//隐藏等待条
+                    }, 2000);
+                }
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                //放置图表的容器
+                if(${detail.name eq '树莓派cpu温度'}){
+                    var group = $("#cputemps");
+                    //设置容器的宽度、高度和背景颜色
+                    group.css({
+                        "width": "927px",
+                        "height": "400px",
+                        "background-color": "aliceblue"
+                    });
+                    //创建图表对象
+                    var chart = echarts.init(group.get(0));
+                    chart.showLoading();//显示等待条
+                    //设置图表显示的内容
+                    var option = {
+                        legend: {
+                            selectedMode: false,//不可点击
+                            data: ['cpu温度']
+                        },
+                        grid: {
+                            left: 100
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                                splitLine: {//显示分割线
+                                    show: true
+                                }
+                            }
+
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: 'cpu温度',
+                                axisLabel: {
+                                    formatter: '{value} ℃'
+                                },
+                                splitLine: {
+                                    show: false
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '温度',
+                                type: 'line',
+                                data:${detail.cputemps}
+                            },
+                        ]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    chart.setOption(option);
+                    //两秒后关闭等待进度条
+                    setTimeout(function () {
+                        chart.hideLoading();//隐藏等待条
+                    }, 2000);
+                }
+            });
+        </script>
+        <c:choose>
+            <c:when test="${detail.name eq '温度传感器'}">
+                <div id="temperature"></div>
+            </c:when>
+            <c:when test="${detail.name eq '湿度传感器'}">
+                <div id="humidities"></div>
+            </c:when>
+            <c:when test="${detail.name eq '树莓派cpu温度'}">
+                <div id="cputemps"></div>
+            </c:when>
+        </c:choose>
+
     </div>
 </div>
 </body>

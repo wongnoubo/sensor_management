@@ -1,6 +1,7 @@
 package com.sensor.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class Sensor {
     private long id;
@@ -12,8 +13,11 @@ public class Sensor {
     private BigDecimal price;
     private int sensorState;
     private int temperature;
+    private ArrayList<Integer> temperatures;
     private int humidity;
+    private ArrayList<Integer> humidities;
     private double cputemp;
+    private ArrayList<Double> cputemps;
 
     public long getId() {
         return id;
@@ -101,6 +105,30 @@ public class Sensor {
 
     public void setSensortableName(String sensortableName) {
         this.sensortableName = sensortableName;
+    }
+
+    public ArrayList<Integer> getTemperatures(){
+        return this.temperatures;
+    }
+
+    public void setTemperatures(ArrayList<Integer> temperatures){
+        this.temperatures = temperatures;
+    }
+
+    public ArrayList<Integer> getHumidities(){
+        return  this.humidities;
+    }
+
+    public void setHumidities(ArrayList<Integer> humidities){
+        this.humidities = humidities;
+    }
+
+    public ArrayList<Double> getCputemps() {
+        return cputemps;
+    }
+
+    public void setCputemps(ArrayList<Double> cputemps) {
+        this.cputemps = cputemps;
     }
 
     @Override

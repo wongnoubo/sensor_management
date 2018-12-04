@@ -34,8 +34,8 @@ public class SensorDao {
     private final static String GET_SENSOR_TEMPREATURE  = "select temperature from ";
     private final static String GET_SENSOR_HUMIDITY = "select humidity from ";
     private final static String GET_SENSOR_CPUTEMP = "select  temperature from ";
-    private final static String SET_SENSOR_TABLENAME="insert into sensortablename(tablename,sensortype,sensoraddress) values(?,?,?)";
-    private final static String DELETE_SENSOR_TABLENAME="delete from sensortablename where id = ?";
+    private final static String SET_SENSOR_TABLENAME ="insert into sensortablename(tablename,sensortype,sensoraddress) values(?,?,?)";
+    private final static String DELETE_SENSOR_TABLENAME ="delete from sensortablename where id = ?";
     private final static String QUERY_SENSORTABLENAME ="select * from sensortablename where sensortype like ? and sensoraddress like ?";
     private final static String QUERY_SENSORTABLENAMEBYID = "select * from sensortablename where id = ?";
     public int matchSensor(String searchWord) {
