@@ -294,7 +294,7 @@
                         ],
                         series: [
                             {
-                                name: '温度',
+                                name: 'cpu温度',
                                 type: 'line',
                                 data:${detail.cputemps}
                             },
