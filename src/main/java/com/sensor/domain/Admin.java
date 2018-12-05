@@ -30,6 +30,6 @@ public class Admin {
     }
     @Override
     public String toString(){
-        return "";
+        return "id: "+adminId+" password: "+password+" email: "+email;
     }
 }

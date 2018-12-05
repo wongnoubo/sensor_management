@@ -1,5 +1,6 @@
 package com.sensor.service;
 
+import com.sensor.domain.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,9 @@ public class LoginService {
 
     public boolean hasMatchAdmin(int adminId, String adminPassword){
         return adminDao.getMatchCount(adminId,adminPassword)>0;
+    }
+
+    public Admin getAdminUser(String email){
+        return adminDao.getAdminUser(email);
     }
 }
