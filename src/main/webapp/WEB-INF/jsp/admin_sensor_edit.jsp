@@ -82,7 +82,14 @@
                 </div>
                 <div class="input-group">
                     <span  style="width:80px;height:30px" class="input-group-addon">状态</span>
-                    <input type="text" class="form-control" name="sensorState" id="sensorState"  value="${detail.sensorState}" >
+                    <c:choose>
+                        <c:when test="${detail.sensorState eq 1}">
+                            <input type="text" class="form-control" name="sensorState" id="sensorState"  value="工作正常" >
+                        </c:when>
+                        <c:when test="${detail.sensorState eq 0}">
+                            <input type="text" class="form-control" name="sensorState" id="sensorState"  value="工作异常" >
+                        </c:when>
+                    </c:choose>
                 </div>
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>

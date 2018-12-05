@@ -69,8 +69,14 @@
                     <th width="15%">传感器名</th>
                     <td>${detail.name}</td>
                 </tr>
-                <tr>
-                    <th width="15%">示数</th>
+                <tr><c:choose>
+                    <c:when test="${detail.name ne '红外人体传感器'}">
+                        <th width="15%">示数</th>
+                    </c:when>
+                    <c:when test="${detail.name eq '红外人体传感器'}">
+                        <th width="15%">是否有人经过</th>
+                    </c:when>
+                </c:choose>
                     <td><c:choose>
                         <c:when test="${detail.name eq '温度传感器'}">
                             <c:out value="${detail.temperature}℃"></c:out>
