@@ -89,4 +89,12 @@ public class SensorService {
     public boolean dropSensorTable(String tablename){
         return sensorDao.dropSensorTable(tablename)>0;
     }
+
+    public int getHumenState(String tablename){
+        return sensorDao.getHumenState(tablename);
+    }
+
+    public ArrayList<Integer>getHumenStates(String tablename){
+        return sensorDao.getHumenStates(tablename);
+    }
 }

@@ -12,6 +12,8 @@ public class Sensor {
     private String sensortableName;
     private BigDecimal price;
     private int sensorState;
+    private int humenState;
+    private ArrayList<Integer> humenStates;
     private int temperature;
     private ArrayList<Integer> temperatures;
     private int humidity;
@@ -129,6 +131,22 @@ public class Sensor {
 
     public void setCputemps(ArrayList<Double> cputemps) {
         this.cputemps = cputemps;
+    }
+
+    public int getHumenState() {
+        return humenState;
+    }
+
+    public void setHumenState(int humenState) {
+        this.humenState = humenState;
+    }
+
+    public ArrayList<Integer> getHumenStates() {
+        return humenStates;
+    }
+
+    public void setHumenStates(ArrayList<Integer> humenStates) {
+        this.humenStates = humenStates;
     }
 
     @Override

@@ -38,6 +38,7 @@ public class SensorDao {
     private final static String DELETE_SENSOR_TABLENAME ="delete from sensortablename where id = ?";
     private final static String QUERY_SENSORTABLENAME ="select * from sensortablename where sensortype like ? and sensoraddress like ?";
     private final static String QUERY_SENSORTABLENAMEBYID = "select * from sensortablename where id = ?";
+    private final static String GET_SENSOR_HUMENSTATE ="select isHumen from ";
     public int matchSensor(String searchWord) {
         String swcx = "%" + searchWord + "%";
         return jdbcTemplate.queryForObject(MATCH_SENSOR_SQL, new Object[]{swcx, swcx}, Integer.class);
@@ -200,6 +201,32 @@ public class SensorDao {
             }
         });
         return cputemps;
+    }
+
+    public int getHumenState(String tablename){
+        int isHumen = 0;
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query(GET_SENSOR_HUMENSTATE + tablename+" where id like (select max(id) from "+tablename+");", new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setHumenState(resultSet.getInt("isHumen"));
+            }
+        });
+        isHumen = sensor.getHumenState();
+        return isHumen;
+    }
+
+    public ArrayList<Integer> getHumenStates(String tablename){
+        final ArrayList<Integer> isHumens = new ArrayList<>();
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query(GET_SENSOR_HUMENSTATE + tablename, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setHumenState(resultSet.getInt("isHumen"));
+                isHumens.add(sensor.getHumenState());
+            }
+        });
+        return isHumens;
     }
 
     public int setSensorTableName(String tablename,String sensortype,String sensorAddress){

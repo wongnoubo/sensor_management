@@ -76,10 +76,23 @@
         <div class="form-group">
             <label for="sensorState">状态</label>
             <input type="text" class="form-control" name="sensorState"  id="sensorState"   placeholder="请输入传感器状态">
-                <select class="form-control" id="stateselect" onchange="statechange(this.id)">
+                <select class="form-control" id="stateselect" onchange="look()">
                     <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
                     <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
                 </select>
+            <script>
+                function look(){
+                    var se =document.getElementById("stateselect");
+                    var option=se.getElementsByTagName("option");
+                    var str = "" ;
+                    for(var i=0;i<option.length;++i){
+                        if(options[i].selected)
+                        {
+                            document.getElementById("sensorState").value = option[i].text;
+                        }
+                    }
+                }
+            </script>
             <script>
                 function statechange(id) {
                     var aa = document.getElementById(id);

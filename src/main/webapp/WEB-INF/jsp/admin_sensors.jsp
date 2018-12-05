@@ -147,15 +147,23 @@
                     <td><c:choose>
                         <c:when test="${sensor.name eq '温度传感器'}">
                             <c:out value="${sensor.temperature}℃"></c:out>
-                            <script>setInterval("res('${sensor.temperature}');",1000*60);</script>
+                            <script>setInterval("res('${sensor.temperature}');",1000*20);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '湿度传感器'}">
                             <c:out value="${sensor.humidity}%rh"></c:out>
-                            <script>setInterval("res('${sensor.humidity}');",1000*60);</script>
+                            <script>setInterval("res('${sensor.humidity}');",1000*20);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '树莓派cpu温度'}">
                             <c:out value="${sensor.cputemp}℃"></c:out>
-                            <script>setInterval("res('${sensor.cputemp}');",1000*60);</script>
+                            <script>setInterval("res('${sensor.cputemp}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${sensor.name eq '红外人体传感器' && sensor.humenState==1}">
+                            <c:out value="有人经过"></c:out>
+                            <script>setInterval("res('${sensor.humenState}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${sensor.name eq '红外人体传感器' && sensor.humenState==0}">
+                            <c:out value="无人经过"></c:out>
+                            <script>setInterval("res('${sensor.humenState}');",1000*20);</script>
                         </c:when>
                     </c:choose>
                     </td>

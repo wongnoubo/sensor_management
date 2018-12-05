@@ -90,6 +90,8 @@ public class SensorController {
             }
             if(sensor.getName().equals("红外人体传感器")){
                 String humenTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                sensor.setHumenState(sensorService.getHumenState(humenTableName));
+                logger.debug("allsensors.html:红外人体传感器");
             }
         }
         modelAndView.addObject("sensors",sensors);
@@ -310,6 +312,10 @@ public class SensorController {
         }
         if(sensor.getName().equals("红外人体传感器")){
             String humenTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
+            sensor.setHumenState(sensorService.getHumenState(humenTableName));
+            ArrayList<Integer> isHumenStates = sensorService.getHumenStates(humenTableName);
+            sensor.setHumenStates(isHumenStates);
+            logger.debug("sensordetail:获取人体传感器数据成功！");
         }
         ModelAndView modelAndView=new ModelAndView("admin_sensor_detail");
         modelAndView.addObject("detail",sensor);

@@ -1,14 +1,15 @@
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `password` varchar(15) DEFAULT NULL
+  `password` varchar(50) DEFAULT NULL,
+  `email` varchar(50) default null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `password`) VALUES
-(20180001, '123456');
+INSERT INTO `admin` (`admin_id`, `password`,`email`) VALUES
+(20180001, '123456','1012084607@qq.com');
 
 CREATE TABLE `sensor_info` (
   `sensorId` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,

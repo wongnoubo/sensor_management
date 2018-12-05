@@ -74,15 +74,23 @@
                     <td><c:choose>
                         <c:when test="${detail.name eq '温度传感器'}">
                             <c:out value="${detail.temperature}℃"></c:out>
-                            <script>setInterval("res('${detail.temperature}');",1000*60);</script>
+                            <script>setInterval("res('${detail.temperature}');",1000*20);</script>
                         </c:when>
                         <c:when test="${detail.name eq '湿度传感器'}">
                             <c:out value="${detail.humidity}%rh"></c:out>
-                            <script>setInterval("res('${detail.humidity}');",1000*60);</script>
+                            <script>setInterval("res('${detail.humidity}');",1000*20);</script>
                         </c:when>
                         <c:when test="${detail.name eq '树莓派cpu温度'}">
                             <c:out value="${detail.cputemp}℃"></c:out>
-                            <script>setInterval("res('${detail.cputemp}');",1000*60);</script>
+                            <script>setInterval("res('${detail.cputemp}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${detail.name eq '红外人体传感器' && detail.humenState==1}">
+                            <c:out value="有人经过"></c:out>
+                            <script>setInterval("res('${detail.humenState}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${detail.name eq '红外人体传感器' && detail.humenState==0}">
+                            <c:out value="无人经过"></c:out>
+                            <script>setInterval("res('${detail.humenState}');",1000*20);</script>
                         </c:when>
                     </c:choose></td>
                 </tr>
@@ -130,7 +138,7 @@
                 var group = $("#temperature");
                 //设置容器的宽度、高度和背景颜色
                 group.css({
-                    "width": "927px",
+                    "width": "728px",
                     "height": "400px",
                     "background-color": "aliceblue"
                 });
@@ -192,7 +200,7 @@
                     var group = $("#humidities");
                     //设置容器的宽度、高度和背景颜色
                     group.css({
-                        "width": "927px",
+                        "width": "728px",
                         "height": "400px",
                         "background-color": "aliceblue"
                     });
@@ -254,7 +262,7 @@
                     var group = $("#cputemps");
                     //设置容器的宽度、高度和背景颜色
                     group.css({
-                        "width": "927px",
+                        "width": "728px",
                         "height": "400px",
                         "background-color": "aliceblue"
                     });
