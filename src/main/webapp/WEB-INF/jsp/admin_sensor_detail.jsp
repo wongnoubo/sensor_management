@@ -144,8 +144,8 @@
                 var group = $("#temperature");
                 //设置容器的宽度、高度和背景颜色
                 group.css({
-                    "width": "728px",
-                    "height": "400px",
+                    "width": "100%",
+                    "height": "45%",
                     "background-color": "aliceblue"
                 });
                 //创建图表对象
@@ -206,8 +206,8 @@
                     var group = $("#humidities");
                     //设置容器的宽度、高度和背景颜色
                     group.css({
-                        "width": "728px",
-                        "height": "400px",
+                        "width": "100%",
+                        "height": "45%",
                         "background-color": "aliceblue"
                     });
                     //创建图表对象
@@ -268,8 +268,8 @@
                     var group = $("#cputemps");
                     //设置容器的宽度、高度和背景颜色
                     group.css({
-                        "width": "728px",
-                        "height": "400px",
+                        "width": "100%",
+                        "height": "45%",
                         "background-color": "aliceblue"
                     });
                     //创建图表对象
