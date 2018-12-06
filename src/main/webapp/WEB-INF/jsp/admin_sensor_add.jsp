@@ -74,9 +74,8 @@
             <input type="text" class="form-control"  name="sensorPrice"  id="sensorPrice" placeholder="请输入价格">
         </div>
         <div class="form-group">
-            <label for="sensorState">状态</label>
-            <input type="text" class="form-control" name="sensorState"  id="sensorState"   placeholder="请输入传感器状态">
-                <select class="form-control" id="stateselect" onchange="look()">
+            <label for="stateselect">状态</label>
+                <select class="form-control" id="stateselect" placeholder="请输入传感器状态">
                     <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
                     <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
                 </select>
