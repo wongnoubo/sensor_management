@@ -106,6 +106,7 @@ public class LoginController {
     //找回密码
     @RequestMapping("/admin_findpassword.html")
     public ModelAndView findPassword(){
+
         return new ModelAndView("admin_findpassword");
     }
 
