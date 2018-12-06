@@ -79,28 +79,6 @@
                     <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
                     <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
                 </select>
-            <script>
-                function look(){
-                    var se =document.getElementById("stateselect");
-                    var option=se.getElementsByTagName("option");
-                    var str = "" ;
-                    for(var i=0;i<option.length;++i){
-                        if(options[i].selected)
-                        {
-                            document.getElementById("sensorState").value = option[i].text;
-                        }
-                    }
-                }
-            </script>
-            <script>
-                function statechange(id) {
-                    var aa = document.getElementById(id);
-                    var i = aa.selectedIndex;
-                    var text = aa.options[i].text;
-                    var value = aa.options[i].value;
-                    document.getElementById("txt").value = text;
-                }
-            </script>
         </div>
         <input type="submit" value="添加" class="btn btn-success btn-sm" class="text-left">
         <script>
