@@ -22,7 +22,7 @@
 <body>
 <nav style="position:fixed;z-index: 999;width: 100%;background-color: #f0f0f0" class="navbar navbar-default" role="navigation" >
     <div>
-        <h3 class="logo-title" id="findusernamelogo" style="position: relative;left: 30%">找回用户名</h3>
+        <h3 class="logo-title" id="findusernamelogo" style="position: relative;left: 30%">找回密码</h3>
     </div>
     <ul class="header-panel" style="position: relative;left: 60%;top: 3%">
         <li class="nav-first">
@@ -38,16 +38,28 @@
         <h3 class="panel-title">请输入你的注册邮箱找回你的密码</h3>
     </div>
     <div class="panel-body" style="position: relative;left: 30%;top:2%;width: 40%">
-        <div class="form-group" >
-            <label for="id">邮箱</label>
-            <input type="text" class="form-control" id="id" placeholder="请输入注册邮箱">
+        <form action="admin_findpassword_do.html" method="post" id="findpassword">
+        <div class="input-group" >
+            <label for="adminemail">邮箱</label>
+            <input type="email" class="form-control" name="adminemail" id="adminemail" placeholder="请输入注册邮箱">
         </div>
         <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
-        <button id="loginButton"  class="btn btn-primary  btn-block" style="position: relative;left: 0%;width: 15%">找回用户名
-        </button>
+            <input type="submit" value="找回密码" class="btn btn-success btn-sm" class="text-left">
+            <script>
+                function mySubmit(flag){
+                    return flag;
+                }
+                $("#findpassword").submit(function () {
+                    if($("#adminemail").val()==''){
+                        alert("请填入完整注册邮箱信息！");
+                        return mySubmit(false);
+                    }
+                })
+            </script>
+        </form>
     </div>
-    <h6 style="position: relative;left: 45%;top: 70%">家+安全系统版权所有Copyright ©  2018-2018</h6>
-    <h6 style="position: relative;left: 45.5%;top: 71%">联系方式：jiajiasensorsystem@163.com</h6>
+    <h6 style="position: relative;left: 45%;top: 69%">家+安全系统版权所有Copyright ©  2018-2018</h6>
+    <h6 style="position: relative;left: 45.5%;top: 70%">联系方式：jiajiasensorsystem@163.com</h6>
 </div>
 </body>
 </html>

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sensor.dao.AdminDao;
+import com.sensor.utils.EmailUtils;
 
 @Service
 public class LoginService {
@@ -31,4 +32,5 @@ public class LoginService {
     public Admin getAdminUser(String email){
         return adminDao.getAdminUser(email);
     }
+
 }

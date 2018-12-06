@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +21,7 @@ import java.util.HashMap;
 public class LoginController {
 
     private LoginService loginService;
-
+    private static Logger logger = Logger.getLogger(LoginController.class);
     @Autowired
     public void setLoginService(LoginService loginService){
         this.loginService = loginService;
@@ -103,11 +104,26 @@ public class LoginController {
         return "404";
     }
 
-    //找回密码
     @RequestMapping("/admin_findpassword.html")
     public ModelAndView findPassword(){
-
         return new ModelAndView("admin_findpassword");
+    }
+
+    //找回密码
+    @RequestMapping("/admin_findpassword_do.html")
+    public String findPasswordDo(HttpServletRequest request,RedirectAttributes redirectAttributes){
+        String adminEmail = request.getParameter("adminemail");
+        logger.debug("收集到的邮箱"+adminEmail);
+        try {
+            EmailUtils.findPasswordEmail(adminEmail);
+            redirectAttributes.addFlashAttribute("succ","邮件发送成功");
+            logger.debug("邮件发送成功");
+        }catch (Exception e){
+            logger.debug("邮件发送失败");
+            redirectAttributes.addFlashAttribute("error","邮件发送失败");
+            e.printStackTrace();
+        }
+        return "redirect:/login.html";
     }
 
     @RequestMapping("/admin_findusername.html")
