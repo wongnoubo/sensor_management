@@ -32,7 +32,7 @@
 </nav>
 <div class="panel panel-default" id="findloginpassword" style="position: fixed;left:0%;width:100%;top:10%;height: 90%">
     <div class="panel-heading" style="background-color: #fff;position: relative;left: 30%;top:2%;width: 40%">
-        <h3 class="panel-title">请输入相关信息注册账户</h3>
+        <h3 class="panel-title">请输入相关信息注册用户</h3>
     </div>
     <div class="panel-body" style="position: relative;left: 30%;top:2%;width: 40%">
         <div class="form-group" >
@@ -46,11 +46,11 @@
             <input type="password" class="form-control" id="repasswordid" placeholder="请再次输入密码">
         </div>
         <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
-        <button id="loginButton"  class="btn btn-primary  btn-block" style="position: relative;left: 0%;width: 15%">找回用户名
+        <button id="loginButton"  class="btn btn-primary  btn-block" style="position: relative;left: 0%;width: 15%">注册用户
         </button>
     </div>
-    <h6 style="position: relative;left: 45%;top: 70%">家+安全系统版权所有Copyright ©  2018-2018</h6>
-    <h6 style="position: relative;left: 45.5%;top: 71%">联系方式：jiajiasensorsystem@163.com</h6>
+    <h6 style="position: relative;left: 45%;top: 46%">家+安全系统版权所有Copyright ©  2018-2018</h6>
+    <h6 style="position: relative;left: 45.5%;top: 47%">联系方式：jiajiasensorsystem@163.com</h6>
 </div>
 </body>
 </html>
