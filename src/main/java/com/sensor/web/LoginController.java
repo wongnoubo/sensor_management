@@ -113,14 +113,14 @@ public class LoginController {
     @RequestMapping("/admin_findpassword_do.html")
     public String findPasswordDo(HttpServletRequest request,RedirectAttributes redirectAttributes){
         String adminEmail = request.getParameter("adminemail");
-        logger.debug("收集到的邮箱"+adminEmail);
+        logger.debug("jsp传来的邮箱："+adminEmail);
         try {
             EmailUtils.findPasswordEmail(adminEmail);
-            redirectAttributes.addFlashAttribute("succ","邮件发送成功");
-            logger.debug("邮件发送成功");
+            redirectAttributes.addFlashAttribute("succ","查找密码的邮件发送成功");
+            logger.debug("查找密码的邮件发送成功");
         }catch (Exception e){
-            logger.debug("邮件发送失败");
-            redirectAttributes.addFlashAttribute("error","邮件发送失败");
+            logger.debug("查找密码邮件发送失败");
+            redirectAttributes.addFlashAttribute("error","查找密码的邮件发送成功");
             e.printStackTrace();
         }
         return "redirect:/login.html";
@@ -129,6 +129,22 @@ public class LoginController {
     @RequestMapping("/admin_findusername.html")
     public ModelAndView findUsername(){
         return new ModelAndView("admin_findusername");
+    }
+
+    @RequestMapping("admin_findusername_do.html")
+    public String findUsernameDo(HttpServletRequest request,RedirectAttributes redirectAttributes){
+        String adminEmail = request.getParameter("adminemail");
+        logger.debug("jsp传来的邮箱："+adminEmail);
+        try{
+            EmailUtils.findUsernameEmail(adminEmail);
+            logger.debug("查找用户名的邮件发送成功");
+            redirectAttributes.addFlashAttribute("succ","查找用户名的邮件发送成功");
+        }catch (Exception e){
+            logger.debug("查找用户名的邮件发送失败");
+            redirectAttributes.addFlashAttribute("succ","查找用户名的邮件发送失败");
+            e.printStackTrace();
+        }
+        return "redirect:/login.html";
     }
 
     @RequestMapping("/admin_register.html")
