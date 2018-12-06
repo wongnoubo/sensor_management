@@ -2,6 +2,8 @@ package com.sensor.web;
 
 import com.sensor.domain.Admin;
 import com.sensor.service.LoginService;
+import com.sensor.utils.EmailUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -101,4 +103,19 @@ public class LoginController {
         return "404";
     }
 
+    //找回密码
+    @RequestMapping("/admin_findpassword.html")
+    public ModelAndView findPassword(){
+        return new ModelAndView("admin_findpassword");
+    }
+
+    @RequestMapping("/admin_findusername.html")
+    public ModelAndView findUsername(){
+        return new ModelAndView("admin_findusername");
+    }
+
+    @RequestMapping("/admin_register.html")
+    public ModelAndView registerAdmin(){
+        return new ModelAndView("admin_register");
+    }
 }

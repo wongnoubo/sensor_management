@@ -334,7 +334,6 @@
                 <div id="cputemps"></div>
             </c:when>
         </c:choose>
-
     </div>
 </div>
 </body>

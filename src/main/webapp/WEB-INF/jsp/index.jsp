@@ -210,7 +210,9 @@
             <label>
                 <input type="checkbox" id="remember">记住密码
             </label>
-            <a style="margin-left: 100px" href="#">忘记密码?</a>
+            <a style="margin-left: 5%" href="admin_register.html">注册用户</a>
+            <a style="margin-left: 10%" href="admin_findpassword.html">忘记密码?</a>
+            <a style="margin-left: 15%" href="admin_findusername.html">忘记用户?</a>
         </div>
 
         <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
@@ -299,6 +301,5 @@
     })
 </script>
 </div>
-
 </body>
 </html>
