@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -196,15 +197,27 @@ public class LoginController {
         return "redirect:/login.html";
     }
 
-    @RequestMapping("/welcome.html")
-    public ModelAndView emailRegisterPage(){
-        return new ModelAndView("welcome");
+    @RequestMapping("/welcome")
+    public ModelAndView emailRegisterPage(@RequestParam("code") String code,ModelAndView modelAndView){
+        return new ModelAndView("welcome","code",code);
     }
 
     @RequestMapping("/welcome_do.html")
     public String emailRegisterDo(HttpServletRequest httpServletRequest,RedirectAttributes redirectAttributes){
-
+        String code = httpServletRequest.getParameter("Code");
+        logger.debug("注册code:"+code);
+        if(loginService.checkRegisterCode(code).getPassword().isEmpty()){
+            logger.debug("注册码无效");
+        }
+        else{
+            logger.debug("注册码有效");
+            boolean isChangeState = loginService.changeAdminState(code,1);
+            if(isChangeState){
+                logger.debug("用户已经激活");
+            }else {
+                logger.debug("用户还未激活");
+            }
+        }
         return "redirect:/login.html";
     }
-
 }

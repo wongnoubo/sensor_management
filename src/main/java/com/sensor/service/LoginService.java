@@ -45,4 +45,12 @@ public class LoginService {
        return adminDao.createSensorTable(tablename)>0;
     }
 
+    public Admin checkRegisterCode(String code){
+        return adminDao.checkRegisterCode(code);
+    }
+
+    public boolean changeAdminState(String code, int state){
+        return adminDao.changeAdminState(code,state)>0;
+    }
+
 }

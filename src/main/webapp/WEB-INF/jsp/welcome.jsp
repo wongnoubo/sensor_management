@@ -7,6 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String Code = "";
+    if(request.getParameter("code")!=null)
+        Code=request.getParameter("code");
+%>
 <html>
 <head>
     <title>激活新用户页面</title>
@@ -33,10 +38,22 @@
         <h3 class="panel-title">点击按钮激活新用户</h3>
     </div>
     <div class="panel-body" style="position: relative;left: 30%;top:2%;width: 40%">
-        <form action="welcome_do.html" method="post" id="findpassword">
-            <input type="submit" value="激活用户" class="btn btn-success btn-sm" class="text-left">
+        <h1></h1>
+        <form action="welcome_do.html" method="post" id="welcomeCode">
+            <input type="hidden" id="Code" name = "Code">
+            <input type="submit" value="激活用户" class="btn btn-success btn-sm" class="text-left" onclick="Jsp_Get_Js()">
         </form>
     </div>
 </nav>
+<script>
+    function Jsp_Get_Js()
+    {
+        //拿取jsp中嵌入的java值
+        var Code ="<%=Code%>"
+        document.getElementById("Code").value = Code;
+        //在此将JS中的v变量的值交给JSP
+        document.Isform.submit();
+    }
+</script>
 </body>
 </html>

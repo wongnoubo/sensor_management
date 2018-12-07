@@ -26,6 +26,8 @@ public class AdminDao {
     private static final String REGISTER_ADMIN_USER="insert into admin (password,email,nickname,state,code,infotablename) values(?,?,?,?,?,?)";
     private static final String GET_ELEMENT_NUMEBR="select count(*) from admin";
     private static final String CREATE_SENSOR_TABLE="create table if not exists ";
+    private static final String CHECKCODE="select * from admin where code = ?";
+    private static final String CHANGESTATE="update admin set state = ? where code = ?";
 
     public int getMatchCount(int adminId,String password){
         return jdbcTemplate.queryForObject(MATCH_ADMIN_SQL,new Object[]{adminId,password},Integer.class);
@@ -67,6 +69,26 @@ public class AdminDao {
 
     public int createSensorTable(String sensorTableName){
         return jdbcTemplate.update(CREATE_SENSOR_TABLE+sensorTableName+"(`sensorId` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,`sensorName` varchar(50) NOT NULL,`sensorAddress` varchar(50) NOT NULL,`sensorIntroduction` text,`sensorPrice` decimal(10,2) NOT NULL,`sensortableName` varchar(50) not null,`sensorState` smallint(6) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    }
+
+    public Admin checkRegisterCode(String code){
+        final Admin admin = new Admin();
+        jdbcTemplate.query(CHECKCODE, new Object[]{code}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                admin.setInfotablename(resultSet.getString("infotablename"));
+                admin.setNickname(resultSet.getString("nickname"));
+                admin.setEmail(resultSet.getString("email"));
+                admin.setState(resultSet.getInt("state"));
+                admin.setCode(resultSet.getString("code"));
+                admin.setPassword(resultSet.getString("password"));
+            }
+        });
+        return admin;
+    }
+
+    public int changeAdminState(String code, int state){
+        return jdbcTemplate.update(CHANGESTATE,new Object[]{state,code});
     }
 
 }
