@@ -23,6 +23,9 @@ public class AdminDao {
     private static final String RE_PASSWORD_SQL="update admin set password = ? where admin_id = ? ";
     private static final String GET_PASSWD_SQL="select password from admin where admin_id = ?";
     private static final String GET_ADMIN_USER="select * from admin where email = ?";
+    private static final String REGISTER_ADMIN_USER="insert into admin (password,email,nickname,state,code,infotablename) values(?,?,?,?,?,?)";
+    private static final String GET_ELEMENT_NUMEBR="select count(*) from admin";
+    private static final String CREATE_SENSOR_TABLE="create table if not exists ";
 
     public int getMatchCount(int adminId,String password){
         return jdbcTemplate.queryForObject(MATCH_ADMIN_SQL,new Object[]{adminId,password},Integer.class);
@@ -47,4 +50,23 @@ public class AdminDao {
         });
         return admin;
     }
+
+    public int registerAdminUser(Admin admin){
+        String adminEmail = admin.getEmail();
+        String adminPassword = admin.getPassword();
+        String nickname = admin.getNickname();
+        String infotablename = admin.getInfotablename();
+        String code =admin.getCode();
+        int state = admin.getState();
+        return jdbcTemplate.update(REGISTER_ADMIN_USER,new Object[]{adminPassword,adminEmail,nickname,state,code,infotablename});
+    }
+
+    public int getElementNumber(){
+        return jdbcTemplate.queryForObject(GET_ELEMENT_NUMEBR,Integer.class);
+    }
+
+    public int createSensorTable(String sensorTableName){
+        return jdbcTemplate.update(CREATE_SENSOR_TABLE+sensorTableName+"(`sensorId` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,`sensorName` varchar(50) NOT NULL,`sensorAddress` varchar(50) NOT NULL,`sensorIntroduction` text,`sensorPrice` decimal(10,2) NOT NULL,`sensortableName` varchar(50) not null,`sensorState` smallint(6) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    }
+
 }

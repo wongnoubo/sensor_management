@@ -38,7 +38,7 @@
         <h3 class="panel-title">请输入你的注册邮箱找回你的账户名</h3>
     </div>
     <div class="panel-body" style="position: relative;left: 30%;top:2%;width: 40%">
-        <form action="admin_findusername_do.html" method="post" id="findpassword">
+        <form action="admin_findusername_do.html" method="post" id="findusername">
         <div class="form-group" >
             <label for="adminemail">邮箱</label>
             <input type="text" class="form-control" name="adminemail" id="adminemail" placeholder="请输入注册邮箱">
@@ -50,7 +50,7 @@
             function mySubmit(flag){
                 return flag;
             }
-            $("#findpassword").submit(function () {
+            $("#findusername").submit(function () {
                 if($("#adminemail").val()==''){
                     alert("请填入完整注册邮箱信息！");
                     return mySubmit(false);

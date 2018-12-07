@@ -35,19 +35,46 @@
         <h3 class="panel-title">请输入相关信息注册用户</h3>
     </div>
     <div class="panel-body" style="position: relative;left: 30%;top:2%;width: 40%">
-        <div class="form-group" >
+        <form action="admin_register_do.html" method="post" id="registeradmin">
             <label for="emailid">邮箱</label>
-            <input type="text" class="form-control" id="emailid" placeholder="请输入邮箱">
-            <label for="userid">用户名</label>
-            <input type="text" class="form-control" id="userid" placeholder="请输入用户名">
+            <input type="text" class="form-control" id="emailid" name="emailid" placeholder="请输入邮箱">
+            <label for="nickname">用户昵称</label>
+            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="请用户昵称">
             <label for="passwordid">密码</label>
-            <input type="password" class="form-control" id="passwordid" placeholder="请输入密码">
+            <input type="password" class="form-control" id="passwordid" name="passwordid" placeholder="请输入密码">
             <label for="repasswordid">再次输入密码</label>
-            <input type="password" class="form-control" id="repasswordid" placeholder="请再次输入密码">
-        </div>
-        <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
-        <button id="loginButton"  class="btn btn-primary  btn-block" style="position: relative;left: 0%;width: 15%">注册用户
-        </button>
+            <input type="password" class="form-control" id="repasswordid" name="repasswordid" placeholder="请再次输入密码">
+            <em id="tishi" style="color: red"></em>
+            <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
+            <input type="submit" value="注册用户" class="btn btn-success btn-sm" class="text-left">
+        </form>
+        <script>
+            function mySubmit(flag){
+                return flag;
+            }
+            $("#findusername").submit(function () {
+                if($("#emailid").val()==''||$("#passwordid").val()==''||$("#repasswordid").val()==''||$("#nickname").val()==''){
+                    alert("请填入完整注册信息！");
+                    return mySubmit(false);
+                }
+            })
+
+            function validate() {
+                var pwd1 = document.getElementById("passwordid").value;
+                var pwd2 = document.getElementById("repasswordid").value;
+                <!-- 对比两次输入的密码 -->
+                if(pwd1 == pwd2) {
+                    document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+                    document.getElementById("submit").disabled = false;
+                }
+                else {
+                    document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+                    document.getElementById("submit").disabled = true;
+                }
+            }
+        </script>
+    </div>
+    <div class="form-group" >
     </div>
     <h6 style="position: relative;left: 45%;top: 46%">家+安全系统版权所有Copyright ©  2018-2018</h6>
     <h6 style="position: relative;left: 45.5%;top: 47%">联系方式：jiajiasensorsystem@163.com</h6>

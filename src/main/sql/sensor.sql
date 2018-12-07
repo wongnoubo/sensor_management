@@ -1,17 +1,21 @@
-CREATE TABLE `admin` (
+CREATE TABLE if not exists `admin` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `password` varchar(50) DEFAULT NULL,
-  `email` varchar(50) default null
+  `password` varchar(50) not NULL,
+  `email` varchar(50) not null,
+  `state` int(1) not null default 0,
+  `code` varchar(50) not null,
+  `nickname` varchar(50) not null,
+  `infotablename` varchar(50) not null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `password`,`email`) VALUES
-(20180001, '123456','1012084607@qq.com');
+INSERT INTO `admin` (`admin_id`, `password`,`email`,`state`,`code`,`nickname`,`infotablename`) VALUES
+(20180001, '123456','1012084607@qq.com',1,'9527','黄磊','sensorinfo0');
 
-CREATE TABLE `sensor_info` (
+CREATE TABLE if not exists `sensor_info` (
   `sensorId` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `sensorName` varchar(50) NOT NULL,
   `sensorAddress` varchar(50) NOT NULL,

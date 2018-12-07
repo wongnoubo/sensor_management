@@ -33,4 +33,16 @@ public class LoginService {
         return adminDao.getAdminUser(email);
     }
 
+    public boolean registerAdminUser(Admin admin){
+        return adminDao.registerAdminUser(admin)>0;
+    }
+
+    public int getElementNumber(){
+        return adminDao.getElementNumber();
+    }
+
+    public boolean createSensorTable(String tablename){
+       return adminDao.createSensorTable(tablename)>0;
+    }
+
 }
