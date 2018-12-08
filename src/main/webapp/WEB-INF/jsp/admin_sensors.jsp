@@ -180,35 +180,6 @@
                             var url = "allsensors/export-excel-file.json";
                             location.href = url;
                         }
-                        $(document).ready(function() {
-                            var $searchForm = $('#search_form').on('submit',function(){
-                                $dt.DataTable().searchEx( {} ).draw();
-                                return false;
-                            }).on('click', 'button.export', function(){
-                                var searchData={};
-                                searchData.search=$('#search_form').formGet();
-                                console.log(searchData);
-                                post('/order/list/export',searchData);
-                            });
-
-
-                            function post(URL, PARAMS) {
-                                var temp = document.createElement("form");
-                                temp.action = URL;
-                                temp.method = "post";
-                                temp.style.display = "none";
-                                for (var x in PARAMS.search) {
-                                    var opt = document.createElement("textarea");
-                                    if(x=="id"||x=="expressNumber"||x=="payStatus"){
-                                        opt.name = x;
-                                        opt.value = PARAMS.search[x];
-                                        temp.appendChild(opt);
-                                    }
-                                }
-                                document.body.appendChild(temp);
-                                temp.submit();
-                            }
-                        })
                     </script>
                 </tr>
             </c:forEach>

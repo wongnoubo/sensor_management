@@ -272,8 +272,7 @@ public class SensorController {
         sensor.setSensorIntroduction(request.getParameter("sensorIntroduction"));
         sensor.setPrice(new BigDecimal(request.getParameter("price")));
         sensor.setSensorAddress(request.getParameter("sensorAddress"));
-        sensor.setSensorState(Integer.parseInt(request.getParameter("sensorState")));
-        System.out.println(sensor);
+        logger.debug(sensor);
         boolean succ=sensorService.editSensor(sensor);
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
@@ -425,6 +424,8 @@ public class SensorController {
             }else {
                 logger.debug("人体传感器数据为空，获取失败"+sensorTableName);
             }
+        }else{
+
         }
         return "redirect:/admin_sensors.html";
     }

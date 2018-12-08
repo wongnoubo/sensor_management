@@ -62,7 +62,7 @@
             <h3 class="panel-title">编辑传感器——${detail.name}</h3>
         </div>
         <div class="panel-body">
-            <form action="sensor_edit_do.html?id=${detail.id}" method="post" id="addsensor" >
+            <form action="sensor_edit_do.html?id=${detail.id}" method="post" id="editsensor" >
 
                 <div class="input-group">
                     <span  style="width:80px;height:30px" class="input-group-addon">传感器</span>
@@ -84,10 +84,18 @@
                     <span  style="width:80px;height:30px" class="input-group-addon">状态</span>
                     <c:choose>
                         <c:when test="${detail.sensorState eq 1}">
-                            <input type="text" class="form-control" name="sensorState" id="sensorState"  value="工作正常" >
+                            <!-- <input type="text" class="form-control" name="sensorState" id="sensorState"  value="工作正常" >-->
+                           <select class="form-control" id="sensorState" name="sensorState" placeholder="请输入传感器状态">
+                                <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
+                                <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
+                            </select>
                         </c:when>
                         <c:when test="${detail.sensorState eq 0}">
-                            <input type="text" class="form-control" name="sensorState" id="sensorState"  value="工作异常" >
+                            <!--<input type="text" class="form-control" name="sensorState" id="sensorState"  value="工作异常" >-->
+                            <select class="form-control" id="sensorState" name="sensorState" placeholder="请输入传感器状态">
+                                <option value="0" id="sensorState4" style="background-color: #ff1a15">异常</option>
+                                <option value="1" id="sensorState3" style="background-color:#10adff">正常工作</option>
+                            </select>
                         </c:when>
                     </c:choose>
                 </div>
