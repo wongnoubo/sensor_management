@@ -38,7 +38,6 @@
         <h3 class="panel-title">点击按钮激活新用户</h3>
     </div>
     <div class="panel-body" style="position: relative;left: 30%;top:2%;width: 40%">
-        <h1></h1>
         <form action="welcome_do.html" method="post" id="welcomeCode">
             <input type="hidden" id="Code" name = "Code">
             <input type="submit" value="激活用户" class="btn btn-success btn-sm" class="text-left" onclick="Jsp_Get_Js()">

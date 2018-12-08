@@ -3,6 +3,8 @@ package com.sensor.web;
 import com.sensor.domain.Sensor;
 import com.sensor.service.SensorService;
 import com.sensor.utils.Tojson;
+import com.sensor.utils.ExcelExportUtil;
+import com.sensor.utils.EmailUtils;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.apache.log4j.Logger;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import net.sf.json.JSONArray;
@@ -286,8 +289,7 @@ public class SensorController {
         if(sensor.getName().equals("温度传感器")){
             String tempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
-            ArrayList<Integer> temperatures = new ArrayList<>();
-            temperatures = sensorService.getTemperatureSensorDatas(tempTableName);
+            ArrayList<Integer> temperatures = sensorService.getTemperatureSensorDatas(tempTableName);
             sensor.setTemperatures(temperatures);
             logger.debug("sensordetail:获取温度成功！");
         }
@@ -320,5 +322,71 @@ public class SensorController {
         ModelAndView modelAndView=new ModelAndView("admin_sensor_detail");
         modelAndView.addObject("detail",sensor);
         return modelAndView;
+    }
+
+    @RequestMapping("/allsensors/export-excel-file.json")
+    public String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
+        int sensorId = Integer.parseInt(httpServletRequest.getParameter("sensorId"));
+        Sensor sensor = new Sensor();
+        sensor = sensorService.querySensorById(sensorId);
+        String sensorTableName = sensor.getSensortableName();
+        String sensorAddress = sensor.getSensorAddress();
+        if(sensor.getName().equals("树莓派cpu温度")){
+            ArrayList<Double> datas = sensorService.getCputempDatas(sensorTableName);
+            if(!datas.isEmpty()){
+                logger.debug("树莓派cpu温度获取成功"+sensorTableName);
+                boolean ExportExcelFlag = ExcelExportUtil.generateCpuTempExcel(datas,sensor.getName()+sensorTableName);
+                if(ExportExcelFlag){
+                    logger.debug("树莓派cpu温度"+sensorTableName+"导出excel成功");
+                }else {
+                    logger.debug("树莓派cpu温度"+sensorTableName+"导出excel失败");
+                }
+            }else {
+                logger.debug("树莓派cpu温度获取失败"+sensorTableName);
+            }
+        }
+        else if(sensor.getName().equals("温度传感器")){
+            ArrayList<Integer> datas = sensorService.getTemperatureSensorDatas(sensorTableName);
+            if(!datas.isEmpty()){
+                logger.debug("温度传感器数据获取成功"+sensorTableName);
+                boolean ExportExcelFlag = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                if(ExportExcelFlag){
+                    logger.debug("温度传感器"+sensorTableName+"导出excel成功");
+                }else {
+                    logger.debug("温度传感器"+sensorTableName+"导出excel失败");
+                }
+            }else{
+                logger.debug("温度传感器数据为空，获取失败"+sensorTableName);
+            }
+        }
+        else if(sensor.getName().equals("湿度传感器")){
+            ArrayList<Integer> datas = sensorService.getHumitySensorDatas(sensorTableName);
+            if(!datas.isEmpty()){
+                logger.debug("湿度传感器数据获取成功"+sensorTableName);
+                boolean ExportExcelFlag = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                if(ExportExcelFlag){
+                    logger.debug("湿度传感器"+sensorTableName+"导出excel成功");
+                }else{
+                    logger.debug("湿度传感器"+sensorTableName+"导出excel失败");
+                }
+            }else {
+                logger.debug("湿度传感器数据为空，获取失败"+sensorTableName);
+            }
+        }
+        else if(sensor.getName().equals("红外人体传感器")){
+            ArrayList<Integer> datas = sensorService.getHumenStates(sensorTableName);
+            if(!datas.isEmpty()){
+                logger.debug("人体传感器数据获得成功");
+                boolean ExportExcelFlag = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                if(ExportExcelFlag){
+                    logger.debug("红外人体传感器"+sensorTableName+"导出excel成功");
+                }else{
+                    logger.debug("红外人体传感器"+sensorTableName+"导出excel失败");
+                }
+            }else {
+                logger.debug("人体传感器数据为空，获取失败"+sensorTableName);
+            }
+        }
+        return "redirect:/admin_sensors.html";
     }
 }

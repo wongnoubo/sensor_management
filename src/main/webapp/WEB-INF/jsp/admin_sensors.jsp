@@ -138,6 +138,7 @@
                 <th>详情</th>
                 <th>编辑</th>
                 <th>删除</th>
+                <th>导出</th>
             </tr>
             </thead>
             <tbody>
@@ -171,6 +172,14 @@
                     <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
                     <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
                     <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
+                    <td><a href="allsensors/export-excel-file.json?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
+                    <script>
+                        <!-- 或者抽离出一个js-->
+                        var exportExcel = function(){
+                            var url = "allsensors/export-excel-file.json";
+                            location.href = url;
+                        }
+                    </script>
                 </tr>
             </c:forEach>
             </tbody>
