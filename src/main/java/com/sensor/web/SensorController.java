@@ -13,6 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.apache.log4j.Logger;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.BufferedOutputStream;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
 import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -327,34 +333,51 @@ public class SensorController {
     @RequestMapping("/allsensors/export-excel-file.json")
     public String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
         int sensorId = Integer.parseInt(httpServletRequest.getParameter("sensorId"));
-        Sensor sensor = new Sensor();
-        sensor = sensorService.querySensorById(sensorId);
+        Sensor sensor = sensorService.querySensorById(sensorId);
+        sensorService.querySensorById(sensorId);
         String sensorTableName = sensor.getSensortableName();
         String sensorAddress = sensor.getSensorAddress();
         if(sensor.getName().equals("树莓派cpu温度")){
             ArrayList<Double> datas = sensorService.getCputempDatas(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("树莓派cpu温度获取成功"+sensorTableName);
-                boolean ExportExcelFlag = ExcelExportUtil.generateCpuTempExcel(datas,sensor.getName()+sensorTableName);
-                if(ExportExcelFlag){
+                try {
+                    httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
+                    httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
+                    HSSFWorkbook book = ExcelExportUtil.generateCpuTempExcel(datas,sensor.getName()+sensorTableName);
+                    OutputStream os= httpServletResponse.getOutputStream();
+                    book.write(os);
+                    os.flush();
+                    os.close();
                     logger.debug("树莓派cpu温度"+sensorTableName+"导出excel成功");
-                }else {
+                }
+                catch (IOException e){
                     logger.debug("树莓派cpu温度"+sensorTableName+"导出excel失败");
+                    e.printStackTrace();
                 }
             }else {
-                logger.debug("树莓派cpu温度获取失败"+sensorTableName);
+                logger.debug("树莓派cpu温度数据为空，获取失败"+sensorTableName);
             }
         }
         else if(sensor.getName().equals("温度传感器")){
             ArrayList<Integer> datas = sensorService.getTemperatureSensorDatas(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("温度传感器数据获取成功"+sensorTableName);
-                boolean ExportExcelFlag = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
-                if(ExportExcelFlag){
+                try {
+                    httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
+                    httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
+                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                    OutputStream os= httpServletResponse.getOutputStream();
+                    book.write(os);
+                    os.flush();
+                    os.close();
                     logger.debug("温度传感器"+sensorTableName+"导出excel成功");
-                }else {
-                    logger.debug("温度传感器"+sensorTableName+"导出excel失败");
                 }
+                catch (IOException e){
+                    logger.debug("温度传感器"+sensorTableName+"导出excel失败");
+                    e.printStackTrace();
+                }
+
             }else{
                 logger.debug("温度传感器数据为空，获取失败"+sensorTableName);
             }
@@ -363,11 +386,19 @@ public class SensorController {
             ArrayList<Integer> datas = sensorService.getHumitySensorDatas(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("湿度传感器数据获取成功"+sensorTableName);
-                boolean ExportExcelFlag = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
-                if(ExportExcelFlag){
+                try {
+                    httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
+                    httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
+                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                    OutputStream os= httpServletResponse.getOutputStream();
+                    book.write(os);
+                    os.flush();
+                    os.close();
                     logger.debug("湿度传感器"+sensorTableName+"导出excel成功");
-                }else{
+                }
+                catch (IOException e){
                     logger.debug("湿度传感器"+sensorTableName+"导出excel失败");
+                    e.printStackTrace();
                 }
             }else {
                 logger.debug("湿度传感器数据为空，获取失败"+sensorTableName);
@@ -377,11 +408,19 @@ public class SensorController {
             ArrayList<Integer> datas = sensorService.getHumenStates(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("人体传感器数据获得成功");
-                boolean ExportExcelFlag = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
-                if(ExportExcelFlag){
+                try {
+                    httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
+                    httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
+                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                    OutputStream os= httpServletResponse.getOutputStream();
+                    book.write(os);
+                    os.flush();
+                    os.close();
                     logger.debug("红外人体传感器"+sensorTableName+"导出excel成功");
-                }else{
+                }
+                catch (IOException e){
                     logger.debug("红外人体传感器"+sensorTableName+"导出excel失败");
+                    e.printStackTrace();
                 }
             }else {
                 logger.debug("人体传感器数据为空，获取失败"+sensorTableName);

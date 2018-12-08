@@ -42,13 +42,12 @@ public class ExcelExportUtil {
         excelExportUtil.sensorService = this.sensorService;
     }
 
-   public static boolean generateExcel(ArrayList<Integer> list,String sensorName) {
+   public static HSSFWorkbook generateExcel(ArrayList<Integer> list,String sensorName) {
        HSSFWorkbook book = new HSSFWorkbook();//创建一个工作簿
-       boolean resultFlag = false;
        if(!list.isEmpty()) {
            try {
-               File desFile = new File("F:\\excels\\sensor\\" + sensorName + ".xls");//.xls
-               FileOutputStream fos = new FileOutputStream(desFile);
+              // File desFile = new File("F:\\excels\\sensor\\" + sensorName + ".xls");//.xls
+               //FileOutputStream fos = new FileOutputStream(desFile);
                HSSFSheet sheet = book.createSheet(sensorName);//创建一个工作表
                sheet.autoSizeColumn(1, true);//自适应列宽度
 
@@ -64,16 +63,6 @@ public class ExcelExportUtil {
                    cell2.setCellValue(val);
                }
                logger.debug("数据写入完毕");
-               try {
-                   book.write(fos);
-                   fos.close();
-                   logger.debug("文件流写入完成");
-               } catch (Exception e) {
-                   logger.debug("文件流写入失败");
-                   e.printStackTrace();
-               }
-               logger.debug("excel导出成功");
-               resultFlag = true;
            } catch (Exception ex) {
                logger.debug("excel导出失败");
                ex.printStackTrace();
@@ -82,16 +71,13 @@ public class ExcelExportUtil {
        else {
            logger.debug("数据为空");
        }
-       return resultFlag;
+       return book;
    }
 
-    public static boolean generateCpuTempExcel(ArrayList<Double> list,String sensorName){
+    public static HSSFWorkbook generateCpuTempExcel(ArrayList<Double> list,String sensorName){
         HSSFWorkbook book = new HSSFWorkbook();//创建一个工作簿
-        boolean resultFlag = false;
         if(!list.isEmpty()) {
             try {
-                File desFile = new File("F:\\excels\\sensor\\" + sensorName + ".xls");//.xls
-                FileOutputStream fos = new FileOutputStream(desFile);
                 HSSFSheet sheet = book.createSheet(sensorName);//创建一个工作表
                 sheet.autoSizeColumn(1, true);//自适应列宽度
 
@@ -107,16 +93,6 @@ public class ExcelExportUtil {
                     cell2.setCellValue(val);
                 }
                 logger.debug("数据写入完毕");
-                try {
-                    book.write(fos);
-                    fos.close();
-                    logger.debug("cputemps文件流写入完成");
-                } catch (Exception e) {
-                    logger.debug("cputemps文件流写入失败");
-                    e.printStackTrace();
-                }
-                logger.debug("excel导出成功");
-                resultFlag = true;
             } catch (Exception ex) {
                 logger.debug("excel导出失败");
                 ex.printStackTrace();
@@ -125,6 +101,6 @@ public class ExcelExportUtil {
         else {
             logger.debug("数据为空");
         }
-        return resultFlag;
+        return book;
     }
 }

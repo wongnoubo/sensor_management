@@ -173,12 +173,42 @@
                     <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
                     <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
                     <td><a href="allsensors/export-excel-file.json?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
+
                     <script>
                         <!-- 或者抽离出一个js-->
                         var exportExcel = function(){
                             var url = "allsensors/export-excel-file.json";
                             location.href = url;
                         }
+                        $(document).ready(function() {
+                            var $searchForm = $('#search_form').on('submit',function(){
+                                $dt.DataTable().searchEx( {} ).draw();
+                                return false;
+                            }).on('click', 'button.export', function(){
+                                var searchData={};
+                                searchData.search=$('#search_form').formGet();
+                                console.log(searchData);
+                                post('/order/list/export',searchData);
+                            });
+
+
+                            function post(URL, PARAMS) {
+                                var temp = document.createElement("form");
+                                temp.action = URL;
+                                temp.method = "post";
+                                temp.style.display = "none";
+                                for (var x in PARAMS.search) {
+                                    var opt = document.createElement("textarea");
+                                    if(x=="id"||x=="expressNumber"||x=="payStatus"){
+                                        opt.name = x;
+                                        opt.value = PARAMS.search[x];
+                                        temp.appendChild(opt);
+                                    }
+                                }
+                                document.body.appendChild(temp);
+                                temp.submit();
+                            }
+                        })
                     </script>
                 </tr>
             </c:forEach>
