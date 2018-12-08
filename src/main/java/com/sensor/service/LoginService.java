@@ -53,4 +53,12 @@ public class LoginService {
         return adminDao.changeAdminState(code,state)>0;
     }
 
+    public int getAdminState(String email){
+        return adminDao.getAdminUser(email).getState();
+    }
+
+    public int getAdminStateByAdminId(int id){
+        return adminDao.getAdminByAdminId(id).getState();
+    }
+
 }

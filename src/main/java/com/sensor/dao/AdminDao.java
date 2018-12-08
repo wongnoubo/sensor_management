@@ -28,6 +28,7 @@ public class AdminDao {
     private static final String CREATE_SENSOR_TABLE="create table if not exists ";
     private static final String CHECKCODE="select * from admin where code = ?";
     private static final String CHANGESTATE="update admin set state = ? where code = ?";
+    private static final String GET_ADMIN_BYADMINID="select * from admin where admin_id = ?";
 
     public int getMatchCount(int adminId,String password){
         return jdbcTemplate.queryForObject(MATCH_ADMIN_SQL,new Object[]{adminId,password},Integer.class);
@@ -48,6 +49,10 @@ public class AdminDao {
                 admin.setAdminId(resultSet.getInt("admin_id"));
                 admin.setPassword(resultSet.getString("password"));
                 admin.setEmail(resultSet.getString("email"));
+                admin.setInfotablename(resultSet.getString("infotablename"));
+                admin.setNickname(resultSet.getString("nickname"));
+                admin.setState(resultSet.getInt("state"));
+                admin.setCode(resultSet.getString("code"));
             }
         });
         return admin;
@@ -91,4 +96,20 @@ public class AdminDao {
         return jdbcTemplate.update(CHANGESTATE,new Object[]{state,code});
     }
 
+    public Admin getAdminByAdminId(int id){
+        final Admin admin = new Admin();
+        jdbcTemplate.query(GET_ADMIN_BYADMINID, new Object[]{id}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                admin.setInfotablename(resultSet.getString("infotablename"));
+                admin.setNickname(resultSet.getString("nickname"));
+                admin.setEmail(resultSet.getString("email"));
+                admin.setState(resultSet.getInt("state"));
+                admin.setPassword(resultSet.getString("password"));
+                admin.setCode(resultSet.getString("code"));
+                admin.setAdminId(resultSet.getInt("admin_id"));
+            }
+        });
+        return admin;
+    }
 }

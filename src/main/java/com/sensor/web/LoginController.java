@@ -20,7 +20,6 @@ import java.util.HashMap;
 
 @Controller
 public class LoginController {
-
     private LoginService loginService;
     private static Logger logger = Logger.getLogger(LoginController.class);
     @Autowired
@@ -44,24 +43,33 @@ public class LoginController {
     //负责处理loginCheck.html请求
     //请求参数会根据参数名称默认契约自动绑定到相应方法的入参中
     @RequestMapping(value = "/api/loginCheck", method = RequestMethod.POST)
-    public @ResponseBody Object loginCheck(HttpServletRequest request){
+    public @ResponseBody Object loginCheck(HttpServletRequest request,RedirectAttributes redirectAttributes){
         int id=Integer.parseInt(request.getParameter("id"));
         String passwd = request.getParameter("passwd");
-        boolean isAdmin = loginService.hasMatchAdmin(id, passwd);
-        HashMap<String, String> res = new HashMap<String, String>();
-        if (isAdmin==false) {
-            res.put("stateCode", "0");
-            res.put("msg","账号或密码错误！");
-        } else {
-            Admin admin=new Admin();
-            admin.setAdminId(id);
-            admin.setPassword(passwd);
-            request.getSession().setAttribute("admin",admin);
-            res.put("stateCode", "1");
-            res.put("msg","管理员登陆成功！");
+        if(loginService.getAdminStateByAdminId(id)==1) {//判断账号是否激活，没有激活不能登录
+            logger.debug("账号已经激活，可以登录");
+            boolean isAdmin = loginService.hasMatchAdmin(id, passwd);
+            HashMap<String, String> res = new HashMap<String, String>();
+            if (isAdmin == false) {
+                res.put("stateCode", "0");
+                res.put("msg", "账号或密码错误！");
+                logger.debug("账号或者密码错误！");
+            } else {
+                Admin admin = new Admin();
+                admin.setAdminId(id);
+                admin.setPassword(passwd);
+                request.getSession().setAttribute("admin", admin);
+                res.put("stateCode", "1");
+                res.put("msg", "管理员登陆成功！");
+                logger.debug("管理员登录成功");
+            }
+            return res;
+        }else{
+            logger.debug("账号未激活，不能登录");
+            redirectAttributes.addFlashAttribute("succ", "账号没有激活，不能登录！");
+            return null;
         }
-        return res;
-    };
+    }
 
     @RequestMapping("/admin_main.html")
     public ModelAndView toAdminMain(HttpServletResponse response) {
