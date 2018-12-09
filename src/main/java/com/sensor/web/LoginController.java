@@ -66,7 +66,7 @@ public class LoginController {
             return res;
         }else{
             logger.debug("账号未激活，不能登录");
-            redirectAttributes.addFlashAttribute("succ", "账号没有激活，不能登录！");
+            redirectAttributes.addFlashAttribute("error", "账号没有激活，不能登录！");
             return null;
         }
     }
@@ -168,41 +168,51 @@ public class LoginController {
         String adminEmail = httpServletRequest.getParameter("emailid");
         String adminPassword = httpServletRequest.getParameter("repasswordid");
         String adminNickName = httpServletRequest.getParameter("nickname");
-        String infotablename = "sensorinfo";
-        int tableNum = loginService.getElementNumber();
-        boolean isCreateSensorManageTable = loginService.createSensorTable(infotablename+tableNum);
-        if(isCreateSensorManageTable){
-            logger.debug("创建管理数据库表成功，数据库表的名字是："+infotablename+tableNum);
+        if(loginService.getAdminUser(adminEmail).getAdminId()==0) {
+            logger.debug("该邮箱未被注册");
+            String infotablename = "sensorinfo";
+            int tableNum = loginService.getElementNumber();
+            boolean isCreateSensorManageTable = loginService.createSensorTable(infotablename + tableNum);
+            if (isCreateSensorManageTable) {
+                logger.debug("创建管理数据库表成功，数据库表的名字是：" + infotablename + tableNum);
+            } else {
+                logger.debug("创建管理数据库表失败。");
+            }
+            logger.debug("校验验证码");
+            String code = EmailUtils.generateCode();
+            if (!code.isEmpty()) {
+                logger.debug("产生验证码成功" + code);
+            } else {
+                logger.debug("产生验证码失败");
+            }
+            try {
+                EmailUtils.sendRegisterCode(adminEmail, code);
+                logger.debug("发送注册验证码邮件成功");
+            } catch (Exception e) {
+                logger.debug("发送注册验证码邮件失败");
+                e.printStackTrace();
+            }
+            admin.setEmail(adminEmail);
+            admin.setPassword(adminPassword);
+            admin.setNickname(adminNickName);
+            admin.setCode(code);
+            admin.setState(RegiState);
+            admin.setInfotablename(infotablename + tableNum);
+            boolean isInserUser = loginService.registerAdminUser(admin);
+            if (isInserUser) {
+                logger.debug("插入注册用户成功，用户未激活");
+                redirectAttributes.addFlashAttribute("succ","注册用户成功，请点击邮箱激活链接激活");
+            } else {
+                logger.debug("插入注册用户失败");
+                redirectAttributes.addFlashAttribute("error","注册用户失败，请联系管理员");
+            }
+            redirectAttributes.addFlashAttribute("用户未激活");
+            return "redirect:/login.html";
         }else{
-            logger.debug("创建管理数据库表失败。");
+            redirectAttributes.addFlashAttribute("error","该邮箱已经被注册，请登录");
+            logger.debug("该邮箱已经被注册，请登录");
+            return "redirect:/login.html";
         }
-        logger.debug("校验验证码");
-        String code = EmailUtils.generateCode();
-        if(!code.isEmpty()){
-            logger.debug("产生验证码成功"+code);
-        }else {
-            logger.debug("产生验证码失败");
-        }
-        try{
-            EmailUtils.sendRegisterCode(adminEmail,code);
-            logger.debug("发送注册验证码邮件成功");
-        }catch (Exception e){
-            logger.debug("发送注册验证码邮件失败");
-            e.printStackTrace();
-        }
-        admin.setEmail(adminEmail);
-        admin.setPassword(adminPassword);
-        admin.setNickname(adminNickName);
-        admin.setCode(code);
-        admin.setState(RegiState);
-        admin.setInfotablename(infotablename+tableNum);
-        boolean isInserUser = loginService.registerAdminUser(admin);
-        if(isInserUser){
-            logger.debug("插入注册用户成功，用户未激活");
-        }else {
-            logger.debug("插入注册用户失败");
-        }
-        return "redirect:/login.html";
     }
 
     @RequestMapping("/welcome")
@@ -222,8 +232,10 @@ public class LoginController {
             boolean isChangeState = loginService.changeAdminState(code,1);
             if(isChangeState){
                 logger.debug("用户已经激活");
+                redirectAttributes.addFlashAttribute("succ","激活用户成功，请登录");
             }else {
                 logger.debug("用户还未激活");
+                redirectAttributes.addFlashAttribute("error","激活用户失败，请联系管理员");
             }
         }
         return "redirect:/login.html";

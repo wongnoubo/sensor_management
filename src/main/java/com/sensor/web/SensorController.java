@@ -247,7 +247,7 @@ public class SensorController {
             return "redirect:/allsensors.html";
         }
         else {
-            redirectAttributes.addFlashAttribute("succ", "传感器添加失败！");
+            redirectAttributes.addFlashAttribute("error", "传感器添加失败！");
             logger.debug("sensor_add_do.html:传感器添加失败！");
             return "redirect:/allsensors.html";
         }
@@ -330,7 +330,7 @@ public class SensorController {
     }
 
     @RequestMapping("/allsensors/export-excel-file.json")
-    public String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
+    public String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,RedirectAttributes redirectAttributes){
         int sensorId = Integer.parseInt(httpServletRequest.getParameter("sensorId"));
         Sensor sensor = sensorService.querySensorById(sensorId);
         sensorService.querySensorById(sensorId);
@@ -349,13 +349,16 @@ public class SensorController {
                     os.flush();
                     os.close();
                     logger.debug("树莓派cpu温度"+sensorTableName+"导出excel成功");
+                    redirectAttributes.addFlashAttribute("succ","树莓派cpu温度"+sensorTableName+"导出excel成功");
                 }
                 catch (IOException e){
                     logger.debug("树莓派cpu温度"+sensorTableName+"导出excel失败");
+                    redirectAttributes.addFlashAttribute("error","树莓派cpu温度"+sensorTableName+"导出excel失败");
                     e.printStackTrace();
                 }
             }else {
                 logger.debug("树莓派cpu温度数据为空，获取失败"+sensorTableName);
+                redirectAttributes.addFlashAttribute("error","树莓派cpu温度数据为空，获取失败"+sensorTableName);
             }
         }
         else if(sensor.getName().equals("温度传感器")){
@@ -371,14 +374,17 @@ public class SensorController {
                     os.flush();
                     os.close();
                     logger.debug("温度传感器"+sensorTableName+"导出excel成功");
+                    redirectAttributes.addFlashAttribute("succ","温度传感器"+sensorTableName+"导出excel成功");
                 }
                 catch (IOException e){
                     logger.debug("温度传感器"+sensorTableName+"导出excel失败");
+                    redirectAttributes.addFlashAttribute("error","温度传感器"+sensorTableName+"导出excel失败");
                     e.printStackTrace();
                 }
 
             }else{
                 logger.debug("温度传感器数据为空，获取失败"+sensorTableName);
+                redirectAttributes.addFlashAttribute("error","温度传感器数据为空，获取失败"+sensorTableName);
             }
         }
         else if(sensor.getName().equals("湿度传感器")){
@@ -394,13 +400,16 @@ public class SensorController {
                     os.flush();
                     os.close();
                     logger.debug("湿度传感器"+sensorTableName+"导出excel成功");
+                    redirectAttributes.addFlashAttribute("succ","湿度传感器"+sensorTableName+"导出excel成功");
                 }
                 catch (IOException e){
                     logger.debug("湿度传感器"+sensorTableName+"导出excel失败");
+                    redirectAttributes.addFlashAttribute("error","湿度传感器"+sensorTableName+"导出excel失败");
                     e.printStackTrace();
                 }
             }else {
                 logger.debug("湿度传感器数据为空，获取失败"+sensorTableName);
+                redirectAttributes.addFlashAttribute("error","湿度传感器数据为空，获取失败"+sensorTableName);
             }
         }
         else if(sensor.getName().equals("红外人体传感器")){
@@ -416,13 +425,16 @@ public class SensorController {
                     os.flush();
                     os.close();
                     logger.debug("红外人体传感器"+sensorTableName+"导出excel成功");
+                    redirectAttributes.addFlashAttribute("succ","红外人体传感器"+sensorTableName+"导出excel成功");
                 }
                 catch (IOException e){
                     logger.debug("红外人体传感器"+sensorTableName+"导出excel失败");
+                    redirectAttributes.addFlashAttribute("error","红外人体传感器"+sensorTableName+"导出excel失败");
                     e.printStackTrace();
                 }
             }else {
                 logger.debug("人体传感器数据为空，获取失败"+sensorTableName);
+                redirectAttributes.addFlashAttribute("error","人体传感器数据为空，获取失败"+sensorTableName);
             }
         }else{
 
