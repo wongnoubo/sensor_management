@@ -59,6 +59,7 @@ public class LoginController {
                 admin.setAdminId(id);
                 admin.setPassword(passwd);
                 admin.setNickname(loginService.getAdminById(id).getNickname());
+                admin.setEmail(loginService.getAdminById(id).getEmail());
                 request.getSession().setAttribute("admin", admin);
                 res.put("stateCode", "1");
                 res.put("msg", "管理员登陆成功！");
@@ -233,7 +234,14 @@ public class LoginController {
             boolean isChangeState = loginService.changeAdminState(code,1);
             if(isChangeState){
                 logger.debug("用户已经激活");
-                redirectAttributes.addFlashAttribute("succ","激活用户成功，请登录");
+                int adminId = loginService.checkRegisterCode(code).getAdminId();
+                String email = loginService.checkRegisterCode(code).getEmail();
+                try {
+                    EmailUtils.sendMail(email, "用户已经激活,你的用户ID是："+adminId+"可用于登录系统。【家+安全系统】");
+                    redirectAttributes.addFlashAttribute("succ","用户已经激活,你的用户ID是："+adminId+"可用于登录系统。【家+安全系统】");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }else {
                 logger.debug("用户还未激活");
                 redirectAttributes.addFlashAttribute("error","激活用户失败，请联系管理员");

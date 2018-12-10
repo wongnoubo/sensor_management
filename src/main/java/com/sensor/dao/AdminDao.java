@@ -87,6 +87,7 @@ public class AdminDao {
                 admin.setState(resultSet.getInt("state"));
                 admin.setCode(resultSet.getString("code"));
                 admin.setPassword(resultSet.getString("password"));
+                admin.setAdminId(resultSet.getInt("admin_id"));
             }
         });
         return admin;
