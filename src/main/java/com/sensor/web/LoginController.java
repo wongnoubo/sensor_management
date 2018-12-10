@@ -58,6 +58,7 @@ public class LoginController {
                 Admin admin = new Admin();
                 admin.setAdminId(id);
                 admin.setPassword(passwd);
+                admin.setNickname(loginService.getAdminById(id).getNickname());
                 request.getSession().setAttribute("admin", admin);
                 res.put("stateCode", "1");
                 res.put("msg", "管理员登陆成功！");
