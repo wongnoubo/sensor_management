@@ -72,7 +72,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.adminId}，已登录</a></li>
+                <li>
+                    <a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.adminId}，已登录</a>
+                </li>
                 <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
@@ -124,10 +126,10 @@
 </div>
 <div class="panel panel-default" style="width: 90%;margin-left: 5%">
     <div class="panel-heading" style="background-color: #fff">
-        <h3 class="panel-title">
-            全部传感器
-        </h3>
-    </div>
+    <h3 class="panel-title">
+        全部传感器
+    </h3>
+</div>
     <div class="panel-body">
         <table class="table table-hover">
             <thead>

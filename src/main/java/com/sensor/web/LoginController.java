@@ -240,4 +240,13 @@ public class LoginController {
         }
         return "redirect:/login.html";
     }
+
+    @RequestMapping("/admininformation")
+    public ModelAndView adminInfomationDo(HttpServletRequest request){
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
+        Admin admin = loginService.getAdminById(adminId);
+        ModelAndView modelAndView = new ModelAndView("admininformation");
+        modelAndView.addObject("admininformation",admin);
+        return  modelAndView;
+    }
 }

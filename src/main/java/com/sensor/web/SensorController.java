@@ -83,6 +83,10 @@ public class SensorController {
                 String tempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
                 sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
                 logger.debug("allsensors.html:获取温度传感器");
+                //温度告警
+                if(sensorService.getNewestTempSensorValue(tempTableName)>=45){
+
+                }
             }
             if(sensor.getName().equals("湿度传感器")){
                 String humiTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();

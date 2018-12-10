@@ -61,4 +61,7 @@ public class LoginService {
         return adminDao.getAdminByAdminId(id).getState();
     }
 
+    public Admin getAdminById(int adminId){
+        return adminDao.getAdminByAdminId(adminId);
+    }
 }
