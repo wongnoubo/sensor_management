@@ -84,8 +84,9 @@ public class EmailUtils {
      public  static void findPasswordEmail(String email) throws Exception{
              String fromEmail = "jiajiasensorsystem@163.com";
              String adminPassword = emailUtils.loginService.getAdminUser(email).getPassword();
+             String nickname = emailUtils.loginService.getAdminUser(email).getNickname();
              String subject = "jiajia安全系统找回密码";//标题
-             String body = "您的密码是："+adminPassword+",请妥善保管！";
+             String body = "尊敬的"+nickname+"：您的密码是："+adminPassword+",请妥善保管！【家+安全系统】";
              String smtpHost = "smtp.163.com";//smtp.qq.com/smtp.sohu.com
              Properties props = new Properties();
              props.setProperty("mail.transport.protocol", "smtp"); // 使用的协议（JavaMail规范要求）
@@ -122,8 +123,9 @@ public class EmailUtils {
      public static void findUsernameEmail(String email) throws Exception{
          String fromEmail = "jiajiasensorsystem@163.com";
          int adminName = emailUtils.loginService.getAdminUser(email).getAdminId();
+         String nickname = emailUtils.loginService.getAdminUser(email).getNickname();
          String subject = "jiajia安全系统找回用户名";//标题
-         String body = "您的用户名是："+adminName+",请妥善保管！";
+         String body = "尊敬的"+nickname+"：您的用户名是："+adminName+",请妥善保管！【家+安全系统】";
          String smtpHost = "smtp.163.com";//smtp.qq.com/smtp.sohu.com
          Properties props = new Properties();
          props.setProperty("mail.transport.protocol", "smtp"); // 使用的协议（JavaMail规范要求）
