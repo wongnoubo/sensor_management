@@ -2,7 +2,7 @@ package com.sensor.web;
 
 import com.sensor.domain.Sensor;
 import com.sensor.service.SensorService;
-import com.sensor.utils.Tojson;
+import com.sensor.service.LoginService;
 import com.sensor.utils.ExcelExportUtil;
 import com.sensor.utils.EmailUtils;
 
@@ -13,25 +13,26 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.apache.log4j.Logger;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.BufferedOutputStream;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import net.sf.json.JSONArray;
 
 @Controller
 public class SensorController {
+
     private SensorService sensorService;
     private static Logger logger = Logger.getLogger(SensorController.class);
+    private LoginService loginService;
+
     @Autowired
-    public void setSensorService(SensorService sensorService){
+    public void setSensorService(SensorService sensorService,LoginService loginService){
+        this.loginService = loginService;
         this.sensorService = sensorService;
     }
 
@@ -292,12 +293,33 @@ public class SensorController {
 
     @RequestMapping("/sensordetail.html")
     public ModelAndView sensorDetail(HttpServletRequest request){
-        Tojson tojson = new Tojson();
-        int sensorId=Integer.parseInt(request.getParameter("sensorId"));
-        Sensor sensor = sensorService.querySensorById(sensorId);
+        String sensorId=request.getParameter("sensorId");
+        String[] temp;
+        temp = sensorId.split("a");
+        String adminId =temp[1];
+        String sensorid = temp[0];
+        int aid = Integer.parseInt(adminId);
+        int sid = Integer.parseInt(sensorid);
+        Sensor sensor = sensorService.querySensorById(sid);
+        logger.debug(sensor);
+        String email = loginService.getAdminById(aid).getEmail();
+        logger.debug("哈哈email"+email);
+        String nickname = loginService.getAdminById(aid).getNickname();
+        logger.debug("哈哈nickname"+nickname);
+        String address = sensor.getSensorAddress();
         if(sensor.getName().equals("温度传感器")){
             String tempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
+            if(sensorService.getNewestTempSensorValue(tempTableName)>=45){
+                logger.debug(address+"温度已经达到"+sensorService.getNewestTempSensorValue(tempTableName)+"℃，请注意警戒");
+                try {
+                    EmailUtils.sendMail(email, "尊敬的"+nickname+"您好："+address+"温度已经达到"+sensorService.getNewestTempSensorValue(tempTableName)+"℃，请注意警戒【家+安全系统】");
+                    logger.debug("发送"+address+"处的温度传感器温度异常告警邮件成功");
+                }catch (Exception e){
+                    logger.debug("发送"+address+"处的温度传感器温度异常告警邮件失败");
+                    e.printStackTrace();
+                }
+            }
             ArrayList<Integer> temperatures = sensorService.getTemperatureSensorDatas(tempTableName);
             sensor.setTemperatures(temperatures);
             logger.debug("sensordetail:获取温度成功！");
@@ -305,16 +327,24 @@ public class SensorController {
         if(sensor.getName().equals("湿度传感器")){
             String humiTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setHumidity(sensorService.getNewestHumSensorValue(humiTableName));
-            ArrayList<Integer> humidities = new ArrayList<>();
-            humidities = sensorService.getHumitySensorDatas(humiTableName);
+            ArrayList<Integer> humidities = sensorService.getHumitySensorDatas(humiTableName);
             sensor.setHumidities(humidities);
             logger.debug("sensordetail：获取湿度成功！");
         }
         if(sensor.getName().equals("树莓派cpu温度")){
             String raspberryCpuTempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setCputemp(sensorService.getNewestCputempValue(raspberryCpuTempTableName));
-            ArrayList<Double> raspberryCpuTemps = new ArrayList<>();
-            raspberryCpuTemps = sensorService.getCputempDatas(raspberryCpuTempTableName);
+            if(sensorService.getNewestCputempValue(raspberryCpuTempTableName)>=70){
+                logger.debug(address+"主控树莓派温度已经达到"+sensorService.getNewestCputempValue(raspberryCpuTempTableName)+"℃，请注意警戒");
+                try {
+                    EmailUtils.sendMail(email,"尊敬的"+nickname+"您好："+address+"处的主控树莓派cpu温度已经达到"+sensorService.getNewestCputempValue(raspberryCpuTempTableName)+"℃，请注意警戒【家+安全系统】");
+                    logger.debug("发送"+address+"处的主控树莓派cpu温度异常告警邮件成功");
+                }catch (Exception e){
+                    logger.debug("发送"+address+"处的主控树莓派cpu温度异常告警邮件失败");
+                    e.printStackTrace();
+                }
+            }
+            ArrayList<Double> raspberryCpuTemps = sensorService.getCputempDatas(raspberryCpuTempTableName);
             sensor.setCputemps(raspberryCpuTemps);
             logger.debug("sensordetail：获取树莓派cpu温度成功！");
         }
@@ -324,6 +354,16 @@ public class SensorController {
         if(sensor.getName().equals("红外人体传感器")){
             String humenTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setHumenState(sensorService.getHumenState(humenTableName));
+            if(sensorService.getHumenState(humenTableName)==1){
+                logger.debug(address+"处有人经过");
+                try {
+                    EmailUtils.sendMail(email,"尊敬的"+nickname+"您好："+address+"处有人经过");
+                    logger.debug("发送"+address+"处有人经过的告警邮件成功");
+                }catch (Exception e){
+                    logger.debug("发送"+address+"处有人经过的告警邮件失败");
+                    e.printStackTrace();
+                }
+            }
             ArrayList<Integer> isHumenStates = sensorService.getHumenStates(humenTableName);
             sensor.setHumenStates(isHumenStates);
             logger.debug("sensordetail:获取人体传感器数据成功！");

@@ -9,15 +9,12 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.FileInputStream;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;//对应excel文件的工作簿
 import org.apache.poi.hssf.usermodel.HSSFSheet;//对应excel文件的表空间
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;//对应excel文件的表单元格样式
 import org.apache.poi.hssf.usermodel.HSSFRow;//对应excel文件的表的行
 import org.apache.poi.hssf.usermodel.HSSFCell;//对应excel文件的表单元格
-import org.apache.poi.hssf.util.HSSFColor;
+/*import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.util.CellRangeAddress;
 import java.io.File;
@@ -26,7 +23,7 @@ import java.io.FileOutputStream;
 import java.io.BufferedOutputStream;
 import java.net.URLEncoder;
 
-import com.sensor.domain.Sensor;
+import com.sensor.domain.Sensor;*/
 import com.sensor.service.SensorService;
 
 @Component
