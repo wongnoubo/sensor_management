@@ -45,7 +45,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allsensors.html">全部传感器</a></li>
+                        <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
                         <li><a href="sensor_add.html">增加传感器</a></li>
                     </ul>

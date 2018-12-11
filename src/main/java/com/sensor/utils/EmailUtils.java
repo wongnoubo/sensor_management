@@ -47,7 +47,7 @@ public class EmailUtils {
             throws Exception {
             String from = "jiajiasensorsystem@163.com";
             LoginService loginService = new LoginService();
-            String subject = "jiajia安全系统用户你好！";//标题
+            String subject = "家+安全系统用户你好！";//标题
             String body = emailMsg;
             String smtpHost = "smtp.163.com";//smtp.qq.com/smtp.sohu.com
             Properties props = new Properties();

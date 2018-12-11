@@ -57,7 +57,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allsensors.html">全部传感器</a></li>
+                        <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
                         <li><a href="sensor_add.html">增加传感器</a></li>
                     </ul>
@@ -171,7 +171,7 @@
                     </c:choose>
                     </td>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
-                    <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>a<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
+                    <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
                     <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
                     <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
                     <td><a href="allsensors/export-excel-file.json?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
