@@ -13,9 +13,62 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
+    <script>
+        function display() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth()+1;
+            if(month<10){
+                month = "0"+month;
+            }
+            var mydate = date.getDate();
+            var hours = date.getHours();
+            var mins = date.getMinutes();
+            if(mins<10){
+                mins="0"+mins;
+            }
+            var secs = date.getSeconds();
+            if(secs<10){
+                secs = "0"+secs;
+            }
+
+            var time = year + "-" + month +"-"+mydate + " "+ hours +":"+ mins +":"+secs;
+            document.getElementById("time").innerHTML = time;
+            setTimeout("display()",1000);
+            return time;
+        }
+
+        window.onload = function () {
+            display();
+        };
+    </script>
+    <style type="text/css">
+        *{
+            margin: auto;
+        }
+        div{
+            margin: auto;
+        }
+        #camera{
+            width: 640px;
+            height: 320px;
+            background-color:#f0f0f0;
+        }
+        .con{
+            width: 640px;
+        }
+        #time{
+            font-size: 20px;
+            float: right;
+            background-color: #f0f0f0;
+        }
+        #btn {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
+<nav  style="position:relative;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
             <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
@@ -38,7 +91,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href=admin_repasswd.html">密码修改</a></li>
+                        <li><a href="admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
                 <li >
@@ -47,7 +100,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://192.168.0.26:8090/?action=stream">实时监控</a></li>
+                        <li><a href="adminvideo.html">实时监控</a></li>
                     </ul>
                 </li>
             </ul>
@@ -58,8 +111,12 @@
         </div>
     </div>
 </nav>
-<div id="content">
+<div id="camera" style="position: relative;background-color:#f0f0f0">
+    <div id="header" class="con" style="position: relative">
+        <span id="time">Time</span>
+    </div>
     <img src="http://192.168.0.26:8090/?action=stream" width="640px"; height="480px";/>
+    <button class="btn-info center-block btn-lg" id="btn" onclick="add()">切换摄像头</button>
 </div>
 </body>
 </html>

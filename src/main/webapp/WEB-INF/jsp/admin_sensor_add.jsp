@@ -52,7 +52,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://192.168.0.26:8090/?action=stream">实时监控</a></li>
+                        <li><a href="adminvideo.html">实时监控</a></li>
                     </ul>
                 </li>
             </ul>
