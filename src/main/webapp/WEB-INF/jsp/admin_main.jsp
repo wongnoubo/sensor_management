@@ -59,6 +59,15 @@
                         <li><a href="admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
+                <li >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        实时监控
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="adminvideo.html">实时监控</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>

@@ -509,4 +509,9 @@ public class SensorController {
         }
         return "redirect:/admin_sensors.html";
     }
+
+    @RequestMapping("/adminvideo")
+    public ModelAndView displayVideo(){
+        return new ModelAndView("adminvideo");
+    }
 }
