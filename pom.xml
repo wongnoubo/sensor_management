@@ -22,6 +22,8 @@
     <commons-dbcp.version>1.4</commons-dbcp.version>
     <servlet.version>3.0-alpha-1</servlet.version>
     <jetty.version>8.1.8.v20121106</jetty.version>
+    <!-- 打包跳过skip maven unit test -->
+    <maven.test.skip>true</maven.test.skip>
   </properties>
 
   <dependencies>
