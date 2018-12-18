@@ -38,24 +38,35 @@
         <h3 class="panel-title">请输入你的注册邮箱找回你的账户名</h3>
     </div>
     <div class="panel-body" style="position: relative;left: 30%;top:2%;width: 40%">
+        <a id="findadminname">帮助</a>
+        <script>
+            document.getElementById("findadminname").onclick = function () {
+                alert("请输入注册所用的邮箱，用于找回用户名。注意邮箱的格式");
+            }
+        </script>
         <form action="admin_findusername_do.html" method="post" id="findusername">
         <div class="form-group" >
             <label for="adminemail">邮箱</label>
             <input type="text" class="form-control" name="adminemail" id="adminemail" placeholder="请输入注册邮箱">
         </div>
         <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
-            <input type="submit" value="找回用户名" class="btn btn-success btn-sm" class="text-left">
+            <input type="submit" value="找回用户名" class="btn btn-success btn-sm" class="text-left" onclick="check()">
         </form>
         <script>
-            function mySubmit(flag){
-                return flag;
-            }
-            $("#findusername").submit(function () {
-                if($("#adminemail").val()==''){
-                    alert("请填入完整注册邮箱信息！");
-                    return mySubmit(false);
+            function check(){
+                var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
+                var obj = document.getElementById("adminemail"); //要验证的对象
+                if(obj.value === ""){ //输入不能为空
+                    alert("输入的邮箱不能为空!");
+                    return false;
+                }else if(!reg.test(obj.value)){ //正则验证不通过，格式不对
+                    alert("验证不通过，请输入正确的邮箱。");
+                    return false;
+                }else{
+                    alert("邮箱通过校验！");
+                    return true;
                 }
-            })
+            }
         </script>
     </div>
     <h6 style="position: relative;left: 45%;top: 69%">家+安全系统版权所有Copyright ©  2018-2018</h6>

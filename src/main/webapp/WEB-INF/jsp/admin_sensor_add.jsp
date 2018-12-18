@@ -65,6 +65,12 @@
 </nav>
 
 <div style="position: relative;top: 10%;width: 80%;margin-left: 10%">
+    <a id="addsensorhelp">帮助</a>
+    <script>
+        document.getElementById("addsensorhelp").onclick = function () {
+            alert("请按照一定规范来命名：温度传感器，湿度传感器，树莓派cpu温度，有毒气体传感器，红外人体传感器");
+        }
+    </script>
     <form action="sensor_add_do.html" method="post" id="addsensor" >
         <div class="form-group">
             <label for="sensorName">传感器名</label>
@@ -98,6 +104,13 @@
                 if($("#sensorName").val()==''||$("#sensorIntroduction").val()==''||$("#sensorPrice").val()==''||$("#sensorId").val()==''||$("#sensorState").val()==''){
                     alert("请填入完整传感器信息！");
                     return mySubmit(false);
+                }else{
+                    if($("#sensorName").val()=='温度传感器'||$("#sensorName").val()=='湿度传感器'||$("#sensorName").val()=='树莓派cpu温度'||$("#sensorName").val()=='有毒气体传感器'||$("#sensorName").val()=='红外人体传感器'){
+                        return mySubmit(true);
+                    }else{
+                        alert("传感器的名字不符合规范，请按照一定规范来命名：温度传感器，湿度传感器，树莓派cpu温度，有毒气体传感器，红外人体传感器")
+                        return mySubmit(false);
+                    }
                 }
             })
         </script>
