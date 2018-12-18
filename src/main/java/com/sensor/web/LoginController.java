@@ -122,19 +122,24 @@ public class LoginController {
 
     //找回密码
     @RequestMapping("/admin_findpassword_do.html")
-    public String findPasswordDo(HttpServletRequest request,RedirectAttributes redirectAttributes){
+    public String findPasswordDo(HttpServletRequest request,RedirectAttributes redirectAttributes) {
         String adminEmail = request.getParameter("adminemail");
-        logger.debug("jsp传来的邮箱："+adminEmail);
-        try {
-            EmailUtils.findPasswordEmail(adminEmail);
-            redirectAttributes.addFlashAttribute("succ","查找密码的邮件发送成功");
-            logger.debug("查找密码的邮件发送成功");
-        }catch (Exception e){
-            logger.debug("查找密码邮件发送失败");
-            redirectAttributes.addFlashAttribute("error","查找密码的邮件发送成功");
-            e.printStackTrace();
+        logger.debug("jsp传来的邮箱：" + adminEmail);
+        if (adminEmail.length() == 0 || adminEmail.equals("") || adminEmail == null) {
+            logger.debug("js邮箱校验显示这个邮箱是空的，格式是错误的");
+            return "admin_findpassword";
+        } else {
+            try {
+                EmailUtils.findPasswordEmail(adminEmail);
+                redirectAttributes.addFlashAttribute("succ", "查找密码的邮件发送成功");
+                logger.debug("查找密码的邮件发送成功");
+            } catch (Exception e) {
+                logger.debug("查找密码邮件发送失败");
+                redirectAttributes.addFlashAttribute("error", "查找密码的邮件发送成功");
+                e.printStackTrace();
+            }
+            return "redirect:/login.html";
         }
-        return "redirect:/login.html";
     }
 
     @RequestMapping("/admin_findusername.html")
@@ -143,19 +148,24 @@ public class LoginController {
     }
 
     @RequestMapping("admin_findusername_do.html")
-    public String findUsernameDo(HttpServletRequest request,RedirectAttributes redirectAttributes){
+    public String findUsernameDo(HttpServletRequest request,RedirectAttributes redirectAttributes) {
         String adminEmail = request.getParameter("adminemail");
-        logger.debug("jsp传来的邮箱："+adminEmail);
-        try{
-            EmailUtils.findUsernameEmail(adminEmail);
-            logger.debug("查找用户名的邮件发送成功");
-            redirectAttributes.addFlashAttribute("succ","查找用户名的邮件发送成功");
-        }catch (Exception e){
-            logger.debug("查找用户名的邮件发送失败");
-            redirectAttributes.addFlashAttribute("succ","查找用户名的邮件发送失败");
-            e.printStackTrace();
+        logger.debug("jsp传来的邮箱：" + adminEmail);
+        if (adminEmail.length() == 0 || adminEmail.equals("") || adminEmail == null) {
+            logger.debug("js邮箱校验显示这个邮箱是空的，格式是错误的");
+            return "admin_findusername";
+        } else {
+            try {
+                EmailUtils.findUsernameEmail(adminEmail);
+                logger.debug("查找用户名的邮件发送成功");
+                redirectAttributes.addFlashAttribute("succ", "查找用户名的邮件发送成功");
+            } catch (Exception e) {
+                logger.debug("查找用户名的邮件发送失败");
+                redirectAttributes.addFlashAttribute("succ", "查找用户名的邮件发送失败");
+                e.printStackTrace();
+            }
+            return "redirect:/login.html";
         }
-        return "redirect:/login.html";
     }
 
     @RequestMapping("/admin_register.html")
