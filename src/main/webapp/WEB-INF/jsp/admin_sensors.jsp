@@ -178,6 +178,18 @@
                             <c:out value="无人经过"></c:out>
                             <script>setInterval("res('${sensor.humenState}');",1000*20);</script>
                         </c:when>
+                        <c:when test="${sensor.name eq '有毒气体传感器' && sensor.toxicAirState==1}">
+                            <c:out value="有毒气体浓度正常"></c:out>
+                            <script>setInterval("res('${sensor.toxicAirState}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${sensor.name eq '有毒气体传感器' && sensor.toxicAirState eq null}">
+                            <c:out value="有毒气体没有被测量"></c:out>
+                            <script>setInterval("res('${sensor.toxicAirState}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${sensor.name eq '有毒气体传感器' && sensor.toxicAirState==0}">
+                            <c:out value="有毒气体浓度异常"></c:out>
+                            <script>setInterval("res('${sensor.toxicAirState}');",1000*20);</script>
+                        </c:when>
                     </c:choose>
                     </td>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>

@@ -83,7 +83,7 @@ public class SensorService {
     }
 
     public boolean createSensorTable(String tablename,String value){
-        return sensorDao.createSensorTable(tablename,value)>0;
+        return sensorDao.createSensorTable(tablename,value)<0;
     }
 
     public boolean dropSensorTable(String tablename){
@@ -96,5 +96,13 @@ public class SensorService {
 
     public ArrayList<Integer>getHumenStates(String tablename){
         return sensorDao.getHumenStates(tablename);
+    }
+
+    public int getAirState(String tablename){
+        return sensorDao.getAirState(tablename);
+    }
+
+    public ArrayList<Integer> getAirStates(String tablename){
+        return sensorDao.getAirStates(tablename);
     }
 }
