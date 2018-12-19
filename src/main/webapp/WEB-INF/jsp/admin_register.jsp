@@ -43,20 +43,41 @@
             <label for="passwordid">密码</label>
             <input type="password" class="form-control" id="passwordid" name="passwordid" placeholder="请输入密码">
             <label for="repasswordid">再次输入密码</label>
-            <input type="password" class="form-control" id="repasswordid" name="repasswordid" placeholder="请再次输入密码">
+            <input type="password" class="form-control" id="repasswordid" name="repasswordid" placeholder="请再次输入密码" onkeyup="validate()">
             <em id="tishi" style="color: red"></em>
             <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
             <input type="submit" value="注册用户" class="btn btn-success btn-sm" class="text-left">
         </form>
         <script>
+            function check(){
+                var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
+                var obj = document.getElementById("emailid"); //要验证的对象
+                if(obj.value === ""){ //输入不能为空
+                    obj.value = "";
+                    alert("输入的邮箱不能为空!");
+                    return false;
+                }else if(!reg.test(obj.value)){ //正则验证不通过，格式不对
+                    obj.value = "";
+                    alert("验证不通过，请输入正确的邮箱。");
+                    return false;
+                }else{
+                    alert("邮箱通过校验！");
+                    return true;
+                }
+            }
+
             function mySubmit(flag){
                 return flag;
             }
-            $("#findusername").submit(function () {
+            $("#registeradmin").submit(function () {
                 if($("#emailid").val()==''||$("#passwordid").val()==''||$("#repasswordid").val()==''||$("#nickname").val()==''){
                     alert("请填入完整注册信息！");
                     return mySubmit(false);
                 }
+            })
+
+            $("#registeradmin").submit(function () {
+                check();
             })
 
             function validate() {

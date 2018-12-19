@@ -174,56 +174,62 @@ public class LoginController {
     }
 
     @RequestMapping("/admin_register_do.html")
-    public String registerAdminDo(HttpServletRequest httpServletRequest,RedirectAttributes redirectAttributes){
+    public String registerAdminDo(HttpServletRequest httpServletRequest,RedirectAttributes redirectAttributes) {
         int RegiState = 0;
         Admin admin = new Admin();
         String adminEmail = httpServletRequest.getParameter("emailid");
         String adminPassword = httpServletRequest.getParameter("repasswordid");
         String adminNickName = httpServletRequest.getParameter("nickname");
-        if(loginService.getAdminUser(adminEmail).getAdminId()==0) {
-            logger.debug("该邮箱未被注册");
-            String infotablename = "sensorinfo";
-            int tableNum = loginService.getElementNumber();
-            boolean isCreateSensorManageTable = loginService.createSensorTable(infotablename + tableNum);
-            if (isCreateSensorManageTable) {
-                logger.debug("创建管理数据库表成功，数据库表的名字是：" + infotablename + tableNum);
+        logger.debug("用户注册邮箱"+adminEmail);
+        if (adminEmail.length() == 0 || adminEmail.equals("") || adminEmail == null) {
+            logger.debug("用户邮箱输入不正确");
+            return "admin_register";
+        } else {
+            if (loginService.getAdminUser(adminEmail).getAdminId() == 0) {
+                logger.debug("该邮箱未被注册");
+                String infotablename = "sensorinfo";
+                int tableNum = loginService.getElementNumber();
+                boolean isCreateSensorManageTable = loginService.createSensorTable(infotablename + tableNum);
+                if (isCreateSensorManageTable) {
+                    logger.debug("创建管理数据库表成功，数据库表的名字是：" + infotablename + tableNum);
+                } else {
+                    logger.debug("创建管理数据库表失败。");
+                }
+                logger.debug("校验验证码");
+                String code = EmailUtils.generateCode();
+                if (!code.isEmpty()) {
+                    logger.debug("产生验证码成功" + code);
+                } else {
+                    logger.debug("产生验证码失败");
+                }
+                try {
+                    EmailUtils.sendRegisterCode(adminEmail, code);
+                    logger.debug("发送注册验证码邮件成功");
+                } catch (Exception e) {
+                    logger.debug("发送注册验证码邮件失败");
+                    e.printStackTrace();
+                }
+                admin.setEmail(adminEmail);
+                admin.setPassword(adminPassword);
+                admin.setNickname(adminNickName);
+                admin.setCode(code);
+                admin.setState(RegiState);
+                admin.setInfotablename(infotablename + tableNum);
+                boolean isInserUser = loginService.registerAdminUser(admin);
+                if (isInserUser) {
+                    logger.debug("插入注册用户成功，用户未激活");
+                    redirectAttributes.addFlashAttribute("succ", "注册用户成功，请点击邮箱激活链接激活");
+                } else {
+                    logger.debug("插入注册用户失败");
+                    redirectAttributes.addFlashAttribute("error", "注册用户失败，请联系管理员");
+                }
+                redirectAttributes.addFlashAttribute("用户未激活");
+                return "redirect:/login.html";
             } else {
-                logger.debug("创建管理数据库表失败。");
+                redirectAttributes.addFlashAttribute("error", "该邮箱已经被注册，请登录");
+                logger.debug("该邮箱已经被注册，请登录");
+                return "redirect:/login.html";
             }
-            logger.debug("校验验证码");
-            String code = EmailUtils.generateCode();
-            if (!code.isEmpty()) {
-                logger.debug("产生验证码成功" + code);
-            } else {
-                logger.debug("产生验证码失败");
-            }
-            try {
-                EmailUtils.sendRegisterCode(adminEmail, code);
-                logger.debug("发送注册验证码邮件成功");
-            } catch (Exception e) {
-                logger.debug("发送注册验证码邮件失败");
-                e.printStackTrace();
-            }
-            admin.setEmail(adminEmail);
-            admin.setPassword(adminPassword);
-            admin.setNickname(adminNickName);
-            admin.setCode(code);
-            admin.setState(RegiState);
-            admin.setInfotablename(infotablename + tableNum);
-            boolean isInserUser = loginService.registerAdminUser(admin);
-            if (isInserUser) {
-                logger.debug("插入注册用户成功，用户未激活");
-                redirectAttributes.addFlashAttribute("succ","注册用户成功，请点击邮箱激活链接激活");
-            } else {
-                logger.debug("插入注册用户失败");
-                redirectAttributes.addFlashAttribute("error","注册用户失败，请联系管理员");
-            }
-            redirectAttributes.addFlashAttribute("用户未激活");
-            return "redirect:/login.html";
-        }else{
-            redirectAttributes.addFlashAttribute("error","该邮箱已经被注册，请登录");
-            logger.debug("该邮箱已经被注册，请登录");
-            return "redirect:/login.html";
         }
     }
 
