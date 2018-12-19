@@ -43,6 +43,9 @@ public class EmailUtils {
                 emailUtils = this;
                 emailUtils.loginService = this.loginService;
         }
+        /*
+        发邮件
+         */
     public static void sendMail(String toemail, String emailMsg)
             throws Exception {
             String from = "jiajiasensorsystem@163.com";
@@ -81,6 +84,9 @@ public class EmailUtils {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
         }
+        /*
+        发邮件找回密码
+         */
      public  static void findPasswordEmail(String email) throws Exception{
              String fromEmail = "jiajiasensorsystem@163.com";
              String adminPassword = emailUtils.loginService.getAdminUser(email).getPassword();
@@ -119,7 +125,9 @@ public class EmailUtils {
              transport.sendMessage(message, message.getAllRecipients());
              transport.close();
      }
-
+    /*
+    发邮件找回用户名
+     */
      public static void findUsernameEmail(String email) throws Exception{
          String fromEmail = "jiajiasensorsystem@163.com";
          int adminName = emailUtils.loginService.getAdminUser(email).getAdminId();

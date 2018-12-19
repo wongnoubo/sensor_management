@@ -44,8 +44,11 @@ public class LoginController {
     //请求参数会根据参数名称默认契约自动绑定到相应方法的入参中
     @RequestMapping(value = "/api/loginCheck", method = RequestMethod.POST)
     public @ResponseBody Object loginCheck(HttpServletRequest request,RedirectAttributes redirectAttributes){
-        int id=Integer.parseInt(request.getParameter("id"));
+       // if(request.getParameter("id"))
+        //int id=Integer.parseInt(request.getParameter("id"));
+        String email = request.getParameter("id");
         String passwd = request.getParameter("passwd");
+        int id = loginService.getAdminUser(email).getAdminId();
         if(loginService.getAdminStateByAdminId(id)==1) {//判断账号是否激活，没有激活不能登录
             logger.debug("账号已经激活，可以登录");
             boolean isAdmin = loginService.hasMatchAdmin(id, passwd);

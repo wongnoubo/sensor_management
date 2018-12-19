@@ -41,6 +41,12 @@ public class AdminDao {
         return jdbcTemplate.queryForObject(GET_PASSWD_SQL,new Object[]{id},String.class);
     }
 
+    public String checkUserByEmail(String email){
+        Admin admin = this.getAdminUser(email);
+        String password = admin.getPassword();
+        return password;
+    }
+
     public Admin getAdminUser(String email){
         final Admin admin = new Admin();
         jdbcTemplate.query(GET_ADMIN_USER,new Object[]{email}, new RowCallbackHandler() {

@@ -205,7 +205,7 @@
         </div>
         <div class="form-group">
             <label for="passwd">密码</label>
-            <input type="password" class="form-control" id="passwd" placeholder="请输入密码">
+            <input type="password" class="form-control" id="passwd" placeholder="请输入密码" onclick="check()">
         </div>
         <div class="checkbox text-left">
             <label>
@@ -242,16 +242,22 @@
     </div>
 </div>
 <script>
-    $("#id").keyup(
-        function () {
-            if(isNaN($("#id").val())){
-                $("#info").text("提示:账号只能为数字");
-            }
-            else {
-                $("#info").text("");
+        function check(){
+            var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
+            var obj = document.getElementById("id"); //要验证的对象
+            if(obj.value === ""){ //输入不能为空
+                obj.value = "";
+                $("#info").text("提示：账号输入不能为空。请输入正确的邮箱账号")
+                return false;
+            }else if(!reg.test(obj.value)){ //正则验证不通过，格式不对
+                $("#info").text("提示：验证不通过。请输入正确的邮箱账号")
+                obj.value = "";
+                return false;
+            }else{
+                $("#info").text("邮箱通过验证")
+                return true;
             }
         }
-    )
     // 记住登录信息
     function rememberLogin(username, password, checked) {
         Cookies.set('loginStatus', {
@@ -289,9 +295,9 @@
         else if( passwd ==''){
             $("#info").text("提示:密码不能为空");
         }
-        else if(isNaN( id )){
-            $("#info").text("提示:账号必须为数字");
-        }
+        //else if(isNaN( id )){
+         //   $("#info").text("提示:账号必须为数字");
+        //}
         else {
             $.ajax({
                 type: "POST",

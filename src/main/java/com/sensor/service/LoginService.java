@@ -64,4 +64,8 @@ public class LoginService {
     public Admin getAdminById(int adminId){
         return adminDao.getAdminByAdminId(adminId);
     }
+
+    public String checkUserByEmail(String email){
+        return adminDao.checkUserByEmail(email);
+    }
 }
