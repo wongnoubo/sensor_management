@@ -10,6 +10,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link href="static/images/camera-outline.png" rel="shortcut icon">
     <title>更改密码</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
@@ -35,7 +36,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allsensors.html">全部传感器</a></li>
+                        <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
                         <li><a href="sensor_add.html">增加传感器</a></li>
                     </ul>
@@ -48,9 +49,18 @@
                         <li><a href=admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
+                <li >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        实时监控
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="adminvideo.html">实时监控</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.adminId}，已登录</a></li>
+                <li><a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
                 <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
@@ -90,7 +100,7 @@
                     <em id="tishi" style="color: red"></em>
                     <br/>
                     <span>
-                            <input type="submit" value="提交" class="btn btn-default">
+                        <input type="submit" value="提交" class="btn btn-default" style="background-color:#5bff12">
             </span>
                 </div>
             </form>

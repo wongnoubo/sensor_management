@@ -78,18 +78,18 @@ public class SensorController {
     @RequestMapping("/allsensors.html")
     public ModelAndView allSensor(HttpServletRequest httpServletRequest){
         ArrayList<Sensor> sensors=sensorService.getAllSensors();
-        int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
-        String email = loginService.getAdminById(adminId).getEmail();
-        String nickname = loginService.getAdminById(adminId).getNickname();
+//        int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
+  //      String email = loginService.getAdminById(adminId).getEmail();
+    //    String nickname = loginService.getAdminById(adminId).getNickname();
         ModelAndView modelAndView=new ModelAndView("admin_sensors");
         for(Sensor sensor : sensors){
             if(sensor.getName().equals("温度传感器")){
                 String tempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
-                String address = sensorService.querySensorById(sensor.getId()).getSensorAddress();
+                //String address = sensorService.querySensorById(sensor.getId()).getSensorAddress();
                 sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
                 logger.debug("allsensors.html:获取温度传感器");
                 //温度告警
-                if(sensorService.getNewestTempSensorValue(tempTableName)>=45){
+               /* if(sensorService.getNewestTempSensorValue(tempTableName)>=45){
                     logger.debug(address+"的温度已经达到"+sensorService.getNewestTempSensorValue(tempTableName)+"℃，请注意警戒");
                     try {
                         EmailUtils.sendMail(email, "尊敬的"+nickname+"您好："+address+"温度已经达到"+sensorService.getNewestTempSensorValue(tempTableName)+"℃，请注意警戒【家+安全系统】");
@@ -98,7 +98,7 @@ public class SensorController {
                         logger.debug("发送"+address+"处的温度传感器温度异常告警邮件失败");
                         e.printStackTrace();
                     }
-                }
+                }*/
             }
             if(sensor.getName().equals("湿度传感器")){
                 String humiTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
@@ -108,9 +108,9 @@ public class SensorController {
             if(sensor.getName().equals("树莓派cpu温度")){
                 String raspberryCpuTempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
                 sensor.setCputemp(sensorService.getNewestCputempValue(raspberryCpuTempTableName));
-                String address = sensorService.querySensorById(sensor.getId()).getSensorAddress();
+               // String address = sensorService.querySensorById(sensor.getId()).getSensorAddress();
                 logger.debug("allsensors.html:树莓派cpu温度");
-                if(sensorService.getNewestCputempValue(raspberryCpuTempTableName)>=60){
+               /* if(sensorService.getNewestCputempValue(raspberryCpuTempTableName)>=60){
                     try {
                         EmailUtils.sendMail(email, "尊敬的"+nickname+"您好："+address+"处主控树莓派Ccpu温度已经达到"+sensorService.getNewestCputempValue(raspberryCpuTempTableName)+"℃，请注意警戒【家+安全系统】");
                         logger.debug("发送" + address + "处的主控树莓派温度异常告警邮件成功");
@@ -118,17 +118,17 @@ public class SensorController {
                         logger.debug("发送"+address+"处的主控树莓派温度异常告警邮件失败");
                         e.printStackTrace();
                     }
-                }
+                }*/
             }
             if(sensor.getName().equals("有毒气体传感器")){
                 String gasTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
             }
             if(sensor.getName().equals("红外人体传感器")){
                 String humenTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
-                String address = sensorService.querySensorById(sensor.getId()).getSensorAddress();
+                //String address = sensorService.querySensorById(sensor.getId()).getSensorAddress();
                 sensor.setHumenState(sensorService.getHumenState(humenTableName));
                 logger.debug("allsensors.html:红外人体传感器");
-                if(sensorService.getHumenState(humenTableName)==1){
+                /*if(sensorService.getHumenState(humenTableName)==1){
                     logger.debug(address+"处有人经过");
                     try{
                         EmailUtils.sendMail(email,"尊敬的"+nickname+"您好："+address+"处有人经过，请注意【家+安全系统】");
@@ -137,7 +137,7 @@ public class SensorController {
                         logger.debug(address+"处的人体传感器监测结果发送失败！");
                         e.printStackTrace();
                     }
-                }
+                }*/
             }
         }
         modelAndView.addObject("sensors",sensors);
@@ -147,11 +147,17 @@ public class SensorController {
     @RequestMapping("/deletesensor.html")
     public String deleteSensor(HttpServletRequest request,RedirectAttributes redirectAttributes){
         int sensorId=Integer.parseInt(request.getParameter("sensorId"));
+        logger.debug("huangleiid"+sensorId);
         Sensor sensor = sensorService.querySensorById(sensorId);
+        logger.debug("huanglei"+sensor);
         String sensortype = sensor.getName();
+        logger.debug("huanglei"+sensortype);
         String sensorAddress = sensor.getSensorAddress();
+        logger.debug("huanglei"+sensorAddress);
         int id = sensorService.getSensorTableName(sensortype,sensorAddress).getId();
+        logger.debug("huanglei"+id);
         String tablename = sensorService.getSensorTableName(sensortype,sensorAddress).getTablename();
+        logger.debug("huanglei"+tablename);
         boolean deleteTableFlag = sensorService.dropSensorTable(tablename);
         if(deleteTableFlag){
             logger.debug("删除对应表格"+tablename+"成功");
@@ -246,7 +252,7 @@ public class SensorController {
 
         if(sensorAddCommand.getSensorName().equals("有毒气体传感器")){
             String gasSensorTableName = "gasSensorTable";
-            sensorGasNum = sensorService.querySensor("有毒气体传感器").size();
+            sensorGasNum = sensorService.querySensor("有毒气体传感器").size();//已经建立的有毒气体传感器的数目
             sensor.setSensortableName(gasSensorTableName+sensorGasNum);
             boolean isGasTableNameTrue = sensorService.setSensorTableName(gasSensorTableName+sensorGasNum,"有毒气体传感器",sensorAddCommand.getSensorAddress());
             if(isGasTableNameTrue)
@@ -334,7 +340,7 @@ public class SensorController {
         if(sensor.getName().equals("温度传感器")){
             String tempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
-            if(sensorService.getNewestTempSensorValue(tempTableName)>=45){
+           /* if(sensorService.getNewestTempSensorValue(tempTableName)>=45){
                 logger.debug(address+"温度已经达到"+sensorService.getNewestTempSensorValue(tempTableName)+"℃，请注意警戒");
                 try {
                     EmailUtils.sendMail(email, "尊敬的"+nickname+"您好："+address+"温度已经达到"+sensorService.getNewestTempSensorValue(tempTableName)+"℃，请注意警戒【家+安全系统】");
@@ -343,7 +349,7 @@ public class SensorController {
                     logger.debug("发送"+address+"处的温度传感器温度异常告警邮件失败");
                     e.printStackTrace();
                 }
-            }
+            }*/
             ArrayList<Integer> temperatures = sensorService.getTemperatureSensorDatas(tempTableName);
             sensor.setTemperatures(temperatures);
             logger.debug("sensordetail:获取温度成功！");
@@ -358,7 +364,7 @@ public class SensorController {
         if(sensor.getName().equals("树莓派cpu温度")){
             String raspberryCpuTempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setCputemp(sensorService.getNewestCputempValue(raspberryCpuTempTableName));
-            if(sensorService.getNewestCputempValue(raspberryCpuTempTableName)>=70){
+           /* if(sensorService.getNewestCputempValue(raspberryCpuTempTableName)>=70){
                 logger.debug(address+"主控树莓派温度已经达到"+sensorService.getNewestCputempValue(raspberryCpuTempTableName)+"℃，请注意警戒");
                 try {
                     EmailUtils.sendMail(email,"尊敬的"+nickname+"您好："+address+"处的主控树莓派cpu温度已经达到"+sensorService.getNewestCputempValue(raspberryCpuTempTableName)+"℃，请注意警戒【家+安全系统】");
@@ -367,7 +373,7 @@ public class SensorController {
                     logger.debug("发送"+address+"处的主控树莓派cpu温度异常告警邮件失败");
                     e.printStackTrace();
                 }
-            }
+            }*/
             ArrayList<Double> raspberryCpuTemps = sensorService.getCputempDatas(raspberryCpuTempTableName);
             sensor.setCputemps(raspberryCpuTemps);
             logger.debug("sensordetail：获取树莓派cpu温度成功！");
@@ -378,7 +384,7 @@ public class SensorController {
         if(sensor.getName().equals("红外人体传感器")){
             String humenTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setHumenState(sensorService.getHumenState(humenTableName));
-            if(sensorService.getHumenState(humenTableName)==1){
+            /*if(sensorService.getHumenState(humenTableName)==1){
                 logger.debug(address+"处有人经过");
                 try {
                     EmailUtils.sendMail(email,"尊敬的"+nickname+"您好："+address+"处有人经过");
@@ -387,7 +393,7 @@ public class SensorController {
                     logger.debug("发送"+address+"处有人经过的告警邮件失败");
                     e.printStackTrace();
                 }
-            }
+            }*/
             ArrayList<Integer> isHumenStates = sensorService.getHumenStates(humenTableName);
             sensor.setHumenStates(isHumenStates);
             logger.debug("sensordetail:获取人体传感器数据成功！");

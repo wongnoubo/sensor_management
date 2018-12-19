@@ -13,6 +13,8 @@ public class Sensor {
     private BigDecimal price;
     private int sensorState;
     private int humenState;
+    private int toxicAirState;
+    private ArrayList<Integer> toxicAirStates;
     private ArrayList<Integer> humenStates;
     private int temperature;
     private ArrayList<Integer> temperatures;
@@ -147,6 +149,22 @@ public class Sensor {
 
     public void setHumenStates(ArrayList<Integer> humenStates) {
         this.humenStates = humenStates;
+    }
+
+    public ArrayList<Integer> getToxicAirStates() {
+        return toxicAirStates;
+    }
+
+    public int getToxicAirState() {
+        return toxicAirState;
+    }
+
+    public void setToxicAirState(int toxicAirState) {
+        this.toxicAirState = toxicAirState;
+    }
+
+    public void setToxicAirStates(ArrayList<Integer> toxicAirStates){
+        this.toxicAirStates=toxicAirStates;
     }
 
     @Override

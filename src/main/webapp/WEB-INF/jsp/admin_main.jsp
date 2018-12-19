@@ -29,6 +29,11 @@
             left: 35%;
             top:30%;
         }
+        .first {
+            list-style: none;
+            list-style-image: url("/static/images/log-out-outline.png");
+            padding-left: 20px;
+        }
     </style>
 
 </head>
@@ -36,7 +41,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="admin_main.html")>家+安全系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">

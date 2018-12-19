@@ -202,7 +202,9 @@ public class SensorDao {
         });
         return cputemps;
     }
-
+    /*
+    获取人体传感器状态
+     */
     public int getHumenState(String tablename){
         int isHumen = 0;
         final Sensor sensor = new Sensor();
@@ -215,7 +217,9 @@ public class SensorDao {
         isHumen = sensor.getHumenState();
         return isHumen;
     }
-
+    /*
+    获取人体传感器所有的状态
+     */
     public ArrayList<Integer> getHumenStates(String tablename){
         final ArrayList<Integer> isHumens = new ArrayList<>();
         final Sensor sensor = new Sensor();
@@ -232,11 +236,15 @@ public class SensorDao {
     public int setSensorTableName(String tablename,String sensortype,String sensorAddress){
         return jdbcTemplate.update(SET_SENSOR_TABLENAME,new Object[]{tablename,sensortype,sensorAddress});
     }
-
+    /*
+    删掉对应id的东西
+     */
     public int deleteSensorTableName(int id){
         return jdbcTemplate.update(DELETE_SENSOR_TABLENAME,id);
     }
-
+    /*
+    通过传感器类型和地理位置获取其对应的数据表的名字。
+     */
     public SensorNameTable getSensorTableName(String sensortype, final String sensorAddress){
         final SensorNameTable sensorNameTable = new SensorNameTable();
         jdbcTemplate.query(QUERY_SENSORTABLENAME, new Object[]{sensortype, sensorAddress}, new RowCallbackHandler() {
@@ -252,12 +260,45 @@ public class SensorDao {
     }
 
 
-
+    /*
+    新建传感器的时候创建对应的数据表
+     */
     public int createSensorTable(String tablename,String value){
         return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,"+value+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8");
     }
 
     public int dropSensorTable(String tablename){
         return jdbcTemplate.update("drop table "+tablename);
+    }
+
+    /*
+    获取有毒气体传感器的状态
+     */
+    public int getAirState(String tablename){
+        int isToxicAir = 0;
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query("select gas from "+ tablename+" where id like (select max(id) from "+tablename+")", new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setToxicAirState(resultSet.getInt("gas"));
+            }
+        });
+        isToxicAir = sensor.getToxicAirState();
+        return isToxicAir;
+    }
+    /*
+    获取所有的有毒气体传感器的状态
+     */
+    public ArrayList<Integer> getAirStates(String tablename){
+        final ArrayList<Integer> isToxicAirs = new ArrayList<>();
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query("select gas from " + tablename, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setToxicAirState(resultSet.getInt("gas"));
+                isToxicAirs.add(sensor.getToxicAirState());
+            }
+        });
+        return isToxicAirs;
     }
 }

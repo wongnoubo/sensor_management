@@ -2,6 +2,7 @@ package com.sensor.dao;
 
 import com.sensor.BaseJunitTest;
 import com.sensor.domain.Sensor;
+import com.sensor.domain.SensorNameTable;
 import org.junit.Test;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,7 +95,6 @@ public class TestSensorDao extends BaseJunitTest {
 
     @Test
     public void testgetSensorTableName(){
-        int id = sensorDao.getSensorTableNameId("湿度传感器","客厅").getId();
-        System.out.println("id:"+id);
+        sensorDao.createSensorTable("hahah","test");
     }
 }

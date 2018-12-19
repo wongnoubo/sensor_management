@@ -9,7 +9,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>家+安全系统</title>
+    <link href="static/images/tv-outline.png" rel="shortcut icon">
+    <title>家+安全系统登录</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
@@ -55,11 +56,6 @@
 <h2 style="text-align: center;font-family: 'Adobe 楷体 Std R';color: palevioletred">家 + 安 全 系 统</h2>
 <div style="float:right;" id="github_iframe"></div>
 <script>
-    /**
-     * Copyright (c) 2016 hustcc
-     * License: MIT
-     * Version: %%GULP_INJECT_VERSION%%
-     **/
     ! function() {
         //封装方法，压缩之后减少文件大小
         function get_attribute(node, attr, default_value) {
@@ -215,12 +211,34 @@
             <label>
                 <input type="checkbox" id="remember">记住密码
             </label>
-            <a style="margin-left: 100px" href="#">忘记密码?</a>
+            <a style="margin-left: 5%" href="admin_register.html">注册用户</a>
+            <a style="margin-left: 10%" href="admin_findpassword.html">忘记密码?</a>
+            <a style="margin-left: 15%" href="admin_findusername.html">忘记用户?</a>
         </div>
 
         <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
         <button id="loginButton"  class="btn btn-primary  btn-block">登陆
         </button>
+    </div>
+    <div style="position: relative;top: 10%">
+        <c:if test="${!empty succ}">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-hidden="true">
+                    &times;
+                </button>
+                    ${succ}
+            </div>
+        </c:if>
+        <c:if test="${!empty error}">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-hidden="true">
+                    &times;
+                </button>
+                    ${error}
+            </div>
+        </c:if>
     </div>
 </div>
 <script>
@@ -302,9 +320,7 @@
             });
         }
     })
-
 </script>
 </div>
-
 </body>
 </html>

@@ -34,7 +34,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allsensors.html">全部传感器</a></li>
+                        <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
                         <li><a href="sensor_add.html">增加传感器</a></li>
                     </ul>
@@ -47,9 +47,18 @@
                         <li><a href="admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
+                <li >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        实时监控
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="adminvideo.html">实时监控</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.adminId}，已登录</a></li>
+                <li><a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
                 <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
@@ -62,7 +71,7 @@
             <h3 class="panel-title">编辑传感器——${detail.name}</h3>
         </div>
         <div class="panel-body">
-            <form action="sensor_edit_do.html?id=${detail.id}" method="post" id="addsensor" >
+            <form action="sensor_edit_do.html?id=${detail.id}" method="post" id="editsensor" >
 
                 <div class="input-group">
                     <span  style="width:80px;height:30px" class="input-group-addon">传感器</span>
@@ -79,6 +88,23 @@
                 <div class="input-group">
                     <span  style="width:80px;height:30px" class="input-group-addon">简介</span>
                     <input type="text" class="form-control" name="sensorIntroduction" id="sensorIntroduction"  value="${detail.sensorIntroduction}" >
+                </div>
+                <div class="input-group">
+                    <span  style="width:80px;height:30px" class="input-group-addon">状态</span>
+                    <c:choose>
+                        <c:when test="${detail.sensorState eq 1}">
+                           <select class="form-control" id="sensorState" name="sensorState" placeholder="请输入传感器状态">
+                                <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
+                                <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
+                            </select>
+                        </c:when>
+                        <c:when test="${detail.sensorState eq 0}">
+                            <select class="form-control" id="sensorState" name="sensorState" placeholder="请输入传感器状态">
+                                <option value="0" id="sensorState4" style="background-color: #ff1a15">异常</option>
+                                <option value="1" id="sensorState3" style="background-color:#10adff">正常工作</option>
+                            </select>
+                        </c:when>
+                    </c:choose>
                 </div>
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>
