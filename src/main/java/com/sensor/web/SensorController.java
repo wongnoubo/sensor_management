@@ -19,6 +19,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -85,7 +86,6 @@ public class SensorController {
         for(Sensor sensor : sensors){
             if(sensor.getName().equals("温度传感器")){
                 String tempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
-                //String address = sensorService.querySensorById(sensor.getId()).getSensorAddress();
                 sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
                 logger.debug("allsensors.html:获取温度传感器");
             }
@@ -117,17 +117,11 @@ public class SensorController {
     @RequestMapping("/deletesensor.html")
     public String deleteSensor(HttpServletRequest request,RedirectAttributes redirectAttributes){
         int sensorId=Integer.parseInt(request.getParameter("sensorId"));
-        logger.debug("huangleiid"+sensorId);
         Sensor sensor = sensorService.querySensorById(sensorId);
-        logger.debug("huanglei"+sensor);
         String sensortype = sensor.getName();
-        logger.debug("huanglei"+sensortype);
         String sensorAddress = sensor.getSensorAddress();
-        logger.debug("huanglei"+sensorAddress);
         int id = sensorService.getSensorTableName(sensortype,sensorAddress).getId();
-        logger.debug("huanglei"+id);
         String tablename = sensorService.getSensorTableName(sensortype,sensorAddress).getTablename();
-        logger.debug("huanglei"+tablename);
         boolean deleteTableFlag = sensorService.dropSensorTable(tablename);
         if(deleteTableFlag){
             logger.debug("删除对应表格"+tablename+"成功");
@@ -158,7 +152,7 @@ public class SensorController {
     }
 
     @RequestMapping("/sensor_add_do.html")
-    public String addSensorDo(SensorAddCommand sensorAddCommand,RedirectAttributes redirectAttributes){
+    public String addSensorDo(HttpServletRequest request,RedirectAttributes redirectAttributes){
         Sensor sensor=new Sensor();
         ArrayList<Sensor> Sensors = new ArrayList<>();
         sensor.setId(0);
@@ -167,16 +161,27 @@ public class SensorController {
         int raspberryCpuTempNum = 0;
         int sensorGasNum = 0;
         int sensorHumenNum = 0;
-        sensor.setSensorAddress(sensorAddCommand.getSensorAddress());
+        /*sensor.setSensorAddress(sensorAddCommand.getSensorAddress());
         sensor.setSensorState(sensorAddCommand.getSensorState());
         sensor.setSensorIntroduction(sensorAddCommand.getSensorIntroduction());
         sensor.setPrice(sensorAddCommand.getSensorPrice());
-        sensor.setName(sensorAddCommand.getSensorName());
-        if(sensorAddCommand.getSensorName().equals("温度传感器")){
+        sensor.setName(sensorAddCommand.getSensorName());*/
+        //sensor.setId(id);
+        try {
+            sensor.setName(new String(request.getParameter("sensorName").getBytes("ISO-8859-1"), "utf-8"));
+            sensor.setSensorState(Integer.parseInt(request.getParameter("stateselect")));
+            sensor.setSensorIntroduction(new String(request.getParameter("sensorIntroduction").getBytes("ISO-8859-1"), "utf-8"));
+            sensor.setPrice(new BigDecimal(request.getParameter("sensorPrice")));
+            sensor.setSensorAddress(new String(request.getParameter("sensorAddress").getBytes("ISO-8859-1"), "utf-8"));
+            //if(sensorAddCommand.getSensorName().equals("温度传感器")){
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+        if(sensor.getName().equals("温度传感器")){
             String tempSensorName = "temperatureSensortable";
             sensorTempnum = sensorService.querySensor("温度传感器").size();
             sensor.setSensortableName(tempSensorName+sensorTempnum);
-            boolean isTempTableNameTrue = sensorService.setSensorTableName(tempSensorName+sensorTempnum,"温度传感器",sensorAddCommand.getSensorAddress());
+            boolean isTempTableNameTrue = sensorService.setSensorTableName(tempSensorName+sensorTempnum,"温度传感器",sensor.getSensorAddress());
             if(isTempTableNameTrue)
                 logger.debug("温度传感器名字建立成功");
             else
@@ -188,11 +193,11 @@ public class SensorController {
                 logger.debug("温度传感器对应的数据表建立失败");
         }
 
-        if(sensorAddCommand.getSensorName().equals("湿度传感器")){
+        if(sensor.getName().equals("湿度传感器")){
             String humiSensorName = "humiditySensorTable";
             sensorHuminum = sensorService.querySensor("湿度传感器").size();
             sensor.setSensortableName(humiSensorName+sensorHuminum);
-            boolean isHumiTableNameTrue = sensorService.setSensorTableName(humiSensorName+sensorHuminum,"湿度传感器",sensorAddCommand.getSensorAddress());
+            boolean isHumiTableNameTrue = sensorService.setSensorTableName(humiSensorName+sensorHuminum,"湿度传感器",sensor.getSensorAddress());
             if(isHumiTableNameTrue)
                 logger.debug("湿度传感器名字建立成功");
             else
@@ -204,11 +209,12 @@ public class SensorController {
                 logger.debug("湿度传感器对应的数据表建立失败");
         }
 
-        if(sensorAddCommand.getSensorName().equals("树莓派cpu温度")){
+
+        if(sensor.getName().equals("树莓派cpu温度")){
             String RaspberryCpuTempTableName = "RaspberryCpuTempTable";
             raspberryCpuTempNum = sensorService.querySensor("树莓派cpu温度").size();
             sensor.setSensortableName(RaspberryCpuTempTableName+raspberryCpuTempNum);
-            boolean isRaspberryCpuTempTableNameTrue = sensorService.setSensorTableName(RaspberryCpuTempTableName+raspberryCpuTempNum,"树莓派cpu温度",sensorAddCommand.getSensorAddress());
+            boolean isRaspberryCpuTempTableNameTrue = sensorService.setSensorTableName(RaspberryCpuTempTableName+raspberryCpuTempNum,"树莓派cpu温度",sensor.getSensorAddress());
             if(isRaspberryCpuTempTableNameTrue)
                 logger.debug("树莓派cpu温度建立成功");
             else
@@ -220,11 +226,11 @@ public class SensorController {
                 logger.debug("树莓派cpu温度对应的数据表建立失败");
         }
 
-        if(sensorAddCommand.getSensorName().equals("有毒气体传感器")){
+        if(sensor.getName().equals("有毒气体传感器")){
             String gasSensorTableName = "gasSensorTable";
             sensorGasNum = sensorService.querySensor("有毒气体传感器").size();//已经建立的有毒气体传感器的数目
             sensor.setSensortableName(gasSensorTableName+sensorGasNum);
-            boolean isGasTableNameTrue = sensorService.setSensorTableName(gasSensorTableName+sensorGasNum,"有毒气体传感器",sensorAddCommand.getSensorAddress());
+            boolean isGasTableNameTrue = sensorService.setSensorTableName(gasSensorTableName+sensorGasNum,"有毒气体传感器",sensor.getSensorAddress());
             if(isGasTableNameTrue)
                 logger.debug("有毒气体传感器建立成功");
             else
@@ -236,11 +242,11 @@ public class SensorController {
                 logger.debug("有毒气体传感器对应的数据表建立失败");
         }
 
-        if(sensorAddCommand.getSensorName().equals("红外人体传感器")){
+        if(sensor.getName().equals("红外人体传感器")){
             String humenSensorTable = "humenSensorTable";
             sensorHumenNum = sensorService.querySensor("红外人体传感器").size();
             sensor.setSensortableName(humenSensorTable+sensorHumenNum);
-            boolean isHumenTableNameTrue = sensorService.setSensorTableName(humenSensorTable+sensorHumenNum,"红外人体传感器",sensorAddCommand.getSensorAddress());
+            boolean isHumenTableNameTrue = sensorService.setSensorTableName(humenSensorTable+sensorHumenNum,"红外人体传感器",sensor.getSensorAddress());
             if(isHumenTableNameTrue)
                 logger.debug("红外人体传感器建立成功");
             else
@@ -251,7 +257,6 @@ public class SensorController {
             else
                 logger.debug("红外人体传感器对应的数据表建立失败");
         }
-
         boolean succ=sensorService.addSensor(sensor);
         ArrayList<Sensor> sensors=sensorService.getAllSensors();
         if (succ){
@@ -277,24 +282,29 @@ public class SensorController {
 
     @RequestMapping("/sensor_edit_do.html")
     public String sensorEditDo(HttpServletRequest request,SensorAddCommand sensorAddCommand,RedirectAttributes redirectAttributes){
-        int id=Integer.parseInt( request.getParameter("id"));
-        Sensor sensor = new Sensor();
-        sensor.setId(id);
-        sensor.setName(request.getParameter("name"));
-        sensor.setSensorState(Integer.parseInt(request.getParameter("sensorState")));
-        sensor.setSensorIntroduction(request.getParameter("sensorIntroduction"));
-        sensor.setPrice(new BigDecimal(request.getParameter("price")));
-        sensor.setSensorAddress(request.getParameter("sensorAddress"));
-        logger.debug(sensor);
-        boolean succ=sensorService.editSensor(sensor);
-        if (succ){
-            redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
-            logger.debug("sensor_edit_do.html:传感器修改成功");
-            return "redirect:/allsensors.html";
-        }
-        else {
-            redirectAttributes.addFlashAttribute("error", "传感器修改失败！");
-            logger.debug("sensor_edit_do.html:传感器修改失败");
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Sensor sensor = new Sensor();
+            sensor.setId(id);
+            sensor.setName(new String(request.getParameter("name").getBytes("ISO-8859-1"),"utf-8"));
+            sensor.setSensorState(Integer.parseInt(request.getParameter("sensorState")));
+            sensor.setSensorIntroduction(new String(request.getParameter("sensorIntroduction").getBytes("ISO-8859-1"),"utf-8"));
+            sensor.setPrice(new BigDecimal(request.getParameter("price")));
+            sensor.setSensorAddress(new String(request.getParameter("sensorAddress").getBytes("ISO-8859-1"),"utf-8"));
+            logger.debug(sensor);
+            boolean succ=sensorService.editSensor(sensor);
+            if (succ){
+                redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
+                logger.debug("sensor_edit_do.html:传感器修改成功");
+                return "redirect:/allsensors.html";
+            }
+            else {
+                redirectAttributes.addFlashAttribute("error", "传感器修改失败！");
+                logger.debug("sensor_edit_do.html:传感器修改失败");
+                return "redirect:/allsensors.html";
+            }
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
             return "redirect:/allsensors.html";
         }
     }

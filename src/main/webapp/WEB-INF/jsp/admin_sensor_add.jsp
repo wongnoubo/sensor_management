@@ -5,9 +5,13 @@
   Time: 21:14
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <%
+        request.setCharacterEncoding("utf-8");
+    %>
     <link href="static/images/plus-outline.png" rel="shortcut icon">
     <title>传感器信息添加</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -91,7 +95,7 @@
         </div>
         <div class="form-group">
             <label for="stateselect">状态</label>
-                <select class="form-control" id="stateselect" placeholder="请输入传感器状态">
+                <select class="form-control" name="stateselect"id="stateselect" placeholder="请输入传感器状态">
                     <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
                     <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
                 </select>

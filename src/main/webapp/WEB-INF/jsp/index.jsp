@@ -295,9 +295,9 @@
         else if( passwd ==''){
             $("#info").text("提示:密码不能为空");
         }
-        //else if(isNaN( id )){
-         //   $("#info").text("提示:账号必须为数字");
-        //}
+        else if(check()==false){
+            $("#info").text("提示：请输入正确的邮箱");
+        }
         else {
             $.ajax({
                 type: "POST",
