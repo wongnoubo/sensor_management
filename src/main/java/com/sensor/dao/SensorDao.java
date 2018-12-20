@@ -33,7 +33,7 @@ public class SensorDao {
     private final static String EDIT_SENSOR_SQL = "update sensor_info set sensorName = ?,sensorAddress = ?, sensorIntroduction = ?,sensorPrice = ?,sensorState = ? where sensorId=?";
     private final static String GET_SENSOR_TEMPREATURE  = "select temperature from ";
     private final static String GET_SENSOR_HUMIDITY = "select humidity from ";
-    private final static String GET_SENSOR_CPUTEMP = "select  temperature from ";
+    private final static String GET_SENSOR_CPUTEMP = "select  Raspberry from ";
     private final static String SET_SENSOR_TABLENAME ="insert into sensortablename(tablename,sensortype,sensoraddress) values(?,?,?)";
     private final static String DELETE_SENSOR_TABLENAME ="delete from sensortablename where id = ?";
     private final static String QUERY_SENSORTABLENAME ="select * from sensortablename where sensortype like ? and sensoraddress like ?";
@@ -196,7 +196,7 @@ public class SensorDao {
         jdbcTemplate.query(GET_SENSOR_CPUTEMP + tablename, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setCputemp(resultSet.getDouble("temperature"));
+                sensor.setCputemp(resultSet.getDouble("Raspberry"));
                 cputemps.add(sensor.getCputemp());
             }
         });
@@ -208,10 +208,10 @@ public class SensorDao {
     public int getHumenState(String tablename){
         int isHumen = 0;
         final Sensor sensor = new Sensor();
-        jdbcTemplate.query(GET_SENSOR_HUMENSTATE + tablename+" where id like (select max(id) from "+tablename+");", new RowCallbackHandler() {
+        jdbcTemplate.query("select humen from " + tablename+" where id like (select max(id) from "+tablename+");", new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setHumenState(resultSet.getInt("isHumen"));
+                sensor.setHumenState(resultSet.getInt("humen"));
             }
         });
         isHumen = sensor.getHumenState();
@@ -223,10 +223,10 @@ public class SensorDao {
     public ArrayList<Integer> getHumenStates(String tablename){
         final ArrayList<Integer> isHumens = new ArrayList<>();
         final Sensor sensor = new Sensor();
-        jdbcTemplate.query(GET_SENSOR_HUMENSTATE + tablename, new RowCallbackHandler() {
+        jdbcTemplate.query("select humen from " + tablename, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setHumenState(resultSet.getInt("isHumen"));
+                sensor.setHumenState(resultSet.getInt("humen"));
                 isHumens.add(sensor.getHumenState());
             }
         });
@@ -263,8 +263,10 @@ public class SensorDao {
     /*
     新建传感器的时候创建对应的数据表
      */
-    public int createSensorTable(String tablename,String value){
-        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,time timestamp not null default current_timestamp ,"+value+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+    public int createSensorTable(String tablename){
+        String[] strArray = tablename.split("_");
+       // String sql = "CREATE TRIGGER "+tablename+" AFTER INSERT ON "+tablename+" FOR EACH ROW BEGIN DECLARE str varchar(50);IF NEW."+strArray[0]+"="+strArray[1]+ " THEN SET str=(SELECT sys_eval('python /test/warmsender.py sensor1 有人进屋'));END IF;end;";
+        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,time timestamp not null default current_timestamp ,"+strArray[0]+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
     }
 
     public int dropSensorTable(String tablename){
@@ -275,12 +277,13 @@ public class SensorDao {
     获取有毒气体传感器的状态
      */
     public int getAirState(String tablename){
+        final String[] strArray = tablename.split("_");
         int isToxicAir = 0;
         final Sensor sensor = new Sensor();
-        jdbcTemplate.query("select gas from "+ tablename+" where id like (select max(id) from "+tablename+")", new RowCallbackHandler() {
+        jdbcTemplate.query("select "+strArray[0] +" from "+ tablename+" where id like (select max(id) from "+tablename+")", new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setToxicAirState(resultSet.getInt("gas"));
+                sensor.setToxicAirState(resultSet.getInt(strArray[0]));
             }
         });
         isToxicAir = sensor.getToxicAirState();
@@ -290,12 +293,13 @@ public class SensorDao {
     获取所有的有毒气体传感器的状态
      */
     public ArrayList<Integer> getAirStates(String tablename){
+        final String[] strArray = tablename.split("_");
         final ArrayList<Integer> isToxicAirs = new ArrayList<>();
         final Sensor sensor = new Sensor();
-        jdbcTemplate.query("select gas from " + tablename, new RowCallbackHandler() {
+        jdbcTemplate.query("select "+strArray[0]+" from " + tablename, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setToxicAirState(resultSet.getInt("gas"));
+                sensor.setToxicAirState(resultSet.getInt(strArray[0]));
                 isToxicAirs.add(sensor.getToxicAirState());
             }
         });

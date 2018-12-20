@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="static/images/sjkb.png" rel="shortcut icon">
     <title>${detail.name}</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
@@ -188,8 +189,10 @@
                     },
                     xAxis: [
                         {
-                            type: 'category',
-                            data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                            //type: 'category',
+                           // data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                            type:'time',
+                            data:${detail.timeStamps},
                             splitLine: {//显示分割线
                                 show: true
                             }
@@ -222,6 +225,7 @@
                 setTimeout(function () {
                     chart.hideLoading();//隐藏等待条
                 }, 2000);
+
                 }
             });
         </script>

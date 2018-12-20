@@ -116,7 +116,7 @@
     <div id="header" class="con" style="position: relative">
         <span id="time">Time</span>
     </div>
-    <img src="http://192.168.0.26:8090/?action=stream" width="640px"; height="480px";/>
+    <img src="http://192.168.0.198:8090/?action=stream" width="640px"; height="480px";/>
     <button class="btn-info center-block btn-lg" id="btn" onclick="add()">切换摄像头</button>
 </div>
 </body>

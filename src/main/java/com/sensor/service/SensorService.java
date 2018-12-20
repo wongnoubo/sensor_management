@@ -82,8 +82,8 @@ public class SensorService {
         return sensorDao.getSensorTableName(sensortype,sensorAddress);
     }
 
-    public boolean createSensorTable(String tablename,String value){
-        return sensorDao.createSensorTable(tablename,value)<0;
+    public boolean createSensorTable(String tablename){
+        return sensorDao.createSensorTable(tablename)<0;
     }
 
     public boolean dropSensorTable(String tablename){

@@ -186,7 +186,7 @@ public class SensorController {
             e.printStackTrace();
         }
         if(sensor.getName().equals("温度传感器")){
-            String tempSensorName = "temperatureSensortable";
+            String tempSensorName = "temperature_40_Sensortable";
             sensorTempnum = sensorService.querySensor("温度传感器").size();
             sensor.setSensortableName(tempSensorName+sensorTempnum);
             boolean isTempTableNameTrue = sensorService.setSensorTableName(tempSensorName+sensorTempnum,"温度传感器",sensor.getSensorAddress());
@@ -194,7 +194,7 @@ public class SensorController {
                 logger.debug("温度传感器名字建立成功");
             else
                 logger.debug("温度传感器名字建立失败");
-            boolean isTempTableTrue = sensorService.createSensorTable(tempSensorName+sensorTempnum,"temperature");
+            boolean isTempTableTrue = sensorService.createSensorTable(tempSensorName+sensorTempnum);
             if(isTempTableTrue)
                 logger.debug("温度传感器对应的数据表建立成功");
             else
@@ -202,7 +202,7 @@ public class SensorController {
         }
 
         if(sensor.getName().equals("湿度传感器")){
-            String humiSensorName = "humiditySensorTable";
+            String humiSensorName = "humidity_80_SensorTable";
             sensorHuminum = sensorService.querySensor("湿度传感器").size();
             sensor.setSensortableName(humiSensorName+sensorHuminum);
             boolean isHumiTableNameTrue = sensorService.setSensorTableName(humiSensorName+sensorHuminum,"湿度传感器",sensor.getSensorAddress());
@@ -210,7 +210,7 @@ public class SensorController {
                 logger.debug("湿度传感器名字建立成功");
             else
                 logger.debug("湿度传感器名字建立失败");
-            boolean isHumiTableTrue = sensorService.createSensorTable(humiSensorName+sensorHuminum,"humidity");
+            boolean isHumiTableTrue = sensorService.createSensorTable(humiSensorName+sensorHuminum);
             if(isHumiTableTrue)
                 logger.debug("湿度传感器对应的数据表建立成功");
             else
@@ -219,7 +219,7 @@ public class SensorController {
 
 
         if(sensor.getName().equals("树莓派cpu温度")){
-            String RaspberryCpuTempTableName = "RaspberryCpuTempTable";
+            String RaspberryCpuTempTableName = "Raspberry_65_CpuTempTable";
             raspberryCpuTempNum = sensorService.querySensor("树莓派cpu温度").size();
             sensor.setSensortableName(RaspberryCpuTempTableName+raspberryCpuTempNum);
             boolean isRaspberryCpuTempTableNameTrue = sensorService.setSensorTableName(RaspberryCpuTempTableName+raspberryCpuTempNum,"树莓派cpu温度",sensor.getSensorAddress());
@@ -227,7 +227,7 @@ public class SensorController {
                 logger.debug("树莓派cpu温度建立成功");
             else
                 logger.debug("树莓派cpu温度建立成功");
-            boolean isRaspberryCpuTempTableTrue = sensorService.createSensorTable(RaspberryCpuTempTableName+raspberryCpuTempNum,"temperature");
+            boolean isRaspberryCpuTempTableTrue = sensorService.createSensorTable(RaspberryCpuTempTableName+raspberryCpuTempNum);
             if(isRaspberryCpuTempTableTrue)
                 logger.debug("树莓派cpu温度对应的数据表建立成功");
             else
@@ -235,7 +235,7 @@ public class SensorController {
         }
 
         if(sensor.getName().equals("有毒气体传感器")){
-            String gasSensorTableName = "gasSensorTable";
+            String gasSensorTableName = "gas_1_SensorTable";
             sensorGasNum = sensorService.querySensor("有毒气体传感器").size();//已经建立的有毒气体传感器的数目
             sensor.setSensortableName(gasSensorTableName+sensorGasNum);
             boolean isGasTableNameTrue = sensorService.setSensorTableName(gasSensorTableName+sensorGasNum,"有毒气体传感器",sensor.getSensorAddress());
@@ -243,7 +243,7 @@ public class SensorController {
                 logger.debug("有毒气体传感器建立成功");
             else
                 logger.debug("有毒气体传感器建立失败");
-            boolean isGasTableTrue = sensorService.createSensorTable(gasSensorTableName+sensorGasNum,"gas");
+            boolean isGasTableTrue = sensorService.createSensorTable(gasSensorTableName+sensorGasNum);
             if(isGasTableTrue)
                 logger.debug("有毒气体传感器对应的数据表建立成功");
             else
@@ -251,7 +251,7 @@ public class SensorController {
         }
 
         if(sensor.getName().equals("红外人体传感器")){
-            String humenSensorTable = "humenSensorTable";
+            String humenSensorTable = "humen_1_SensorTable";
             sensorHumenNum = sensorService.querySensor("红外人体传感器").size();
             sensor.setSensortableName(humenSensorTable+sensorHumenNum);
             boolean isHumenTableNameTrue = sensorService.setSensorTableName(humenSensorTable+sensorHumenNum,"红外人体传感器",sensor.getSensorAddress());
@@ -259,7 +259,7 @@ public class SensorController {
                 logger.debug("红外人体传感器建立成功");
             else
                 logger.debug("红外人体传感器建立失败");
-            boolean isHumenTableTrue = sensorService.createSensorTable(humenSensorTable+sensorHumenNum,"isHumen");
+            boolean isHumenTableTrue = sensorService.createSensorTable(humenSensorTable+sensorHumenNum);
             if(isHumenTableTrue)
                 logger.debug("红外人体传感器对应的数据表建立成功");
             else
@@ -376,12 +376,13 @@ public class SensorController {
         String sensorTableName = sensor.getSensortableName();
         if(sensor.getName().equals("树莓派cpu温度")){
             ArrayList<Double> datas = sensorService.getCputempDatas(sensorTableName);
+            ArrayList<String> timeStamps = sensorService.getTimeStamps(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("树莓派cpu温度获取成功"+sensorTableName);
                 try {
                     httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
                     httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
-                    HSSFWorkbook book = ExcelExportUtil.generateCpuTempExcel(datas,sensor.getName()+sensorTableName);
+                    HSSFWorkbook book = ExcelExportUtil.generateCpuTempExcel(datas,timeStamps,sensor.getName()+sensorTableName);
                     OutputStream os= httpServletResponse.getOutputStream();
                     book.write(os);
                     os.flush();
@@ -400,12 +401,13 @@ public class SensorController {
             }
         }else if(sensor.getName().equals("有毒气体传感器")){
             ArrayList<Integer> datas = sensorService.getAirStates(sensorTableName);
+            ArrayList<String> timeStamps = sensorService.getTimeStamps(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("有毒气体传感器数据获得成功"+sensorTableName);
                 try{
                     httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
                     httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
-                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,timeStamps,sensor.getName()+sensorTableName);
                     OutputStream os= httpServletResponse.getOutputStream();
                     book.write(os);
                     os.flush();
@@ -421,12 +423,13 @@ public class SensorController {
         }
         else if(sensor.getName().equals("温度传感器")){
             ArrayList<Integer> datas = sensorService.getTemperatureSensorDatas(sensorTableName);
+            ArrayList<String> timeStamps = sensorService.getTimeStamps(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("温度传感器数据获取成功"+sensorTableName);
                 try {
                     httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
                     httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
-                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,timeStamps,sensor.getName()+sensorTableName);
                     OutputStream os= httpServletResponse.getOutputStream();
                     book.write(os);
                     os.flush();
@@ -447,12 +450,13 @@ public class SensorController {
         }
         else if(sensor.getName().equals("湿度传感器")){
             ArrayList<Integer> datas = sensorService.getHumitySensorDatas(sensorTableName);
+            ArrayList<String> timeStamps = sensorService.getTimeStamps(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("湿度传感器数据获取成功"+sensorTableName);
                 try {
                     httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
                     httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
-                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,timeStamps,sensor.getName()+sensorTableName);
                     OutputStream os= httpServletResponse.getOutputStream();
                     book.write(os);
                     os.flush();
@@ -472,12 +476,13 @@ public class SensorController {
         }
         else if(sensor.getName().equals("红外人体传感器")){
             ArrayList<Integer> datas = sensorService.getHumenStates(sensorTableName);
+            ArrayList<String> timeStamps = sensorService.getTimeStamps(sensorTableName);
             if(!datas.isEmpty()){
                 logger.debug("人体传感器数据获得成功");
                 try {
                     httpServletResponse.setContentType("application/vnd.ms-excel;charset=gb2312");
                     httpServletResponse.addHeader("Content-Disposition", "attachment;filename="+ sensor.getName()+sensorTableName+".xls");
-                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,sensor.getName()+sensorTableName);
+                    HSSFWorkbook book = ExcelExportUtil.generateExcel(datas,timeStamps,sensor.getName()+sensorTableName);
                     OutputStream os= httpServletResponse.getOutputStream();
                     book.write(os);
                     os.flush();

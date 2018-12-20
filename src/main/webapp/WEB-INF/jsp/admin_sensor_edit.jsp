@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
 <html>
 <head>
+    <link href="static/images/bdzj.png" rel="shortcut icon">
     <%
         request.setCharacterEncoding("utf-8");
     %>
