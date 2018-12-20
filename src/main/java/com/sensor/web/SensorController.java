@@ -8,6 +8,8 @@ import com.sensor.utils.ExcelExportUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.apache.log4j.Logger;
@@ -84,6 +86,12 @@ public class SensorController {
         ArrayList<Sensor> sensors=sensorService.getAllSensors();
         ModelAndView modelAndView=new ModelAndView("admin_sensors");
         for(Sensor sensor : sensors){
+            String tablename = sensorService.querySensorById(sensor.getId()).getSensortableName();
+            String timeStamp = sensorService.getTimeStamp(tablename);
+            ArrayList<String> timeStamps = sensorService.getTimeStamps(tablename);
+            sensor.setTimeStamps(timeStamps);
+            sensor.setTimeStamp(timeStamp);
+            logger.debug("传感器时间拿取结束");
             if(sensor.getName().equals("温度传感器")){
                 String tempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
                 sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
@@ -314,6 +322,10 @@ public class SensorController {
         int sid = Integer.parseInt(request.getParameter("sensorId"));
         int aid = Integer.parseInt(request.getParameter("adminId"));
         Sensor sensor = sensorService.querySensorById(sid);
+        String timeStamp = sensorService.getTimeStamp(sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName());
+        ArrayList<String>timeStamps = sensorService.getTimeStamps(sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName());
+        sensor.setTimeStamp(timeStamp);
+        sensor.setTimeStamps(timeStamps);
         if(sensor.getName().equals("温度传感器")){
             String tempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
             sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
@@ -353,14 +365,15 @@ public class SensorController {
         modelAndView.addObject("detail",sensor);
         return modelAndView;
     }
-
-    @RequestMapping("/allsensors/export-excel-file.json")
-    public String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,RedirectAttributes redirectAttributes){
+    /*
+    将传感器数据导出为excel文件
+     */
+    @RequestMapping(value = "/exportExcelFile")
+    public  String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, RedirectAttributes redirectAttributes){
         int sensorId = Integer.parseInt(httpServletRequest.getParameter("sensorId"));
         Sensor sensor = sensorService.querySensorById(sensorId);
         sensorService.querySensorById(sensorId);
         String sensorTableName = sensor.getSensortableName();
-        String sensorAddress = sensor.getSensorAddress();
         if(sensor.getName().equals("树莓派cpu温度")){
             ArrayList<Double> datas = sensorService.getCputempDatas(sensorTableName);
             if(!datas.isEmpty()){
@@ -481,7 +494,6 @@ public class SensorController {
                 logger.debug("人体传感器数据为空，获取失败"+sensorTableName);
                 redirectAttributes.addFlashAttribute("error","人体传感器数据为空，获取失败"+sensorTableName);
             }
-
         }
         else{
             logger.debug("导出excel获得的数据为空");

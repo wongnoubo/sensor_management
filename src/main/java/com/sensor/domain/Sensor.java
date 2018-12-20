@@ -14,6 +14,8 @@ public class Sensor {
     private int sensorState;
     private int humenState;
     private int toxicAirState;
+    private String timeStamp;
+    private ArrayList<String> timeStamps;
     private ArrayList<Integer> toxicAirStates;
     private ArrayList<Integer> humenStates;
     private int temperature;
@@ -165,6 +167,22 @@ public class Sensor {
 
     public void setToxicAirStates(ArrayList<Integer> toxicAirStates){
         this.toxicAirStates=toxicAirStates;
+    }
+
+    public ArrayList<String> getTimeStamps() {
+        return timeStamps;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public void setTimeStamps(ArrayList<String> timeStamps) {
+        this.timeStamps = timeStamps;
     }
 
     @Override

@@ -264,7 +264,7 @@ public class SensorDao {
     新建传感器的时候创建对应的数据表
      */
     public int createSensorTable(String tablename,String value){
-        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,"+value+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,time timestamp not null default current_timestamp ,"+value+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8");
     }
 
     public int dropSensorTable(String tablename){
@@ -300,5 +300,31 @@ public class SensorDao {
             }
         });
         return isToxicAirs;
+    }
+
+    public String getTimeStamp(String tablename){
+        String timeStamp ="";
+       final Sensor sensor = new Sensor();
+       jdbcTemplate.query("select time from " + tablename + " where id like (select max(id) from " + tablename + ")", new RowCallbackHandler() {
+           @Override
+           public void processRow(ResultSet resultSet) throws SQLException {
+               sensor.setTimeStamp(resultSet.getString("time"));
+           }
+       });
+       timeStamp = sensor.getTimeStamp();
+       return timeStamp;
+    }
+
+    public ArrayList<String> getTimeStamps(String tablename){
+        final ArrayList<String> timeStamps = new ArrayList<>();
+        final Sensor sensor = new Sensor();
+        jdbcTemplate.query("select time from " + tablename, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                sensor.setTimeStamp(resultSet.getString("time"));
+                timeStamps.add(sensor.getTimeStamp());
+            }
+        });
+        return timeStamps;
     }
 }

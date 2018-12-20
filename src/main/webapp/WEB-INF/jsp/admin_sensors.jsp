@@ -146,6 +146,7 @@
             <tr>
                 <th>传感器名</th>
                 <th>读数</th>
+                <th>采样时间</th>
                 <th>位置</th>
                 <th>详情</th>
                 <th>编辑</th>
@@ -192,19 +193,13 @@
                         </c:when>
                     </c:choose>
                     </td>
+                    <td><c:out value="${sensor.timeStamp}"></c:out></td>
+                    <script>setInterval("res('${sensor.timeStamp}');",1000*20);</script>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
                     <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
                     <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
                     <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
-                    <td><a href="allsensors/export-excel-file.json?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
-
-                    <script>
-                        <!-- 或者抽离出一个js-->
-                        var exportExcel = function(){
-                            var url = "allsensors/export-excel-file.json";
-                            location.href = url;
-                        }
-                    </script>
+                    <td><a href="exportExcelFile?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
                 </tr>
             </c:forEach>
             </tbody>

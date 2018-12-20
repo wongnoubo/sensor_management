@@ -105,4 +105,12 @@ public class SensorService {
     public ArrayList<Integer> getAirStates(String tablename){
         return sensorDao.getAirStates(tablename);
     }
+
+    public ArrayList<String>getTimeStamps(String tablename){
+        return sensorDao.getTimeStamps(tablename);
+    }
+
+    public String getTimeStamp(String tablename){
+        return sensorDao.getTimeStamp(tablename);
+    }
 }

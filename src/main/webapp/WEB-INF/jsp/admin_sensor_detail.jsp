@@ -122,6 +122,11 @@
                     </c:choose></td>
                 </tr>
                 <tr>
+                    <th>采样时间</th>
+                    <td>${detail.timeStamp}</td>
+                    <script>setInterval("res('${detail.timeStamp}');",1000*20);</script>
+                </tr>
+                <tr>
                     <th>数据库表</th>
                     <td>${detail.sensortableName}</td>
                 </tr>
