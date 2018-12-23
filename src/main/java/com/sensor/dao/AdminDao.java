@@ -9,6 +9,12 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * 管理员的持久层
+ * @author Wongnoubo
+ */
+
+
 @Repository
 public class AdminDao {
     private JdbcTemplate jdbcTemplate;

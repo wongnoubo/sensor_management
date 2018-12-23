@@ -5,6 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 添加传感器使用的命令
+ * @author Wongnoubo
+ */
+
 public class SensorAddCommand {
     private String name;
     private String introduction;

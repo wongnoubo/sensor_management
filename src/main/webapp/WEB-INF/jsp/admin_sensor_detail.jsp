@@ -189,10 +189,10 @@
                     },
                     xAxis: [
                         {
-                            //type: 'category',
-                           // data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
-                            type:'time',
-                            data:${detail.timeStamps},
+                            type: 'category',
+                            data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                            //type:'time',
+                            //data:${detail.timeStamps},
                             splitLine: {//显示分割线
                                 show: true
                             }
@@ -255,7 +255,7 @@
                         xAxis: [
                             {
                                 type: 'category',
-                                data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
                                 splitLine: {//显示分割线
                                     show: true
                                 }
@@ -317,7 +317,7 @@
                         xAxis: [
                             {
                                 type: 'category',
-                                data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
                                 splitLine: {//显示分割线
                                     show: true
                                 }
@@ -350,6 +350,71 @@
                     setTimeout(function () {
                         chart.hideLoading();//隐藏等待条
                     }, 2000);
+                }
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                //放置图表的容器
+                if(${detail.name eq '红外人体传感器'}){
+                    var group = $("#humenState");
+                    //设置容器的宽度、高度和背景颜色
+                    group.css({
+                        "width": "100%",
+                        "height": "45%",
+                        "background-color": "aliceblue"
+                    });
+                    //创建图表对象
+                    var chart = echarts.init(group.get(0));
+                    chart.showLoading();//显示等待条
+                    //设置图表显示的内容
+                    var option = {
+                        legend: {
+                            selectedMode: false,//不可点击
+                            data: ['有人']
+                        },
+                        grid: {
+                            left: 100
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                                //type:'time',
+                                //data:${detail.timeStamps},
+                                splitLine: {//显示分割线
+                                    show: true
+                                }
+                            }
+
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '有人',
+                                axisLabel: {
+                                    formatter: '{value} 经过'
+                                },
+                                splitLine: {
+                                    show: false
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '有人',
+                                type: 'line',
+                                data:${detail.humenStates}
+                            },
+                        ]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    chart.setOption(option);
+                    //两秒后关闭等待进度条
+                    setTimeout(function () {
+                        chart.hideLoading();//隐藏等待条
+                    }, 2000);
+
                 }
             });
         </script>

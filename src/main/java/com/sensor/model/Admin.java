@@ -1,7 +1,7 @@
-package com.sensor.domain;
+package com.sensor.model;
 
 /**
- * 管理员登录
+ * 管理员model
  * @author wongnoubo
  */
 public class Admin {
@@ -13,7 +13,7 @@ public class Admin {
     private String infotablename;
     private int state;
 
-   /* public Admin(int adminId, String password,String email, String nickname, String code, String infotablename,int state){
+    /*public Admin(int adminId, String password,String email, String nickname, String code, String infotablename,int state){
         this.adminId = adminId;
         this.password = password;
         this.email = email;
@@ -79,10 +79,5 @@ public class Admin {
 
     public int getState() {
         return state;
-    }
-
-    @Override
-    public String toString(){
-        return "id: "+adminId+" password: "+password+" email: "+email +"nickname: "+nickname+"infotablename: "+infotablename+" state: "+state;
     }
 }

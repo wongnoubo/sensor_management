@@ -21,6 +21,7 @@
                 url :'allsensors.html',
                 data :{aItemId: param},
                 success: function(data){
+                    console.log(data);
                     if(data.data.id > 0){
                         if(data.data.lastBid >0 ){
                             var price = parseInt(data.data.lastBid) + parseInt(data.data.increment);
@@ -36,6 +37,9 @@
                 }
             });
         }
+        setTimeout(function(){
+            $("#alertinfo").window('close');
+        },2000);
     </script>
     <style>
         body{
@@ -114,7 +118,7 @@
         })
     </script>
 </div>
-<div style="position: relative;top: 10%">
+<div style="position: relative;top: 10%" id="alertinfo">
     <c:if test="${!empty succ}">
         <div class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert"
@@ -161,40 +165,36 @@
                     <td><c:choose>
                         <c:when test="${sensor.name eq '温度传感器'}">
                             <c:out value="${sensor.temperature}℃"></c:out>
-                            <script>setInterval("res('${sensor.temperature}');",1000*20);</script>
+                            <script>setInterval("res('${sensor.temperature}');",1000*5);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '湿度传感器'}">
                             <c:out value="${sensor.humidity}%rh"></c:out>
-                            <script>setInterval("res('${sensor.humidity}');",1000*20);</script>
+                            <script>setInterval("res('${sensor.humidity}');",1000*5);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '树莓派cpu温度'}">
                             <c:out value="${sensor.cputemp}℃"></c:out>
-                            <script>setInterval("res('${sensor.cputemp}');",1000*20);</script>
+                            <script>setInterval("res('${sensor.cputemp}');",1000*5);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '红外人体传感器' && sensor.humenState==1}">
                             <c:out value="有人经过"></c:out>
-                            <script>setInterval("res('${sensor.humenState}');",1000*20);</script>
+                            <script>setInterval("res('${sensor.humenState}');",1000*5);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '红外人体传感器' && sensor.humenState==0}">
                             <c:out value="无人经过"></c:out>
-                            <script>setInterval("res('${sensor.humenState}');",1000*20);</script>
-                        </c:when>
-                        <c:when test="${sensor.name eq '有毒气体传感器' && sensor.toxicAirState==1}">
-                            <c:out value="有毒气体浓度正常"></c:out>
-                            <script>setInterval("res('${sensor.toxicAirState}');",1000*20);</script>
-                        </c:when>
-                        <c:when test="${sensor.name eq '有毒气体传感器' && sensor.toxicAirState eq null}">
-                            <c:out value="有毒气体没有被测量"></c:out>
-                            <script>setInterval("res('${sensor.toxicAirState}');",1000*20);</script>
+                            <script>setInterval("res('${sensor.humenState}');",1000*5);</script>
                         </c:when>
                         <c:when test="${sensor.name eq '有毒气体传感器' && sensor.toxicAirState==0}">
+                            <c:out value="有毒气体浓度正常"></c:out>
+                            <script>setInterval("res('${sensor.toxicAirState}');",1000*5);</script>
+                        </c:when>
+                        <c:when test="${sensor.name eq '有毒气体传感器' && sensor.toxicAirState==1}">
                             <c:out value="有毒气体浓度异常"></c:out>
-                            <script>setInterval("res('${sensor.toxicAirState}');",1000*20);</script>
+                            <script>setInterval("res('${sensor.toxicAirState}');",1000*5);</script>
                         </c:when>
                     </c:choose>
                     </td>
                     <td><c:out value="${sensor.timeStamp}"></c:out></td>
-                    <script>setInterval("res('${sensor.timeStamp}');",1000*20);</script>
+                    <script>setInterval("res('${sensor.timeStamp}');",1000*5);</script>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
                     <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
                     <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>

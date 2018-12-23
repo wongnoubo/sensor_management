@@ -1,11 +1,10 @@
-package com.sensor.domain;
+package com.sensor.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
- * 传感器类
- * @author Wongnoubo
+ * 传感器model
  */
 
 public class Sensor {
@@ -29,6 +28,29 @@ public class Sensor {
     private ArrayList<Integer> humidities;
     private double cputemp;
     private ArrayList<Double> cputemps;
+
+    /*public Sensor(long id,String name,double value,String sensorAddress,String sensorIntroduction,String sensortableName,BigDecimal price,int sensorState,int humenState,int toxicAirState,String timeStamp,ArrayList<String> timeStamps,ArrayList<Integer> toxicAirStates,ArrayList<Integer> humenStates,int temperature,ArrayList<Integer> temperatures,int humidity,ArrayList<Integer> humidities,double cputemp,ArrayList<Double> cputemps){
+        this.id = id;
+        this.name = name;
+        this.value = value;
+        this.sensorAddress = sensorAddress;
+        this.sensorIntroduction = sensorIntroduction;
+        this.sensortableName = sensortableName;
+        this.price = price;
+        this.sensorState = sensorState;
+        this.humenState = humenState;
+        this.toxicAirState = toxicAirState;
+        this.timeStamp = timeStamp;
+        this.timeStamps = timeStamps;
+        this.toxicAirStates = toxicAirStates;
+        this.humenStates = humenStates;
+        this.temperature = temperature;
+        this.temperatures = temperatures;
+        this.humidity = humidity;
+        this.humidities = humidities;
+        this.cputemp = cputemp;
+        this.cputemps = cputemps;
+    }*/
 
     public long getId() {
         return id;
@@ -188,15 +210,5 @@ public class Sensor {
 
     public void setTimeStamps(ArrayList<String> timeStamps) {
         this.timeStamps = timeStamps;
-    }
-
-    @Override
-    public String toString(){
-        if(sensorState==1)
-            return "传感器名字为："+name+" 传感器位置："+sensorAddress+" 传感器详细信息："
-                    +sensorIntroduction+" 传感器状态：正常运行";
-        else
-            return "传感器名字为："+name+" 传感器位置："+sensorAddress+" 传感器详细信息："
-                    +sensorIntroduction+" 传感器状态：未运行";
     }
 }

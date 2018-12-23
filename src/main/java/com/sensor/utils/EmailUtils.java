@@ -170,7 +170,7 @@ public class EmailUtils {
     public static void sendRegisterCode(String email,String code) throws Exception{
         String fromEmail = "jiajiasensorsystem@163.com";
         String subject = "家+安全系统注册验证码";//标题
-        String body = "这是一封激活邮件,激活请点击以下链接:http://localhost:8080/welcome.html?code="+code;
+        String body = "这是一封激活邮件,激活请点击以下链接:http://119.23.248.55:8080/welcome.html?code="+code;
         String smtpHost = "smtp.163.com";//smtp.qq.com/smtp.sohu.com
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp"); // 使用的协议（JavaMail规范要求）

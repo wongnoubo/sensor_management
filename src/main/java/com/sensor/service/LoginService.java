@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 import com.sensor.dao.AdminDao;
 import com.sensor.utils.EmailUtils;
 
+/**
+ * 管理service
+ * @author Wongnoubo
+ */
+
 @Service
 public class LoginService {
 

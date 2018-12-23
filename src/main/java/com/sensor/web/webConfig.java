@@ -10,6 +10,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ * 控制层配置
+ * @author Wongnoubo
+ */
+
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.sensor.web")

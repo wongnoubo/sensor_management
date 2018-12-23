@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import com.sensor.domain.Admin;
 /**
  * 登录认证拦截器
+ * @author Wongnoubo
  */
 public class Logininterceptor {
 

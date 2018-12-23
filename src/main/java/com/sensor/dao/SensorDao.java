@@ -12,7 +12,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.sensor.domain.Sensor;
+import com.sensor.domain.Admin;
 import com.sensor.domain.SensorNameTable;
+
+/**
+ * 传感器管理的持久层
+ * @author Wongnoubo
+ */
+
 @Repository//给持久层的类定义的名字
 public class SensorDao {
     private JdbcTemplate jdbcTemplate;
@@ -34,16 +41,17 @@ public class SensorDao {
     private final static String GET_SENSOR_TEMPREATURE  = "select temperature from ";
     private final static String GET_SENSOR_HUMIDITY = "select humidity from ";
     private final static String GET_SENSOR_CPUTEMP = "select  Raspberry from ";
-    private final static String SET_SENSOR_TABLENAME ="insert into sensortablename(tablename,sensortype,sensoraddress) values(?,?,?)";
-    private final static String DELETE_SENSOR_TABLENAME ="delete from sensortablename where id = ?";
-    private final static String QUERY_SENSORTABLENAME ="select * from sensortablename where sensortype like ? and sensoraddress like ?";
-    private final static String QUERY_SENSORTABLENAMEBYID = "select * from sensortablename where id = ?";
-    private final static String GET_SENSOR_HUMENSTATE ="select isHumen from ";
+
     public int matchSensor(String searchWord) {
         String swcx = "%" + searchWord + "%";
         return jdbcTemplate.queryForObject(MATCH_SENSOR_SQL, new Object[]{swcx, swcx}, Integer.class);
     }
 
+    /**
+     * 查询传感器
+     * @param sw
+     * @return 符合要求的传感器列表
+     */
     public ArrayList<Sensor> querySensor(String sw) {
         String swcx = "%" + sw + "%";
         final ArrayList<Sensor> sensors = new ArrayList<Sensor>();
@@ -65,6 +73,11 @@ public class SensorDao {
         return sensors;
     }
 
+    /**
+     * 通过ID精确查询传感器
+     * @param sensorId
+     * @return ID对应的传感器
+     */
     public Sensor querySensorById(long sensorId) {
         final Sensor sensor = new Sensor();
         jdbcTemplate.query(GET_SENSOR_SQL, new Object[]{sensorId}, new RowCallbackHandler() {
@@ -81,9 +94,9 @@ public class SensorDao {
         return sensor;
     }
 
-    public ArrayList<Sensor> getAllSensors() {
-        final ArrayList<Sensor> sensors = new ArrayList<Sensor>();
+    public ArrayList<Sensor> getAllSensors(long adminId) {
 
+        final ArrayList<Sensor> sensors = new ArrayList<Sensor>();
         jdbcTemplate.query(QUERY_ALL_SENSORS_SQL, new RowCallbackHandler() {
             public void processRow(ResultSet resultSet) throws SQLException {
                 resultSet.beforeFirst();
@@ -128,6 +141,12 @@ public class SensorDao {
         return jdbcTemplate.update(EDIT_SENSOR_SQL,new Object[]{senserName,sensorAddress,sensorIntroduction,sensorPrice,sensorState,sensorId});
     }
 
+    public int editSensorTableName(SensorNameTable sensorNameTable){
+        String address = sensorNameTable.getSensorAddress();
+        String sensortype = sensorNameTable.getSensortype();
+        int id = sensorNameTable.getId();
+        return jdbcTemplate.update("update sensortablename set sensortype = ?,sensoraddress=? where id = ?",new Object[]{sensortype,address,id});
+    }
     public int getNewestTempSensorValue(String tablename){
         int temperature = 0;
         final Sensor sensor = new Sensor();
@@ -181,9 +200,9 @@ public class SensorDao {
    public double getNewestCputempValue(String tablename){
         double cputemp = 0;
         final Sensor sensor = new Sensor();
-        jdbcTemplate.query(GET_SENSOR_CPUTEMP+tablename+" where id like (select max(id) from "+tablename+" );",new RowCallbackHandler(){
+        jdbcTemplate.query(GET_SENSOR_CPUTEMP +tablename+" where id like (select max(id) from "+tablename+" )",new RowCallbackHandler(){
             public void processRow(ResultSet resultSet) throws SQLException {
-                sensor.setCputemp(resultSet.getDouble("temperature"));
+                sensor.setCputemp(resultSet.getDouble("Raspberry"));
             }
         });
         cputemp = sensor.getCputemp();
@@ -233,40 +252,16 @@ public class SensorDao {
         return isHumens;
     }
 
-    public int setSensorTableName(String tablename,String sensortype,String sensorAddress){
-        return jdbcTemplate.update(SET_SENSOR_TABLENAME,new Object[]{tablename,sensortype,sensorAddress});
-    }
-    /*
-    删掉对应id的东西
-     */
-    public int deleteSensorTableName(int id){
-        return jdbcTemplate.update(DELETE_SENSOR_TABLENAME,id);
-    }
-    /*
-    通过传感器类型和地理位置获取其对应的数据表的名字。
-     */
-    public SensorNameTable getSensorTableName(String sensortype, final String sensorAddress){
-        final SensorNameTable sensorNameTable = new SensorNameTable();
-        jdbcTemplate.query(QUERY_SENSORTABLENAME, new Object[]{sensortype, sensorAddress}, new RowCallbackHandler() {
-            @Override
-            public void processRow(ResultSet resultSet) throws SQLException {
-                sensorNameTable.setId(resultSet.getInt("id"));
-                sensorNameTable.setSensorAddress(resultSet.getString("sensoraddress"));
-                sensorNameTable.setSensortype(resultSet.getString("sensortype"));
-                sensorNameTable.setTablename(resultSet.getString("tablename"));
-            }
-        });
-        return sensorNameTable;
-    }
-
-
     /*
     新建传感器的时候创建对应的数据表
      */
     public int createSensorTable(String tablename){
-        String[] strArray = tablename.split("_");
-       // String sql = "CREATE TRIGGER "+tablename+" AFTER INSERT ON "+tablename+" FOR EACH ROW BEGIN DECLARE str varchar(50);IF NEW."+strArray[0]+"="+strArray[1]+ " THEN SET str=(SELECT sys_eval('python /test/warmsender.py sensor1 有人进屋'));END IF;end;";
-        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,time timestamp not null default current_timestamp ,"+strArray[0]+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+
+        String[] strarray = tablename.split("_");
+        //String sql = "CREATE TRIGGER "+tablename+" AFTER INSERT ON "+tablename+" FOR EACH ROW BEGIN DECLARE str varchar (50); IF NEW."+ strarray[0] + ">=" + Integer.parseInt(strarray[1]) + " THEN SET str =(SELECT sys_eval('python /test/warmsender.py ' + tablename)); END IF;END";
+        //String sql = "CREATE TRIGGER "+tablename+" AFTER INSERT ON "+tablename+" FOR EACH ROW BEGIN DECLARE str varchar (50); IF NEW."+strArray[0]+"="+strArray[1]+" THEN SET str =(SELECT sys_eval('python /test/warmsender.py sender "+tablename+"')); END IF;END";
+        return jdbcTemplate.update("create table if not exists "+tablename+" (`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,time timestamp not null default current_timestamp ,"+strarray[0]+" varchar(50) DEFAULT NULL,address varchar(50) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+        //return jdbcTemplate.update(sql);
     }
 
     public int dropSensorTable(String tablename){
