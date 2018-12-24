@@ -46,8 +46,8 @@ public class LoginService {
         return adminDao.getElementNumber();
     }
 
-    public boolean createSensorTable(String tablename){
-       return adminDao.createSensorTable(tablename)>0;
+    public boolean createSensorTable(String tablename,String ownerEmail){
+       return adminDao.createSensorTable(tablename,ownerEmail)>0;
     }
 
     public Admin checkRegisterCode(String code){

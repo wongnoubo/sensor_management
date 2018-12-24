@@ -64,7 +64,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
-                        <li><a href="sensor_add.html">增加传感器</a></li>
+                        <li><a href="sensor_add.html?adminId=${admin.adminId}">增加传感器</a></li>
                     </ul>
                 </li>
                 <li >
@@ -97,7 +97,7 @@
 
 
 <div style="padding: 70px 550px 10px">
-    <form   method="post" action="querysensor.html" class="form-inline"  id="searchform">
+    <form   method="post" action="querysensor.html?adminId=${admin.adminId}" class="form-inline"  id="searchform">
         <div class="input-group">
             <input type="text" placeholder="输入传感器名" class="form-control" id="search" name="searchWord" class="form-control">
             <span class="input-group-btn">
@@ -197,9 +197,9 @@
                     <script>setInterval("res('${sensor.timeStamp}');",1000*5);</script>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
                     <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
-                    <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
-                    <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
-                    <td><a href="exportExcelFile?sensorId=<c:out value="${sensor.id}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
+                    <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
+                    <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
+                    <td><a href="exportExcelFile?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
                 </tr>
             </c:forEach>
             </tbody>

@@ -23,6 +23,7 @@ CREATE TABLE if not exists `sensor_info` (
   `sensorPrice` decimal(10,2) NOT NULL,
   `sensortableName` varchar(50) not null,
   `sensorState` smallint(6) DEFAULT NULL
+  `owner` varchar(50) default '1012084607@qq.com'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

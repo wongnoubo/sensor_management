@@ -22,32 +22,32 @@ public class SensorService {
         this.sensorDao = sensorDao;
     }
 
-    public ArrayList<Sensor> querySensor(String searchWord){
-        return sensorDao.querySensor(searchWord);
+    public ArrayList<Sensor> querySensor(String searchWord,String sensorInfoName){
+        return sensorDao.querySensor(searchWord,sensorInfoName);
     }
 
-    public ArrayList<Sensor> getAllSensors(){
-        return sensorDao.getAllSensors();
+    public ArrayList<Sensor> getAllSensors(String infotablename){
+        return sensorDao.getAllSensors(infotablename);
     }
 
-    public Sensor querySensorById(long sensorId){
-        return sensorDao.querySensorById(sensorId);
+    public Sensor querySensorById(long sensorId,String sensorInfoTableName){
+        return sensorDao.querySensorById(sensorId,sensorInfoTableName);
     }
 
-    public int deleteSensor(long sensorId){
-        return sensorDao.deleteSensor(sensorId);
+    public int deleteSensor(long sensorId,String sensorInfoTableName){
+        return sensorDao.deleteSensor(sensorId,sensorInfoTableName);
     }
 
-    public boolean matchSensor(String searchWord){
-        return sensorDao.matchSensor(searchWord)>0;
+    public boolean matchSensor(String searchWord,String sensorTableName){
+        return sensorDao.matchSensor(searchWord,sensorTableName)>0;
     }
 
-    public boolean addSensor(Sensor sensor){
-        return sensorDao.addSensor(sensor)>0;
+    public boolean addSensor(Sensor sensor,String sensorInfoTable){
+        return sensorDao.addSensor(sensor,sensorInfoTable)>0;
     }
 
-    public boolean editSensor(Sensor sensor){
-        return sensorDao.editSensor(sensor)>0;
+    public boolean editSensor(Sensor sensor,String sensorInfoTable){
+        return sensorDao.editSensor(sensor,sensorInfoTable)>0;
     }
 
     public int getNewestTempSensorValue(String tablename){

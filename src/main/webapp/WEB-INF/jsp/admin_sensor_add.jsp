@@ -40,7 +40,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
-                        <li><a href="sensor_add.html">增加传感器</a></li>
+                        <li><a href="sensor_add.html?adminId=${admin.adminId}">增加传感器</a></li>
                     </ul>
                 </li>
                 <li >
@@ -76,7 +76,7 @@
             alert("请按照一定规范来命名：温度传感器，湿度传感器，树莓派cpu温度，有毒气体传感器，红外人体传感器");
         }
     </script>
-    <form action="sensor_add_do.html" method="post" id="addsensor" >
+    <form action="sensor_add_do.html?adminId=${admin.adminId}" method="post" id="addsensor" >
         <div class="form-group">
             <label for="sensorName">传感器名</label>
             <input type="text" class="form-control" name="sensorName" id="sensorName" placeholder="请输入传感器名">

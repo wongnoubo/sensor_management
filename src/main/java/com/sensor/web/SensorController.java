@@ -40,32 +40,35 @@ public class SensorController {
 
     @RequestMapping("/querysensor.html")
     public ModelAndView querySensorDo(HttpServletRequest request,String searchWord){
-        boolean exist=sensorService.matchSensor(searchWord);
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
+        logger.debug("querysensor.html:"+adminId);
+        String sensorTableName = loginService.getAdminById(adminId).getInfotablename();
+        boolean exist=sensorService.matchSensor(searchWord,sensorTableName);
         if (exist){
-            ArrayList<Sensor> sensors = sensorService.querySensor(searchWord);
+            ArrayList<Sensor> sensors = sensorService.querySensor(searchWord,sensorTableName);
             for(Sensor sensor : sensors){
                 if(sensor.getName().equals("温度传感器")){
-                    String tempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                    String tempTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                     sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
                     logger.debug("allsensors.html:获取温度传感器");
                 }
                 if(sensor.getName().equals("树莓派cpu温度")){
-                    String raspberryCpuTempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                    String raspberryCpuTempTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                     sensor.setCputemp(sensorService.getNewestCputempValue(raspberryCpuTempTableName));
                     logger.debug("allsensors.html:树莓派cpu温度");
                 }
                 if(sensor.getName().equals("湿度传感器")){
-                    String humiTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                    String humiTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                     sensor.setHumidity(sensorService.getNewestHumSensorValue(humiTableName ));
                     logger.debug("allsensors.html:获取湿度传感器");
                 }
                 if(sensor.getName().equals("有毒气体传感器")){
-                    String gasTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                    String gasTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                     sensor.setToxicAirState(sensorService.getAirState(gasTableName));
                     logger.debug("allsensors.html:有毒气体传感器");
                 }
                 if(sensor.getName().equals("红外人体传感器")){
-                    String humenTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                    String humenTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                     sensor.setHumenState(sensorService.getHumenState(humenTableName));
                     logger.debug("allsensors.html:红外人体传感器");
                 }
@@ -84,38 +87,39 @@ public class SensorController {
     @RequestMapping("/allsensors.html")
     public ModelAndView allSensor(HttpServletRequest httpServletRequest){
         int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
-        logger.debug("huangleitest "+adminId);
-        ArrayList<Sensor> sensors=sensorService.getAllSensors();
+        logger.debug("allsensors.html: "+adminId);
+        String sensorTableName = loginService.getAdminById(adminId).getInfotablename();
+        ArrayList<Sensor> sensors=sensorService.getAllSensors(sensorTableName);
         ModelAndView modelAndView=new ModelAndView("admin_sensors");
         for(Sensor sensor : sensors){
-            String tablename = sensorService.querySensorById(sensor.getId()).getSensortableName();
+            String tablename = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
             String timeStamp = sensorService.getTimeStamp(tablename);
             ArrayList<String> timeStamps = sensorService.getTimeStamps(tablename);
             sensor.setTimeStamps(timeStamps);
             sensor.setTimeStamp(timeStamp);
             logger.debug("传感器时间拿取结束");
             if(sensor.getName().equals("温度传感器")){
-                String tempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                String tempTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                 sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
                 logger.debug("allsensors.html:获取温度传感器");
             }
             if(sensor.getName().equals("湿度传感器")){
-                String humiTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                String humiTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                 sensor.setHumidity(sensorService.getNewestHumSensorValue(humiTableName));
                 logger.debug("allsensors.html:获取湿度传感器");
             }
             if(sensor.getName().equals("树莓派cpu温度")){
-                String raspberryCpuTempTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                String raspberryCpuTempTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                 sensor.setCputemp(sensorService.getNewestCputempValue(raspberryCpuTempTableName));
                 logger.debug("allsensors.html:树莓派cpu温度");
             }
             if(sensor.getName().equals("有毒气体传感器")){
-                String gasTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                String gasTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                 sensor.setToxicAirState(sensorService.getAirState(gasTableName));
                 logger.debug("allsensors.html:有毒气体传感器");
             }
             if(sensor.getName().equals("红外人体传感器")){
-                String humenTableName = sensorService.querySensorById(sensor.getId()).getSensortableName();
+                String humenTableName = sensorService.querySensorById(sensor.getId(),sensorTableName).getSensortableName();
                 sensor.setHumenState(sensorService.getHumenState(humenTableName));
                 logger.debug("allsensors.html:红外人体传感器");
             }
@@ -127,7 +131,9 @@ public class SensorController {
     @RequestMapping("/deletesensor.html")
     public String deleteSensor(HttpServletRequest request,RedirectAttributes redirectAttributes){
         int sensorId=Integer.parseInt(request.getParameter("sensorId"));
-        Sensor sensor = sensorService.querySensorById(sensorId);
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
+        String sensorinfoTableName = loginService.getAdminById(adminId).getInfotablename();
+        Sensor sensor = sensorService.querySensorById(sensorId,sensorinfoTableName);
         String tablename = sensor.getSensortableName();
         boolean deleteTableFlag = sensorService.dropSensorTable(tablename);
         if(deleteTableFlag){
@@ -135,15 +141,15 @@ public class SensorController {
         }else{
             logger.debug("删除对应表格"+tablename+"失败");
         }
-        int res=sensorService.deleteSensor(sensorId);
+        int res=sensorService.deleteSensor(sensorId,sensorinfoTableName);
         if (res==1){
             redirectAttributes.addFlashAttribute("succ", "传感器删除成功！");
             logger.debug("deletesensor.html:传感器删除成功！");
-            return "redirect:/allsensors.html";
+            return "redirect:/allsensors.html?adminId="+adminId;
         }else {
             redirectAttributes.addFlashAttribute("error", "传感器删除失败！");
             logger.debug("deletesensor.html:传感器删除失败！");
-            return "redirect:/allsensors.html";
+            return "redirect:/allsensors.html?adminId="+adminId;
         }
     }
 
@@ -154,6 +160,11 @@ public class SensorController {
 
     @RequestMapping("/sensor_add_do.html")
     public String addSensorDo(HttpServletRequest request,RedirectAttributes redirectAttributes,SensorAddCommand sensorAddCommand){
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
+        logger.debug("sensor_add_do.html"+adminId);
+        String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
+        String email = loginService.getAdminById(adminId).getEmail();
+        logger.debug("sensor_add_do.html"+sensorInfoTable);
         Sensor sensor=new Sensor();
         int sensorTempnum = 0;
         int sensorHuminum = 0;
@@ -166,9 +177,10 @@ public class SensorController {
         sensor.setSensorIntroduction(sensorAddCommand.getSensorIntroduction());
         sensor.setPrice(sensorAddCommand.getSensorPrice());
         sensor.setName(sensorAddCommand.getSensorName());
+        sensor.setOwner(email);
         if(sensor.getName().equals("温度传感器")){
             String tempSensorName = "temperature_40_Sensortable";
-            sensorTempnum = sensorService.querySensor("温度传感器").size();
+            sensorTempnum = sensorService.querySensor("温度传感器",sensorInfoTable).size();
             sensor.setSensortableName(tempSensorName+sensorTempnum);
             boolean isTempTableTrue = sensorService.createSensorTable(tempSensorName+sensorTempnum);
             if(isTempTableTrue)
@@ -179,7 +191,7 @@ public class SensorController {
 
         if(sensor.getName().equals("湿度传感器")){
             String humiSensorName = "humidity_80_SensorTable";
-            sensorHuminum = sensorService.querySensor("湿度传感器").size();
+            sensorHuminum = sensorService.querySensor("湿度传感器",sensorInfoTable).size();
             sensor.setSensortableName(humiSensorName+sensorHuminum);
             boolean isHumiTableTrue = sensorService.createSensorTable(humiSensorName+sensorHuminum);
             if(isHumiTableTrue)
@@ -190,7 +202,7 @@ public class SensorController {
 
         if(sensor.getName().equals("树莓派cpu温度")){
             String RaspberryCpuTempTableName = "Raspberry_65_CpuTempTable";
-            raspberryCpuTempNum = sensorService.querySensor("树莓派cpu温度").size();
+            raspberryCpuTempNum = sensorService.querySensor("树莓派cpu温度",sensorInfoTable).size();
             sensor.setSensortableName(RaspberryCpuTempTableName+raspberryCpuTempNum);
             boolean isRaspberryCpuTempTableTrue = sensorService.createSensorTable(RaspberryCpuTempTableName+raspberryCpuTempNum);
             if(isRaspberryCpuTempTableTrue)
@@ -201,7 +213,7 @@ public class SensorController {
 
         if(sensor.getName().equals("有毒气体传感器")){
             String gasSensorTableName = "gas_1_SensorTable";
-            sensorGasNum = sensorService.querySensor("有毒气体传感器").size();//已经建立的有毒气体传感器的数目
+            sensorGasNum = sensorService.querySensor("有毒气体传感器",sensorInfoTable).size();//已经建立的有毒气体传感器的数目
             sensor.setSensortableName(gasSensorTableName+sensorGasNum);
             boolean isGasTableTrue = sensorService.createSensorTable(gasSensorTableName+sensorGasNum);
             if(isGasTableTrue)
@@ -212,7 +224,7 @@ public class SensorController {
 
         if(sensor.getName().equals("红外人体传感器")){
             String humenSensorTable = "humen_1_SensorTable";
-            sensorHumenNum = sensorService.querySensor("红外人体传感器").size();
+            sensorHumenNum = sensorService.querySensor("红外人体传感器",sensorInfoTable).size();
             sensor.setSensortableName(humenSensorTable+sensorHumenNum);
             boolean isHumenTableTrue = sensorService.createSensorTable(humenSensorTable+sensorHumenNum);
             if(isHumenTableTrue)
@@ -220,23 +232,25 @@ public class SensorController {
             else
                 logger.debug("红外人体传感器对应的数据表建立失败");
         }
-        boolean succ=sensorService.addSensor(sensor);
+        boolean succ=sensorService.addSensor(sensor,sensorInfoTable);
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器添加成功！");
             logger.debug("sensor_add_do.html:传感器添加成功！");
-            return "redirect:/allsensors.html";
+            return "redirect:/allsensors.html?adminId="+adminId;
         }
         else {
             redirectAttributes.addFlashAttribute("error", "传感器添加失败！");
             logger.debug("sensor_add_do.html:传感器添加失败！");
-            return "redirect:/allsensors.html";
+            return "redirect:/allsensors.html?adminId="+adminId;
         }
     }
 
     @RequestMapping("/updatesensor.html")
     public ModelAndView sensorEdit(HttpServletRequest request){
         int sensorId=Integer.parseInt(request.getParameter("sensorId"));
-        Sensor sensor=sensorService.querySensorById(sensorId);
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
+        String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
+        Sensor sensor=sensorService.querySensorById(sensorId,sensorInfoTable);
         ModelAndView modelAndView=new ModelAndView("admin_sensor_edit");
         modelAndView.addObject("detail",sensor);
         return modelAndView;
@@ -245,6 +259,8 @@ public class SensorController {
     @RequestMapping("/sensor_edit_do.html")
     public String sensorEditDo(HttpServletRequest request,SensorAddCommand sensorAddCommand,RedirectAttributes redirectAttributes){
         int id = Integer.parseInt(request.getParameter("id"));
+        int adminId =Integer.parseInt(request.getParameter("adminId"));
+        String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
         Sensor sensor = new Sensor();
         sensor.setId(id);
         sensor.setName(request.getParameter("name"));
@@ -253,57 +269,59 @@ public class SensorController {
         sensor.setPrice(new BigDecimal(request.getParameter("price")));
         sensor.setSensorAddress(request.getParameter("sensorAddress"));
         logger.debug(sensor);
-        boolean succ=sensorService.editSensor(sensor);
+        boolean succ=sensorService.editSensor(sensor,sensorInfoTable);
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
             logger.debug("sensor_edit_do.html:传感器修改成功");
-            return "redirect:/allsensors.html";
+            return "redirect:/allsensors.html?adminId="+adminId;
         }
         else {
             redirectAttributes.addFlashAttribute("error", "传感器修改失败！");
             logger.debug("sensor_edit_do.html:传感器修改失败");
-            return "redirect:/allsensors.html";
+            return "redirect:/allsensors.html?adminId="+adminId;
         }
     }
 
     @RequestMapping("/sensordetail.html")
     public ModelAndView sensorDetail(HttpServletRequest request){
         int sid = Integer.parseInt(request.getParameter("sensorId"));
-        Sensor sensor = sensorService.querySensorById(sid);
-        String timeStamp = sensorService.getTimeStamp(sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName());
-        ArrayList<String>timeStamps = sensorService.getTimeStamps(sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName());
+        int adminId = Integer.parseInt(request.getParameter("adminId"));
+        String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
+        Sensor sensor = sensorService.querySensorById(sid,sensorInfoTable);
+        String timeStamp = sensorService.getTimeStamp(sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName());
+        ArrayList<String>timeStamps = sensorService.getTimeStamps(sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName());
         sensor.setTimeStamp(timeStamp);
         sensor.setTimeStamps(timeStamps);
         if(sensor.getName().equals("温度传感器")){
-            String tempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
+            String tempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName();
             sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
             ArrayList<Integer> temperatures = sensorService.getTemperatureSensorDatas(tempTableName);
             sensor.setTemperatures(temperatures);
             logger.debug("sensordetail:获取温度成功！");
         }
         if(sensor.getName().equals("湿度传感器")){
-            String humiTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
+            String humiTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName();
             sensor.setHumidity(sensorService.getNewestHumSensorValue(humiTableName));
             ArrayList<Integer> humidities = sensorService.getHumitySensorDatas(humiTableName);
             sensor.setHumidities(humidities);
             logger.debug("sensordetail：获取湿度成功！");
         }
         if(sensor.getName().equals("树莓派cpu温度")){
-            String raspberryCpuTempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
+            String raspberryCpuTempTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName();
             sensor.setCputemp(sensorService.getNewestCputempValue(raspberryCpuTempTableName));
             ArrayList<Double> raspberryCpuTemps = sensorService.getCputempDatas(raspberryCpuTempTableName);
             sensor.setCputemps(raspberryCpuTemps);
             logger.debug("sensordetail：获取树莓派cpu温度成功！");
         }
         if(sensor.getName().equals("有毒气体传感器")){
-            String gasTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
+            String gasTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName();
             sensor.setToxicAirState(sensorService.getAirState(gasTableName));
             ArrayList<Integer> gasStates = sensorService.getAirStates(gasTableName);
             sensor.setToxicAirStates(gasStates);
             logger.debug("sensordetail：获取有毒气体传感器成功！");
         }
         if(sensor.getName().equals("红外人体传感器")){
-            String humenTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue()).getSensortableName();
+            String humenTableName = sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName();
             sensor.setHumenState(sensorService.getHumenState(humenTableName));
             ArrayList<Integer> isHumenStates = sensorService.getHumenStates(humenTableName);
             sensor.setHumenStates(isHumenStates);
@@ -319,8 +337,10 @@ public class SensorController {
     @RequestMapping(value = "/exportExcelFile")
     public  String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, RedirectAttributes redirectAttributes){
         int sensorId = Integer.parseInt(httpServletRequest.getParameter("sensorId"));
-        Sensor sensor = sensorService.querySensorById(sensorId);
-        sensorService.querySensorById(sensorId);
+        int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
+        String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
+        Sensor sensor = sensorService.querySensorById(sensorId,sensorInfoTable);
+        sensorService.querySensorById(sensorId,sensorInfoTable);
         String sensorTableName = sensor.getSensortableName();
         if(sensor.getName().equals("树莓派cpu温度")){
             ArrayList<Double> datas = sensorService.getCputempDatas(sensorTableName);
@@ -451,7 +471,7 @@ public class SensorController {
         else{
             logger.debug("导出excel获得的数据为空");
         }
-        return "redirect:/admin_sensors.html";
+        return "redirect:/admin_sensors.html?adminId="+adminId;
     }
 
     @RequestMapping("/adminvideo")

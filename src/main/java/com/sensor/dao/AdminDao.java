@@ -84,8 +84,8 @@ public class AdminDao {
         return jdbcTemplate.queryForObject(GET_ELEMENT_NUMEBR,Integer.class);
     }
 
-    public int createSensorTable(String sensorTableName){
-        return jdbcTemplate.update(CREATE_SENSOR_TABLE+sensorTableName+"(`sensorId` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,`sensorName` varchar(50) NOT NULL,`sensorAddress` varchar(50) NOT NULL,`sensorIntroduction` text,`sensorPrice` decimal(10,2) NOT NULL,`sensortableName` varchar(50) not null,`owner` varchar(50) not null ,`sensorState` smallint(6) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    public int createSensorTable(String sensorTableName,String ownerEmail){
+            return jdbcTemplate.update(CREATE_SENSOR_TABLE+sensorTableName+"(`sensorId` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,`sensorName` varchar(50) NOT NULL,`sensorAddress` varchar(50) NOT NULL,`sensorIntroduction` text,`sensorPrice` decimal(10,2) NOT NULL,`sensortableName` varchar(50) not null,`owner` varchar(50) default '"+ownerEmail+"',`sensorState` smallint(6) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
     }
 
     public Admin checkRegisterCode(String code){

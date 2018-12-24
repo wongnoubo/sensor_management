@@ -192,7 +192,7 @@ public class LoginController {
                 logger.debug("该邮箱未被注册");
                 String infotablename = "sensorinfo";
                 int tableNum = loginService.getElementNumber();
-                boolean isCreateSensorManageTable = loginService.createSensorTable(infotablename + tableNum);
+                boolean isCreateSensorManageTable = loginService.createSensorTable(infotablename + tableNum,adminEmail);
                 if (isCreateSensorManageTable) {
                     logger.debug("创建管理数据库表成功，数据库表的名字是：" + infotablename + tableNum);
                 } else {

@@ -17,6 +17,7 @@ public class SensorAddCommand {
     private String address;
     private int state;
     private long id;
+    private String owner;
 
     public void setSensorName(String name){
         this.name = name;
@@ -64,5 +65,13 @@ public class SensorAddCommand {
 
     public int getSensorState(){
         return this.state;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getOwner() {
+        return owner;
     }
 }

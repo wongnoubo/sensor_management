@@ -17,6 +17,7 @@ public class Sensor {
     private String sensortableName;
     private BigDecimal price;
     private int sensorState;
+    private String owner;
     private int humenState;
     private int toxicAirState;
     private String timeStamp;
@@ -188,6 +189,14 @@ public class Sensor {
 
     public void setTimeStamps(ArrayList<String> timeStamps) {
         this.timeStamps = timeStamps;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     @Override
