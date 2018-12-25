@@ -75,7 +75,7 @@
             <h3 class="panel-title">编辑传感器——${detail.name}</h3>
         </div>
         <div class="panel-body">
-            <form action="sensor_edit_do.html?id=${detail.id}" method="post" id="editsensor" >
+            <form action="sensor_edit_do.html?id=${detail.id}&adminId=${admin.adminId}" method="post" id="editsensor" >
 
                 <div class="input-group">
                     <span  style="width:80px;height:30px" class="input-group-addon">传感器</span>
