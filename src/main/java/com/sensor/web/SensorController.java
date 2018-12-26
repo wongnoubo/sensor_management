@@ -146,11 +146,11 @@ public class SensorController {
         if (res==1){
             redirectAttributes.addFlashAttribute("succ", "传感器删除成功！");
             logger.debug("deletesensor.html:传感器删除成功！");
-            return "redirect:/sensor/allsensors?adminId="+adminId;
+            return "redirect:/allsensors?adminId="+adminId;
         }else {
             redirectAttributes.addFlashAttribute("error", "传感器删除失败！");
             logger.debug("deletesensor.html:传感器删除失败！");
-            return "redirect:/sensor/allsensors?adminId="+adminId;
+            return "redirect:/allsensors?adminId="+adminId;
         }
     }
 
@@ -237,12 +237,12 @@ public class SensorController {
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器添加成功！");
             logger.debug("sensor_add_do.html:传感器添加成功！");
-            return "redirect:/sensor/allsensors?adminId="+adminId;
+            return "redirect:/allsensors?adminId="+adminId;
         }
         else {
             redirectAttributes.addFlashAttribute("error", "传感器添加失败！");
             logger.debug("sensor_add_do.html:传感器添加失败！");
-            return "redirect:/sensor/allsensors?adminId="+adminId;
+            return "redirect:/allsensors?adminId="+adminId;
         }
     }
 
@@ -274,12 +274,12 @@ public class SensorController {
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
             logger.debug("sensor_edit_do.html:传感器修改成功");
-            return "redirect:/sensor/allsensors?adminId="+adminId;
+            return "redirect:/allsensors?adminId="+adminId;
         }
         else {
             redirectAttributes.addFlashAttribute("error", "传感器修改失败！");
             logger.debug("sensor_edit_do.html:传感器修改失败");
-            return "redirect:/sensor/allsensors?adminId="+adminId;
+            return "redirect:/allsensors?adminId="+adminId;
         }
     }
 

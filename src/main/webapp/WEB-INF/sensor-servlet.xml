@@ -27,16 +27,12 @@
             <mvc:mapping path="/admin_main.html"/>
             <mvc:mapping path="/admin_repasswd.html"/>
             <mvc:mapping path="/admininformation"/>
-            <mvc:mapping path="/querysensor"/>
             <mvc:mapping path="/allsensors"/>
-            <mvc:mapping path="/deletesensor"/>
             <mvc:mapping path="/sensor_add"/>
-            <mvc:mapping path="/sensor_add_do"/>
             <mvc:mapping path="/updatesensor"/>
-            <mvc:mapping path="/sensor_edit_do"/>
             <mvc:mapping path="/sensordetail"/>
-            <mvc:mapping path="/exportExcelFile"/>
             <mvc:mapping path="/adminvideo"/>
+            <mvc:mapping path="/querysensor"/>
             <bean class="com.sensor.interceptor.Logininterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
