@@ -6,13 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
 <html>
 <head>
+    <link href="${pageContext.request.contextPath}/static/images/bdzj.png" rel="shortcut icon">
+    <%
+        request.setCharacterEncoding("utf-8");
+    %>
     <title>编辑${detail.name}</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js" ></script>
     <style>
         body{
             background-color: rgb(240,242,245);
@@ -24,7 +28,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -36,7 +40,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
-                        <li><a href="sensor_add.html">增加传感器</a></li>
+                        <li><a href="sensor_add.html?adminId=${admin.adminId}">增加传感器</a></li>
                     </ul>
                 </li>
                 <li >
@@ -44,7 +48,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_repasswd.html">密码修改</a></li>
+                        <li><a href="/admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
                 <li >
@@ -58,8 +62,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
-                <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
+                <li><a href="/admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
+                <li><a href="/logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
     </div>
@@ -71,7 +75,7 @@
             <h3 class="panel-title">编辑传感器——${detail.name}</h3>
         </div>
         <div class="panel-body">
-            <form action="sensor_edit_do.html?id=${detail.id}" method="post" id="editsensor" >
+            <form action="sensor_edit_do?id=${detail.id}&adminId=${admin.adminId}" method="post" id="editsensor" >
 
                 <div class="input-group">
                     <span  style="width:80px;height:30px" class="input-group-addon">传感器</span>

@@ -12,11 +12,11 @@
     <%
         request.setCharacterEncoding("utf-8");
     %>
-    <link href="static/images/plus-outline.png" rel="shortcut icon">
+    <link href="${pageContext.request.contextPath}/static/images/plus-outline.png" rel="shortcut icon">
     <title>传感器信息添加</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js" ></script>
     <style>
         body{
             background-color: rgb(240,242,245);
@@ -28,7 +28,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -48,7 +48,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_repasswd.html">密码修改</a></li>
+                        <li><a href="/admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
                 <li >
@@ -62,8 +62,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
-                <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
+                <li><a href="/admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
+                <li><a href="/logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
     </div>

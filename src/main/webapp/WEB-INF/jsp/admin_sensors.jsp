@@ -9,11 +9,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link href="static/images/eye-outline.png" rel="shortcut icon">
+    <link href="${pageContext.request.contextPath}/static/images/eye-outline.png" rel="shortcut icon">
     <title>全部传感器信息</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js" ></script>
     <script>
         //异步刷新某个参数，不会有跳跃感
         function res(param){
@@ -52,7 +52,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -72,7 +72,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_repasswd.html">密码修改</a></li>
+                        <li><a href="/admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
                 <li >
@@ -87,9 +87,9 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a>
+                    <a href="/admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a>
                 </li>
-                <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
+                <li><a href="/logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
     </div>
@@ -97,7 +97,7 @@
 
 
 <div style="padding: 70px 550px 10px">
-    <form   method="post" action="querysensor.html?adminId=${admin.adminId}" class="form-inline"  id="searchform">
+    <form   method="post" action="/querysensor.html?adminId=${admin.adminId}" class="form-inline"  id="searchform">
         <div class="input-group">
             <input type="text" placeholder="输入传感器名" class="form-control" id="search" name="searchWord" class="form-control">
             <span class="input-group-btn">
@@ -196,9 +196,9 @@
                     <td><c:out value="${sensor.timeStamp}"></c:out></td>
                     <script>setInterval("res('${sensor.timeStamp}');",1000*5);</script>
                     <td><c:out value="${sensor.sensorAddress}"></c:out></td>
-                    <td><a href="sensordetail.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
-                    <td><a href="updatesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
-                    <td><a href="deletesensor.html?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
+                    <td><a href="sensordetail?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
+                    <td><a href="updatesensor?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
+                    <td><a href="deletesensor?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
                     <td><a href="exportExcelFile?sensorId=<c:out value="${sensor.id}"></c:out>&adminId=<c:out value="${admin.adminId}"></c:out>"><button type="button" class="btn btn-primary btn-xs">导出</button></a></td>
                 </tr>
             </c:forEach>

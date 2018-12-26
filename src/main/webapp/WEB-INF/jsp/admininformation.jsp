@@ -19,7 +19,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -29,9 +29,9 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
+                        <li><a href="/sensor/allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
-                        <li><a href="sensor_add.html?adminId=${admin.adminId}">增加传感器</a></li>
+                        <li><a href="/sensor/sensor_add.html?adminId=${admin.adminId}">增加传感器</a></li>
                     </ul>
                 </li>
                 <li >
@@ -48,12 +48,12 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="adminvideo.html">实时监控</a></li>
+                        <li><a href="/sensor/adminvideo.html">实时监控</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
+                <li><a href="/admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
                 <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>

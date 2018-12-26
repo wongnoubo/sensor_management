@@ -9,11 +9,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link href="static/images/video-outline.png" rel="shortcut icon">
+    <link href="${pageContext.request.contextPath}/static/images/video-outline.png" rel="shortcut icon">
     <title>视频监控</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js" ></script>
     <script>
         function display() {
             var date = new Date();
@@ -72,7 +72,7 @@
 <nav  style="position:relative;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -84,7 +84,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
-                        <li><a href="sensor_add.html">增加传感器</a></li>
+                        <li><a href="sensor_add.html?adminId=${admin.adminId}">增加传感器</a></li>
                     </ul>
                 </li>
                 <li >
@@ -92,7 +92,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_repasswd.html">密码修改</a></li>
+                        <li><a href="/admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
                 <li >
@@ -106,8 +106,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
-                <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
+                <li><a href="/admininformation?adminId=${admin.adminId}"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.nickname}，已登录</a></li>
+                <li><a href="/logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
             </ul>
         </div>
     </div>
@@ -116,8 +116,8 @@
     <div id="header" class="con" style="position: relative">
         <span id="time">Time</span>
     </div>
-    <img src="http://192.168.0.26:8090/?action=stream" width="640px"; height="480px";/>
-    <button class="btn-info center-block btn-lg" id="btn" onclick="add()">切换摄像头</button>
+    <img src="http://192.168.0.100:8090/?action=stream" width="640px"; height="480px";/>
+    <%--<button class="btn-info center-block btn-lg" id="btn" onclick="add()">切换摄像头</button>--%>
 </div>
 </body>
 </html>

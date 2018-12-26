@@ -6,13 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.sensor.domain.Admin;
 /**
  * 登录认证拦截器
  * @author Wongnoubo
  */
-public class Logininterceptor {
+public class Logininterceptor extends HandlerInterceptorAdapter{
 
     private static Logger logger = Logger.getLogger(Logininterceptor.class);
     /**
@@ -41,7 +42,6 @@ public class Logininterceptor {
         // 1. 页面不存在 跳转404.html
         // 2. 页面存在 未登录 跳转index.jsp
         // 3. 页面存在 已登录 跳转请求页面
-
         // 符合条件
         if (admin != null) {
             logger.debug("符合条件。不拦截");

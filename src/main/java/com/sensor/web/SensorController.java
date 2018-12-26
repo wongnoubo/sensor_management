@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,6 +27,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 @Controller
+@RequestMapping("sensor")
 public class SensorController {
 
     private SensorService sensorService;
@@ -38,9 +40,9 @@ public class SensorController {
         this.sensorService = sensorService;
     }
 
-    @RequestMapping("/querysensor.html")
-    public ModelAndView querySensorDo(HttpServletRequest request,String searchWord){
-        int adminId = Integer.parseInt(request.getParameter("adminId"));
+    @RequestMapping("/querysensor")
+    public ModelAndView querySensorDo(@RequestParam(value = "adminId",required = false) int adminId, String searchWord){
+        //int adminId = Integer.parseInt(request.getParameter("adminId"));
         logger.debug("querysensor.html:"+adminId);
         String sensorTableName = loginService.getAdminById(adminId).getInfotablename();
         boolean exist=sensorService.matchSensor(searchWord,sensorTableName);
@@ -84,9 +86,9 @@ public class SensorController {
         }
     }
 
-    @RequestMapping("/allsensors.html")
-    public ModelAndView allSensor(HttpServletRequest httpServletRequest){
-        int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
+    @RequestMapping("/allsensors")
+    public ModelAndView allSensor(@RequestParam(value = "adminId",required = false) int adminId){
+        //int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
         logger.debug("allsensors.html: "+adminId);
         String sensorTableName = loginService.getAdminById(adminId).getInfotablename();
         ArrayList<Sensor> sensors=sensorService.getAllSensors(sensorTableName);
@@ -128,10 +130,10 @@ public class SensorController {
         return modelAndView;
     }
 
-    @RequestMapping("/deletesensor.html")
-    public String deleteSensor(HttpServletRequest request,RedirectAttributes redirectAttributes){
-        int sensorId=Integer.parseInt(request.getParameter("sensorId"));
-        int adminId = Integer.parseInt(request.getParameter("adminId"));
+    @RequestMapping("/deletesensor")
+    public String deleteSensor(@RequestParam(value = "adminId",required = false) int adminId,@RequestParam(value = "sensorId",required = false) int sensorId,RedirectAttributes redirectAttributes){
+        //int sensorId=Integer.parseInt(request.getParameter("sensorId"));
+        //int adminId = Integer.parseInt(request.getParameter("adminId"));
         String sensorinfoTableName = loginService.getAdminById(adminId).getInfotablename();
         Sensor sensor = sensorService.querySensorById(sensorId,sensorinfoTableName);
         String tablename = sensor.getSensortableName();
@@ -145,22 +147,22 @@ public class SensorController {
         if (res==1){
             redirectAttributes.addFlashAttribute("succ", "传感器删除成功！");
             logger.debug("deletesensor.html:传感器删除成功！");
-            return "redirect:/allsensors.html?adminId="+adminId;
+            return "redirect:/sensor/allsensors?adminId="+adminId;
         }else {
             redirectAttributes.addFlashAttribute("error", "传感器删除失败！");
             logger.debug("deletesensor.html:传感器删除失败！");
-            return "redirect:/allsensors.html?adminId="+adminId;
+            return "redirect:/sensor/allsensors?adminId="+adminId;
         }
     }
 
-    @RequestMapping("/sensor_add.html")
+    @RequestMapping("/sensor_add")
     public ModelAndView addSensor(HttpServletRequest request){
         return new ModelAndView("admin_sensor_add");
     }
 
-    @RequestMapping("/sensor_add_do.html")
-    public String addSensorDo(HttpServletRequest request,RedirectAttributes redirectAttributes,SensorAddCommand sensorAddCommand){
-        int adminId = Integer.parseInt(request.getParameter("adminId"));
+    @RequestMapping("/sensor_add_do")
+    public String addSensorDo(@RequestParam(value = "adminId",required = false) int adminId,RedirectAttributes redirectAttributes,SensorAddCommand sensorAddCommand){
+        //int adminId = Integer.parseInt(request.getParameter("adminId"));
         logger.debug("sensor_add_do.html"+adminId);
         String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
         String email = loginService.getAdminById(adminId).getEmail();
@@ -236,19 +238,19 @@ public class SensorController {
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器添加成功！");
             logger.debug("sensor_add_do.html:传感器添加成功！");
-            return "redirect:/allsensors.html?adminId="+adminId;
+            return "redirect:/sensor/allsensors?adminId="+adminId;
         }
         else {
             redirectAttributes.addFlashAttribute("error", "传感器添加失败！");
             logger.debug("sensor_add_do.html:传感器添加失败！");
-            return "redirect:/allsensors.html?adminId="+adminId;
+            return "redirect:/sensor/allsensors?adminId="+adminId;
         }
     }
 
-    @RequestMapping("/updatesensor.html")
-    public ModelAndView sensorEdit(HttpServletRequest request){
-        int sensorId=Integer.parseInt(request.getParameter("sensorId"));
-        int adminId = Integer.parseInt(request.getParameter("adminId"));
+    @RequestMapping("/updatesensor")
+    public ModelAndView sensorEdit(@RequestParam(value = "sensorId") int sensorId,@RequestParam(value = "adminId",required = false) int adminId){
+      //  int sensorId=Integer.parseInt(request.getParameter("sensorId"));
+      //  int adminId = Integer.parseInt(request.getParameter("adminId"));
         String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
         Sensor sensor=sensorService.querySensorById(sensorId,sensorInfoTable);
         ModelAndView modelAndView=new ModelAndView("admin_sensor_edit");
@@ -256,7 +258,7 @@ public class SensorController {
         return modelAndView;
     }
 
-    @RequestMapping("/sensor_edit_do.html")
+    @RequestMapping("/sensor_edit_do")
     public String sensorEditDo(HttpServletRequest request,SensorAddCommand sensorAddCommand,RedirectAttributes redirectAttributes){
         int id = Integer.parseInt(request.getParameter("id"));
         int adminId =Integer.parseInt(request.getParameter("adminId"));
@@ -273,19 +275,19 @@ public class SensorController {
         if (succ){
             redirectAttributes.addFlashAttribute("succ", "传感器修改成功！");
             logger.debug("sensor_edit_do.html:传感器修改成功");
-            return "redirect:/allsensors.html?adminId="+adminId;
+            return "redirect:/sensor/allsensors?adminId="+adminId;
         }
         else {
             redirectAttributes.addFlashAttribute("error", "传感器修改失败！");
             logger.debug("sensor_edit_do.html:传感器修改失败");
-            return "redirect:/allsensors.html?adminId="+adminId;
+            return "redirect:/sensor/allsensors?adminId="+adminId;
         }
     }
 
-    @RequestMapping("/sensordetail.html")
-    public ModelAndView sensorDetail(HttpServletRequest request){
-        int sid = Integer.parseInt(request.getParameter("sensorId"));
-        int adminId = Integer.parseInt(request.getParameter("adminId"));
+    @RequestMapping("/sensordetail")
+    public ModelAndView sensorDetail(@RequestParam(value = "sensorId") int sid,@RequestParam(value = "adminId",required = false) int adminId){
+       // int sid = Integer.parseInt(request.getParameter("sensorId"));
+       // int adminId = Integer.parseInt(request.getParameter("adminId"));
         String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
         Sensor sensor = sensorService.querySensorById(sid,sensorInfoTable);
         String timeStamp = sensorService.getTimeStamp(sensorService.querySensorById(new Long(sensor.getId()).intValue(),sensorInfoTable).getSensortableName());
@@ -335,9 +337,9 @@ public class SensorController {
     将传感器数据导出为excel文件
      */
     @RequestMapping(value = "/exportExcelFile")
-    public  String exportExcelFile(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, RedirectAttributes redirectAttributes){
-        int sensorId = Integer.parseInt(httpServletRequest.getParameter("sensorId"));
-        int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
+    public  String exportExcelFile(@RequestParam(value = "sensorId") int sensorId,@RequestParam(value = "adminId",required = false) int adminId, HttpServletResponse httpServletResponse, RedirectAttributes redirectAttributes){
+       // int sensorId = Integer.parseInt(httpServletRequest.getParameter("sensorId"));
+       // int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
         String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
         Sensor sensor = sensorService.querySensorById(sensorId,sensorInfoTable);
         sensorService.querySensorById(sensorId,sensorInfoTable);
@@ -471,7 +473,7 @@ public class SensorController {
         else{
             logger.debug("导出excel获得的数据为空");
         }
-        return "redirect:/admin_sensors.html?adminId="+adminId;
+        return "redirect:/admin_sensors?adminId="+adminId;
     }
 
     @RequestMapping("/adminvideo")

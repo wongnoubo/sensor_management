@@ -9,12 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="${pageContext.request.contextPath}/static/images/sjkb.png" rel="shortcut icon">
     <title>${detail.name}</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
-    <script src="js/ajax.js"></script>
-    <script src="js/echarts.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/static/js/ajax.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/echarts.min.js"></script>
     <style>
         body{
             background-color: rgb(240,242,245);
@@ -26,7 +27,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -38,7 +39,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="allsensors.html?adminId=${admin.adminId}">全部传感器</a></li>
                         <li class="divider"></li>
-                        <li><a href="sensor_add.html">增加传感器</a></li>
+                        <li><a href="sensor_add.html?adminId=${admin.adminId}">增加传感器</a></li>
                     </ul>
                 </li>
                 <li >
@@ -46,7 +47,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_repasswd.html">密码修改</a></li>
+                        <li><a href="/admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
                 <li >
@@ -55,7 +56,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="adminvideo.html">实时监控</a></li>
+                        <li><a href="/adminvideo.html">实时监控</a></li>
                     </ul>
                 </li>
             </ul>
@@ -107,7 +108,24 @@
                             <c:out value="无人经过"></c:out>
                             <script>setInterval("res('${detail.humenState}');",1000*20);</script>
                         </c:when>
+                        <c:when test="${detail.name eq '有毒气体传感器' && detail.toxicAirState==1}">
+                            <c:out value="有毒气体浓度正常"></c:out>
+                            <script>setInterval("res('${detail.toxicAirState}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${detail.name eq '有毒气体传感器' && (detail.toxicAirState eq null)}">
+                            <c:out value="有毒气体没有被测量"></c:out>
+                            <script>setInterval("res('${detail.toxicAirState}');",1000*20);</script>
+                        </c:when>
+                        <c:when test="${detail.name eq '有毒气体传感器' && detail.toxicAirState==0}">
+                            <c:out value="有毒气体浓度异常"></c:out>
+                            <script>setInterval("res('${detail.toxicAirState}');",1000*20);</script>
+                        </c:when>
                     </c:choose></td>
+                </tr>
+                <tr>
+                    <th>采样时间</th>
+                    <td>${detail.timeStamp}</td>
+                    <script>setInterval("res('${detail.timeStamp}');",1000*20);</script>
                 </tr>
                 <tr>
                     <th>数据库表</th>
@@ -172,7 +190,9 @@
                     xAxis: [
                         {
                             type: 'category',
-                            data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                            data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                            //type:'time',
+                            //data:${detail.timeStamps},
                             splitLine: {//显示分割线
                                 show: true
                             }
@@ -205,6 +225,7 @@
                 setTimeout(function () {
                     chart.hideLoading();//隐藏等待条
                 }, 2000);
+
                 }
             });
         </script>
@@ -234,7 +255,7 @@
                         xAxis: [
                             {
                                 type: 'category',
-                                data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
                                 splitLine: {//显示分割线
                                     show: true
                                 }
@@ -296,7 +317,7 @@
                         xAxis: [
                             {
                                 type: 'category',
-                                data: ['1h', '3h', '5h', '7h', '9h', '11h', '13h', '15h', '17h', '19h', '21h', '23h'],
+                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
                                 splitLine: {//显示分割线
                                     show: true
                                 }
@@ -329,6 +350,71 @@
                     setTimeout(function () {
                         chart.hideLoading();//隐藏等待条
                     }, 2000);
+                }
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                //放置图表的容器
+                if(${detail.name eq '红外人体传感器'}){
+                    var group = $("#humenState");
+                    //设置容器的宽度、高度和背景颜色
+                    group.css({
+                        "width": "100%",
+                        "height": "45%",
+                        "background-color": "aliceblue"
+                    });
+                    //创建图表对象
+                    var chart = echarts.init(group.get(0));
+                    chart.showLoading();//显示等待条
+                    //设置图表显示的内容
+                    var option = {
+                        legend: {
+                            selectedMode: false,//不可点击
+                            data: ['有人']
+                        },
+                        grid: {
+                            left: 100
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                                //type:'time',
+                                //data:${detail.timeStamps},
+                                splitLine: {//显示分割线
+                                    show: true
+                                }
+                            }
+
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '有人',
+                                axisLabel: {
+                                    formatter: '{value} 经过'
+                                },
+                                splitLine: {
+                                    show: false
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '有人',
+                                type: 'line',
+                                data:${detail.humenStates}
+                            },
+                        ]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    chart.setOption(option);
+                    //两秒后关闭等待进度条
+                    setTimeout(function () {
+                        chart.hideLoading();//隐藏等待条
+                    }, 2000);
+
                 }
             });
         </script>

@@ -12,11 +12,21 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
     <!-- 扫描web包，应用Spring的注解 -->
     <context:component-scan base-package="com.sensor.web"/>
-
     <!-- 配置视图解析器，将ModelAndView及字符串解析为具体的页面 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver"
             p:viewClass="org.springframework.web.servlet.view.JstlView"
             p:prefix="/WEB-INF/jsp/"
             p:suffix=".jsp" />
+
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/sensor/**"></mvc:mapping>
+            <mvc:mapping path="/admin_main.html"/>
+            <mvc:mapping path="/admin_repasswd.html"/>
+            <mvc:mapping path="/admininformation"/>
+            <bean class="com.sensor.interceptor.Logininterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

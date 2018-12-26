@@ -89,9 +89,9 @@ public class LoginController {
     }
 
     @RequestMapping("/admin_repasswd_do")
-    public String reAdminPasswdDo(HttpServletRequest request,String oldPasswd,String newPasswd,String reNewPasswd,RedirectAttributes redirectAttributes ) {
+    public String reAdminPasswdDo(@RequestParam(value = "admin",required = false) Admin admin,String oldPasswd,String newPasswd,String reNewPasswd,RedirectAttributes redirectAttributes ) {
 
-        Admin admin=(Admin) request.getSession().getAttribute("admin");
+       //Admin admin=(Admin) request.getSession().getAttribute("admin");
         int id=admin.getAdminId();
         String passwd = loginService.getAdminPassword(id);
 
@@ -125,8 +125,8 @@ public class LoginController {
 
     //找回密码
     @RequestMapping("/admin_findpassword_do.html")
-    public String findPasswordDo(HttpServletRequest request,RedirectAttributes redirectAttributes) {
-        String adminEmail = request.getParameter("adminemail");
+    public String findPasswordDo(@RequestParam(value = "adminemail",required = false) String adminEmail,RedirectAttributes redirectAttributes) {
+        //String adminEmail = request.getParameter("adminemail");
         logger.debug("jsp传来的邮箱：" + adminEmail);
         if (adminEmail.length() == 0 || adminEmail.equals("") || adminEmail == null) {
             logger.debug("js邮箱校验显示这个邮箱是空的，格式是错误的");
@@ -151,8 +151,8 @@ public class LoginController {
     }
 
     @RequestMapping("admin_findusername_do.html")
-    public String findUsernameDo(HttpServletRequest request,RedirectAttributes redirectAttributes) {
-        String adminEmail = request.getParameter("adminemail");
+    public String findUsernameDo(@RequestParam(value = "adminemail",required = false) String adminEmail,RedirectAttributes redirectAttributes) {
+        //String adminEmail = request.getParameter("adminemail");
         logger.debug("jsp传来的邮箱：" + adminEmail);
         if (adminEmail.length() == 0 || adminEmail.equals("") || adminEmail == null) {
             logger.debug("js邮箱校验显示这个邮箱是空的，格式是错误的");
@@ -177,12 +177,12 @@ public class LoginController {
     }
 
     @RequestMapping("/admin_register_do.html")
-    public String registerAdminDo(HttpServletRequest httpServletRequest,RedirectAttributes redirectAttributes) {
+    public String registerAdminDo(@RequestParam(value = "emailid",required = false) String adminEmail,@RequestParam(value = "repasswordid",required = false) String adminPassword,@RequestParam(value = "nickname",required = false) String adminNickName,RedirectAttributes redirectAttributes) {
         int RegiState = 0;
         Admin admin = new Admin();
-        String adminEmail = httpServletRequest.getParameter("emailid");
-        String adminPassword = httpServletRequest.getParameter("repasswordid");
-        String adminNickName = httpServletRequest.getParameter("nickname");
+       // String adminEmail = httpServletRequest.getParameter("emailid");
+      //  String adminPassword = httpServletRequest.getParameter("repasswordid");
+       // String adminNickName = httpServletRequest.getParameter("nickname");
         logger.debug("用户注册邮箱"+adminEmail);
         if (adminEmail.length() == 0 || adminEmail.equals("") || adminEmail == null) {
             logger.debug("用户邮箱输入不正确");
@@ -237,13 +237,13 @@ public class LoginController {
     }
 
     @RequestMapping("/welcome")
-    public ModelAndView emailRegisterPage(@RequestParam("code") String code,ModelAndView modelAndView){
+    public ModelAndView emailRegisterPage(@RequestParam(value = "code",required = false) String code,ModelAndView modelAndView){
         return new ModelAndView("welcome","code",code);
     }
 
     @RequestMapping("/welcome_do.html")
-    public String emailRegisterDo(HttpServletRequest httpServletRequest,RedirectAttributes redirectAttributes){
-        String code = httpServletRequest.getParameter("Code");
+    public String emailRegisterDo(@RequestParam(value = "Code",required = false) String code,RedirectAttributes redirectAttributes){
+        //String code = httpServletRequest.getParameter("Code");
         logger.debug("注册code:"+code);
         if(loginService.checkRegisterCode(code).getPassword().isEmpty()){
             logger.debug("注册码无效");
@@ -270,8 +270,8 @@ public class LoginController {
     }
 
     @RequestMapping("/admininformation")
-    public ModelAndView adminInfomationDo(HttpServletRequest request){
-        int adminId = Integer.parseInt(request.getParameter("adminId"));
+    public ModelAndView adminInfomationDo(@RequestParam(value = "adminId",required = false) int adminId){
+       // int adminId = Integer.parseInt(request.getParameter("adminId"));
         Admin admin = loginService.getAdminById(adminId);
         ModelAndView modelAndView = new ModelAndView("admininformation");
         modelAndView.addObject("admininformation",admin);
