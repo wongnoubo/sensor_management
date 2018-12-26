@@ -19,11 +19,7 @@ public class BaseJunitTest {
 
     @Test
     public void testgetAllSensors(){
-        ArrayList<Sensor> sensors= new ArrayList<>();
-        sensors=sensorDao.getAllSensors();
-        for(Sensor sensor: sensors){
-            System.out.println(sensor);
-        }
+
     }
 }
 

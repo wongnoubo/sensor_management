@@ -1,5 +1,6 @@
 package com.sensor.interceptor;
 
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import com.sensor.domain.Admin;
  * 登录认证拦截器
  * @author Wongnoubo
  */
-public class Logininterceptor extends HandlerInterceptorAdapter{
+public class Logininterceptor implements HandlerInterceptor {
 
     private static Logger logger = Logger.getLogger(Logininterceptor.class);
     /**

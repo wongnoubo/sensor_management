@@ -27,7 +27,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("sensor")
 public class SensorController {
 
     private SensorService sensorService;
@@ -86,7 +85,7 @@ public class SensorController {
         }
     }
 
-    @RequestMapping("/allsensors")
+    @RequestMapping("allsensors")
     public ModelAndView allSensor(@RequestParam(value = "adminId",required = false) int adminId){
         //int adminId = Integer.parseInt(httpServletRequest.getParameter("adminId"));
         logger.debug("allsensors.html: "+adminId);
@@ -130,7 +129,7 @@ public class SensorController {
         return modelAndView;
     }
 
-    @RequestMapping("/deletesensor")
+    @RequestMapping("deletesensor")
     public String deleteSensor(@RequestParam(value = "adminId",required = false) int adminId,@RequestParam(value = "sensorId",required = false) int sensorId,RedirectAttributes redirectAttributes){
         //int sensorId=Integer.parseInt(request.getParameter("sensorId"));
         //int adminId = Integer.parseInt(request.getParameter("adminId"));
@@ -155,12 +154,12 @@ public class SensorController {
         }
     }
 
-    @RequestMapping("/sensor_add")
+    @RequestMapping("sensor_add")
     public ModelAndView addSensor(HttpServletRequest request){
         return new ModelAndView("admin_sensor_add");
     }
 
-    @RequestMapping("/sensor_add_do")
+    @RequestMapping("sensor_add_do")
     public String addSensorDo(@RequestParam(value = "adminId",required = false) int adminId,RedirectAttributes redirectAttributes,SensorAddCommand sensorAddCommand){
         //int adminId = Integer.parseInt(request.getParameter("adminId"));
         logger.debug("sensor_add_do.html"+adminId);
@@ -247,7 +246,7 @@ public class SensorController {
         }
     }
 
-    @RequestMapping("/updatesensor")
+    @RequestMapping("updatesensor")
     public ModelAndView sensorEdit(@RequestParam(value = "sensorId") int sensorId,@RequestParam(value = "adminId",required = false) int adminId){
       //  int sensorId=Integer.parseInt(request.getParameter("sensorId"));
       //  int adminId = Integer.parseInt(request.getParameter("adminId"));
@@ -258,7 +257,7 @@ public class SensorController {
         return modelAndView;
     }
 
-    @RequestMapping("/sensor_edit_do")
+    @RequestMapping("sensor_edit_do")
     public String sensorEditDo(HttpServletRequest request,SensorAddCommand sensorAddCommand,RedirectAttributes redirectAttributes){
         int id = Integer.parseInt(request.getParameter("id"));
         int adminId =Integer.parseInt(request.getParameter("adminId"));
@@ -284,7 +283,7 @@ public class SensorController {
         }
     }
 
-    @RequestMapping("/sensordetail")
+    @RequestMapping("sensordetail")
     public ModelAndView sensorDetail(@RequestParam(value = "sensorId") int sid,@RequestParam(value = "adminId",required = false) int adminId){
        // int sid = Integer.parseInt(request.getParameter("sensorId"));
        // int adminId = Integer.parseInt(request.getParameter("adminId"));

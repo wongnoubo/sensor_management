@@ -13,24 +13,12 @@ public class SensorServiceTest extends BaseJunitTest {
 
     @Test
     public void testquerySensor(){
-        ArrayList<Sensor> sensors= new ArrayList<>();
-        sensors = sensorService.querySensor("温度传感器");
-        for(Sensor sensor: sensors){
-            System.out.println(sensor);
-        }
+
     }
 
     @Test
     public void testgetAllSensors(){
-        ArrayList<Sensor> sensors= new ArrayList<>();
-        sensors = sensorService.getAllSensors();
-        for(Sensor sensor: sensors){
-            System.out.println(sensor);
-        }
+
     }
 
-    @Test
-    public void testdeleteSensor(){
-        sensorService.deleteSensor(1233467);
-    }
 }
