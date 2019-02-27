@@ -101,7 +101,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="adminvideo.html">实时监控</a></li>
+                        <li><a href="adminvideo">实时监控</a></li>
                     </ul>
                 </li>
             </ul>

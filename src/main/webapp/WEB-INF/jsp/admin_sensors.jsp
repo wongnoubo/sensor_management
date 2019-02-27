@@ -81,7 +81,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="adminvideo.html">实时监控</a></li>
+                        <li><a href="adminvideo">实时监控</a></li>
                     </ul>
                 </li>
             </ul>
@@ -97,7 +97,7 @@
 
 
 <div style="padding: 70px 550px 10px">
-    <form   method="post" action="/querysensor.html?adminId=${admin.adminId}" class="form-inline"  id="searchform">
+    <form   method="post" action="querysensor?adminId=${admin.adminId}" class="form-inline"  id="searchform">
         <div class="input-group">
             <input type="text" placeholder="输入传感器名" class="form-control" id="search" name="searchWord" class="form-control">
             <span class="input-group-btn">

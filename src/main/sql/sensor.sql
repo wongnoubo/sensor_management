@@ -7,7 +7,6 @@ CREATE TABLE if not exists `admin` (
   `nickname` varchar(50) not null,
   `infotablename` varchar(50) not null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 --
 -- 转存表中的数据 `admin`
 --

@@ -39,7 +39,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_repasswd.html">密码修改</a></li>
+                        <li><a href="admin_repasswd">密码修改</a></li>
                     </ul>
                 </li>
                 <li >
