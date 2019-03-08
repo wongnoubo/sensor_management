@@ -3,6 +3,7 @@ package com.sensor.web;
 import com.sensor.domain.Sensor;
 import com.sensor.service.SensorService;
 import com.sensor.service.LoginService;
+import com.sensor.service.SensorGridService;
 import com.sensor.utils.ExcelExportUtil;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -30,13 +30,15 @@ import java.util.ArrayList;
 public class SensorController {
 
     private SensorService sensorService;
-    private static Logger logger = Logger.getLogger(SensorController.class);
+    private SensorGridService sensorGridService;
     private LoginService loginService;
+    private static Logger logger = Logger.getLogger(SensorController.class);
 
     @Autowired
-    public void setSensorService(SensorService sensorService,LoginService loginService){
+    public void setSensorService(SensorService sensorService,LoginService loginService,SensorGridService sensorGridService){
         this.loginService = loginService;
         this.sensorService = sensorService;
+        this.sensorGridService = sensorGridService;
     }
 
     @RequestMapping("/querysensor")
@@ -478,5 +480,17 @@ public class SensorController {
     @RequestMapping("/adminvideo")
     public ModelAndView displayVideo(){
         return new ModelAndView("adminvideo");
+    }
+
+    @RequestMapping("/admin_control")
+    public ModelAndView controlLed(){
+        return new ModelAndView("admin_control");
+    }
+
+    @RequestMapping("/admin_controldo")
+    @ResponseBody
+    public String controlLedDo(String cmd){
+        logger.debug("远程控制命令"+cmd);
+        return "SUCCESS";
     }
 }

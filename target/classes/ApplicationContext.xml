@@ -12,25 +12,25 @@
        http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
-    <context:annotation-config/>
-    <context:component-scan base-package="com.sensor.dao"/>
-    <context:component-scan base-package="com.sensor.service"/>
-    <context:component-scan base-package="com.sensor.utils"/>
-    <context:component-scan base-package="com.sensor.web"/>
-    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
-    <!-- 配置一个 bean -->
-    <!--  定义一个使用DBCP实现的数据源 -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-          destroy-method="close"
-          p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql://119.23.248.55:3306/sensor?aoseUnicode=true&amp;characterEncoding=UTF8"
-          p:username="root"
-          p:password="123456"
-          p:maxActive="255"
-          p:maxIdle="5"
-          p:maxWait="10000"/>
-    <!-- 定义JDBC模板Bean   -->
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
-          p:dataSource-ref="dataSource"/>
+<!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
+<context:annotation-config/>
+<context:component-scan base-package="com.sensor.dao"/>
+<context:component-scan base-package="com.sensor.service"/>
+<context:component-scan base-package="com.sensor.utils"/>
+<context:component-scan base-package="com.sensor.web"/>
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+<!-- 配置一个 bean -->
+<!--  定义一个使用DBCP实现的数据源 -->
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+      destroy-method="close"
+      p:driverClassName="com.mysql.jdbc.Driver"
+      p:url="jdbc:mysql://119.23.248.55:3306/sensor?aoseUnicode=true&amp;characterEncoding=UTF8"
+      p:username="root"
+      p:password="123456"
+      p:maxActive="255"
+      p:maxIdle="20"
+      p:maxWait="10000"/>
+<!-- 定义JDBC模板Bean   -->
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+      p:dataSource-ref="dataSource"/>
 </beans>

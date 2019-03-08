@@ -49,6 +49,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="adminvideo.html">实时监控</a></li>
+                        <li class="divider"></li>
+                        <li><a href="http://jiajiasystem.vipgz1.idcfengye.com">远程控制</a></li>
                     </ul>
                 </li>
             </ul>

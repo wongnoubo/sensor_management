@@ -8,8 +8,8 @@
        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-4.0.xsd
-        http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
     <!-- 使用注解驱动 -->
     <mvc:annotation-driven />
     <!-- 扫描web包，应用Spring的注解 -->
@@ -33,6 +33,7 @@
             <mvc:mapping path="/sensordetail"/>
             <mvc:mapping path="/adminvideo"/>
             <mvc:mapping path="/querysensor"/>
+            <mvc:mapping path="/admin_control"/>
             <bean class="com.sensor.interceptor.Logininterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

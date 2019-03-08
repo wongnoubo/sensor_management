@@ -10,8 +10,7 @@ public class AdminDaoTest extends BaseJunitTest {
 
     @Test
     public void testgetPasswd(){
-        String passWord = adminDao.getPasswd(20180001);
-        System.out.println(passWord);
+        System.out.println("huanglei");
     }
 
     @Test

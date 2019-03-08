@@ -201,7 +201,7 @@
     <div class="panel-body">
         <div class="form-group">
             <label for="id">用户名</label>
-            <input type="text" class="form-control" id="id" placeholder="请输入用户名">
+            <input type="text" class="form-control" id="id" placeholder="请输入注册邮箱">
         </div>
         <div class="form-group">
             <label for="passwd">密码</label>
