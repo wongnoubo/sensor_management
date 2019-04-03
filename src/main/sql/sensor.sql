@@ -14,7 +14,7 @@ CREATE TABLE if not exists `admin` (
 INSERT INTO `admin` (`admin_id`, `password`,`email`,`state`,`code`,`nickname`,`infotablename`) VALUES
 (20180001, '123456','1012084607@qq.com',1,'9527','黄磊','sensorinfo0');
 
-CREATE TABLE if not exists `sensor_info` (
+CREATE TABLE if not exists `sensorinfo0` (
   `sensorId` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `sensorName` varchar(50) NOT NULL,
   `sensorAddress` varchar(50) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE if not exists `sensor_info` (
 --
 -- 转存表中的数据 `sensor_info`
 --
-insert into `sensor_info` (`sensorId`,`sensorName`,`sensorAddress`,`sensorIntroduction`,`sensorPrice`,`sensorState`) values
+insert into `sensorinfo0` (`sensorId`,`sensorName`,`sensorAddress`,`sensorIntroduction`,`sensorPrice`,`sensorState`) values
 (1,'温度传感器','儿童房','该温度传感器采集儿童房的温度','6','1'),
 (2,'温度传感器','厨房','采集厨房的温度','6','1'),
 (3,'温度传感器','客厅','采集客厅温度','6','1'),

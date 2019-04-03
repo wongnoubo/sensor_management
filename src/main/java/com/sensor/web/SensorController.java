@@ -300,6 +300,8 @@ public class SensorController {
             sensor.setTemperature(sensorService.getNewestTempSensorValue(tempTableName));
             ArrayList<Integer> temperatures = sensorService.getTemperatureSensorDatas(tempTableName);
             sensor.setTemperatures(temperatures);
+            ArrayList<String> temperatureTimeStamps = sensorService.getTimeStamps(tempTableName);
+            sensor.setTimeStamps(temperatureTimeStamps);
             logger.debug("sensordetail:获取温度成功！");
         }
         if(sensor.getName().equals("湿度传感器")){

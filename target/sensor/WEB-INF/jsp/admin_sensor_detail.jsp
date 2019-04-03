@@ -170,6 +170,13 @@
             $(document).ready(function () {
                 //放置图表的容器
                 if(${detail.name eq '温度传感器'}){
+
+                    var temperatures = ${detail.temperatures};
+                    console.log(temperatures);
+                    if(temperatures.length >12){
+                        var temperatures = temperatures.slice(-13,-1);
+                        console.log(temperatures);
+                    }
                 var group = $("#temperature");
                 //设置容器的宽度、高度和背景颜色
                 group.css({
@@ -192,9 +199,9 @@
                     xAxis: [
                         {
                             type: 'category',
-                            data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                            //data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
                             //type:'time',
-                            //data:${detail.timeStamps},
+                            data:${detail.timeStamps},
                             splitLine: {//显示分割线
                                 show: true
                             }
@@ -217,7 +224,7 @@
                         {
                             name: '温度',
                             type: 'line',
-                            data:${detail.temperatures}
+                            data:temperatures
                         },
                     ]
                 };
@@ -229,6 +236,8 @@
                 }, 2000);
 
                 }
+
+
             });
         </script>
         <script>

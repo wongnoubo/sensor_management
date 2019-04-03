@@ -170,6 +170,16 @@
             $(document).ready(function () {
                 //放置图表的容器
                 if(${detail.name eq '温度传感器'}){
+
+                    var temperatures = ${detail.temperatures};
+                    console.log(temperatures);
+                    if(temperatures.length >12){
+                        var tempWendu = temperatures.slice(-13,-1);
+                        tempWendu.shift();
+                        tempWendu.push(temperatures.pop());
+                        console.log(tempWendu);
+                    }else
+                        tempWendu = temperatures;
                 var group = $("#temperature");
                 //设置容器的宽度、高度和背景颜色
                 group.css({
@@ -192,7 +202,7 @@
                     xAxis: [
                         {
                             type: 'category',
-                            data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                            data: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10', '11', '12'],
                             //type:'time',
                             //data:${detail.timeStamps},
                             splitLine: {//显示分割线
@@ -217,7 +227,7 @@
                         {
                             name: '温度',
                             type: 'line',
-                            data:${detail.temperatures}
+                            data:tempWendu
                         },
                     ]
                 };
@@ -229,12 +239,24 @@
                 }, 2000);
 
                 }
+
+
             });
         </script>
         <script>
             $(document).ready(function () {
                 //放置图表的容器
                 if(${detail.name eq '湿度传感器'}){
+                    var humidities = ${detail.humidities};
+                    console.log(humidities);
+                    if(humidities.length >12){
+                        var tempShidu = humidities.slice(-13,-1);
+                        tempShidu.shift();
+                        tempShidu.push(humidities.pop());
+                        console.log(tempShidu);
+                    }else
+                        tempShidu = humidities;
+
                     var group = $("#humidities");
                     //设置容器的宽度、高度和背景颜色
                     group.css({
@@ -257,7 +279,7 @@
                         xAxis: [
                             {
                                 type: 'category',
-                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                                data: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10', '11', '12'],
                                 splitLine: {//显示分割线
                                     show: true
                                 }
@@ -280,7 +302,7 @@
                             {
                                 name: '湿度',
                                 type: 'line',
-                                data:${detail.humidities}
+                                data:tempShidu
                             },
                         ]
                     };
@@ -299,6 +321,15 @@
                 if(${detail.name eq '树莓派cpu温度'}){
                     var group = $("#cputemps");
                     //设置容器的宽度、高度和背景颜色
+                    var cputemps = ${detail.cputemps};
+                    console.log(cputemps);
+                    if(cputemps.length >12){
+                        var tempCpu = cputemps.slice(-13,-1);
+                        tempCpu.shift();
+                        tempCpu.push(cputemps.pop());
+                        console.log(tempCpu);
+                    }else
+                        tempCpu = cputemps;
                     group.css({
                         "width": "100%",
                         "height": "45%",
@@ -319,7 +350,7 @@
                         xAxis: [
                             {
                                 type: 'category',
-                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                                data: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10', '11', '12'],
                                 splitLine: {//显示分割线
                                     show: true
                                 }
@@ -342,7 +373,7 @@
                             {
                                 name: 'cpu温度',
                                 type: 'line',
-                                data:${detail.cputemps}
+                                data:tempCpu
                             },
                         ]
                     };
@@ -361,6 +392,15 @@
                 if(${detail.name eq '红外人体传感器'}){
                     var group = $("#humenState");
                     //设置容器的宽度、高度和背景颜色
+                    var humenStatus = ${detail.humenStates};
+                    console.log(humenStatus);
+                    if(humenStatus.length >12){
+                        var tempHumen = humenStatus.slice(-13,-1);
+                        tempHumen.shift();
+                        tempHumen.push(humenStatus.pop());
+                        console.log(tempHumen);
+                    }else
+                        tempHumen = humenStatus;
                     group.css({
                         "width": "100%",
                         "height": "45%",
@@ -381,7 +421,7 @@
                         xAxis: [
                             {
                                 type: 'category',
-                                data: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23'],
+                                data: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10', '11', '12'],
                                 //type:'time',
                                 //data:${detail.timeStamps},
                                 splitLine: {//显示分割线
@@ -406,7 +446,7 @@
                             {
                                 name: '有人',
                                 type: 'line',
-                                data:${detail.humenStates}
+                                data:tempHumen
                             },
                         ]
                     };
@@ -429,6 +469,9 @@
             </c:when>
             <c:when test="${detail.name eq '树莓派cpu温度'}">
                 <div id="cputemps"></div>
+            </c:when>
+            <c:when test="${detail.name eq '红外人体传感器'}">
+                <div id="humenState"></div>
             </c:when>
         </c:choose>
     </div>
