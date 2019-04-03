@@ -227,6 +227,8 @@
                         {
                             name: '温度',
                             type: 'line',
+                            label:{ normal:{show:true} },
+                            smooth: true,
                             data:tempWendu
                         },
                     ]
@@ -302,6 +304,8 @@
                             {
                                 name: '湿度',
                                 type: 'line',
+                                label:{ normal:{show:true} },
+                                smooth: true,
                                 data:tempShidu
                             },
                         ]
@@ -373,6 +377,8 @@
                             {
                                 name: 'cpu温度',
                                 type: 'line',
+                                label:{ normal:{show:true} },
+                                smooth: true,
                                 data:tempCpu
                             },
                         ]
@@ -411,44 +417,31 @@
                     chart.showLoading();//显示等待条
                     //设置图表显示的内容
                     var option = {
-                        legend: {
-                            selectedMode: false,//不可点击
-                            data: ['有人']
+                        xAxis: {},
+                        yAxis: {
+                            type: 'value',
+                            name: '经过状态',
+                            minInterval: 1//设置最小显示为整数
                         },
-                        grid: {
-                            left: 100
-                        },
-                        xAxis: [
-                            {
-                                type: 'category',
-                                data: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10', '11', '12'],
-                                //type:'time',
-                                //data:${detail.timeStamps},
-                                splitLine: {//显示分割线
-                                    show: true
-                                }
-                            }
-
-                        ],
-                        yAxis: [
-                            {
-                                type: 'value',
-                                name: '有人',
-                                axisLabel: {
-                                    formatter: '{value} 经过'
-                                },
-                                splitLine: {
-                                    show: false
-                                }
-                            }
-                        ],
-                        series: [
-                            {
-                                name: '有人',
-                                type: 'line',
-                                data:tempHumen
-                            },
-                        ]
+                        series: [{
+                            symbolSize: 20,
+                            data: [
+                                [1,tempHumen[0]],
+                                [2,tempHumen[1]],
+                                [3,tempHumen[2]],
+                                [4,tempHumen[3]],
+                                [5,tempHumen[4]],
+                                [6,tempHumen[5]],
+                                [7,tempHumen[6]],
+                                [8,tempHumen[7]],
+                                [9,tempHumen[8]],
+                                [10,tempHumen[9]],
+                                [11,tempHumen[10]],
+                                [12,tempHumen[11]]
+                            ],
+                            type: 'scatter',
+                            label:{ normal:{show:true} }
+                        }]
                     };
                     // 使用刚指定的配置项和数据显示图表。
                     chart.setOption(option);
