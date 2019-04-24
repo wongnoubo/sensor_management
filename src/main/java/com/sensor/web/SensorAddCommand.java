@@ -74,4 +74,10 @@ public class SensorAddCommand {
     public String getOwner() {
         return owner;
     }
+
+    @Override
+    public String toString(){
+        return "name: "+name+ " introduction："+introduction +" address "+address +" price"+price+" owner"+owner+ " State"+state;
+    }
+
 }

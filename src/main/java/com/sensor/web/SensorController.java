@@ -163,7 +163,7 @@ public class SensorController {
 
     @RequestMapping("sensor_add_do")
     public String addSensorDo(@RequestParam(value = "adminId",required = false) int adminId,RedirectAttributes redirectAttributes,SensorAddCommand sensorAddCommand){
-        //int adminId = Integer.parseInt(request.getParameter("adminId"));
+        logger.debug("sensor_add_do"+sensorAddCommand);
         logger.debug("sensor_add_do.html"+adminId);
         String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
         String email = loginService.getAdminById(adminId).getEmail();
@@ -346,6 +346,7 @@ public class SensorController {
         String sensorInfoTable = loginService.getAdminById(adminId).getInfotablename();
         Sensor sensor = sensorService.querySensorById(sensorId,sensorInfoTable);
         sensorService.querySensorById(sensorId,sensorInfoTable);
+        logger.debug("/exportExcelFile");
         String sensorTableName = sensor.getSensortableName();
         if(sensor.getName().equals("树莓派cpu温度")){
             ArrayList<Double> datas = sensorService.getCputempDatas(sensorTableName);
