@@ -27,7 +27,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">安居系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -110,7 +110,7 @@
                             <c:out value="无人经过"></c:out>
                             <script>setInterval("res('${detail.humenState}');",1000*20);</script>
                         </c:when>
-                        <c:when test="${detail.name eq '有毒气体传感器' && detail.toxicAirState==1}">
+                        <c:when test="${detail.name eq '有毒气体传感器' && detail.toxicAirState==0}">
                             <c:out value="有毒气体浓度正常"></c:out>
                             <script>setInterval("res('${detail.toxicAirState}');",1000*20);</script>
                         </c:when>
@@ -118,7 +118,7 @@
                             <c:out value="有毒气体没有被测量"></c:out>
                             <script>setInterval("res('${detail.toxicAirState}');",1000*20);</script>
                         </c:when>
-                        <c:when test="${detail.name eq '有毒气体传感器' && detail.toxicAirState==0}">
+                        <c:when test="${detail.name eq '有毒气体传感器' && detail.toxicAirState==1}">
                             <c:out value="有毒气体浓度异常"></c:out>
                             <script>setInterval("res('${detail.toxicAirState}');",1000*20);</script>
                         </c:when>
@@ -147,10 +147,10 @@
                 </tr>
                 <tr>
                     <th>状态</th>
-                    <c:if test="${detail.sensorState==1}">
+                    <c:if test="${detail.sensorState==0}">
                         <td>正常工作</td>
                     </c:if>
-                    <c:if test="${detail.sensorState==0}">
+                    <c:if test="${detail.sensorState==1}">
                         <td>异常</td>
                     </c:if>
                 </tr>
@@ -173,8 +173,9 @@
 
                     var temperatures = ${detail.temperatures};
                     console.log(temperatures);
+                    var tempWendu = [];
                     if(temperatures.length >12){
-                        var tempWendu = temperatures.slice(-13,-1);
+                        tempWendu = temperatures.slice(-13,-1);
                         tempWendu.shift();
                         tempWendu.push(temperatures.pop());
                         console.log(tempWendu);
@@ -251,8 +252,9 @@
                 if(${detail.name eq '湿度传感器'}){
                     var humidities = ${detail.humidities};
                     console.log(humidities);
+                    var tempShidu = [];
                     if(humidities.length >12){
-                        var tempShidu = humidities.slice(-13,-1);
+                        tempShidu = humidities.slice(-13,-1);
                         tempShidu.shift();
                         tempShidu.push(humidities.pop());
                         console.log(tempShidu);
@@ -326,9 +328,10 @@
                     var group = $("#cputemps");
                     //设置容器的宽度、高度和背景颜色
                     var cputemps = ${detail.cputemps};
+                    var tempCpu = [];
                     console.log(cputemps);
                     if(cputemps.length >12){
-                        var tempCpu = cputemps.slice(-13,-1);
+                        tempCpu = cputemps.slice(-13,-1);
                         tempCpu.shift();
                         tempCpu.push(cputemps.pop());
                         console.log(tempCpu);
@@ -400,8 +403,9 @@
                     //设置容器的宽度、高度和背景颜色
                     var humenStatus = ${detail.humenStates};
                     console.log(humenStatus);
+                    var tempHumen = [];
                     if(humenStatus.length >12){
-                        var tempHumen = humenStatus.slice(-13,-1);
+                        tempHumen = humenStatus.slice(-13,-1);
                         tempHumen.shift();
                         tempHumen.push(humenStatus.pop());
                         console.log(tempHumen);
@@ -453,6 +457,68 @@
                 }
             });
         </script>
+        <script>
+            $(document).ready(function () {
+                //放置图表的容器
+                if(${detail.name eq '有毒气体传感器'}){
+                    var group = $("#gasState");
+                    //设置容器的宽度、高度和背景颜色
+                    var gasStatus = ${detail.toxicAirStates};
+                    console.log(gasStatus);
+                    var tempGas = [];
+                    if(gasStatus.length >12){
+                        var tempGas = gasStatus.slice(-13,-1);
+                        tempGas.shift();
+                        tempGas.push(gasStatus.pop());
+                        console.log(tempGas);
+                    }else
+                        tempGas = gasStatus;
+                    group.css({
+                        "width": "100%",
+                        "height": "45%",
+                        "background-color": "aliceblue"
+                    });
+                    //创建图表对象
+                    var chart = echarts.init(group.get(0));
+                    chart.showLoading();//显示等待条
+                    //设置图表显示的内容
+                    var option = {
+                        xAxis: {},
+                        yAxis: {
+                            type: 'value',
+                            name: '有毒气体状态',
+                            minInterval: 1//设置最小显示为整数
+                        },
+                        series: [{
+                            symbolSize: 20,
+                            data: [
+                                [1,tempGas[0]],
+                                [2,tempGas[1]],
+                                [3,tempGas[2]],
+                                [4,tempGas[3]],
+                                [5,tempGas[4]],
+                                [6,tempGas[5]],
+                                [7,tempGas[6]],
+                                [8,tempGas[7]],
+                                [9,tempGas[8]],
+                                [10,tempGas[9]],
+                                [11,tempGas[10]],
+                                [12,tempGas[11]]
+                            ],
+                            type: 'scatter',
+                            label:{ normal:{show:true} }
+                        }]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    chart.setOption(option);
+                    //两秒后关闭等待进度条
+                    setTimeout(function () {
+                        chart.hideLoading();//隐藏等待条
+                    }, 2000);
+
+                }
+            });
+        </script>
         <c:choose>
             <c:when test="${detail.name eq '温度传感器'}">
                 <div id="temperature"></div>
@@ -465,6 +531,9 @@
             </c:when>
             <c:when test="${detail.name eq '红外人体传感器'}">
                 <div id="humenState"></div>
+            </c:when>
+            <c:when test="${detail.name eq '有毒气体传感器'}">
+                <div id="gasState"></div>
             </c:when>
         </c:choose>
     </div>

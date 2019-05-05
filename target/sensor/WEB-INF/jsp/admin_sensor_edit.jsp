@@ -28,7 +28,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">安居系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -100,14 +100,14 @@
                     <c:choose>
                         <c:when test="${detail.sensorState eq 1}">
                            <select class="form-control" id="sensorState" name="sensorState" placeholder="请输入传感器状态">
-                                <option value="1" id="sensorState1" style="background-color:#10adff">正常工作</option>
-                                <option value="0" id="sensorState2" style="background-color: #ff1a15">异常</option>
+                                <option value="0" id="sensorState1" style="background-color:#10adff">正常工作</option>
+                                <option value="1" id="sensorState2" style="background-color: #ff1a15">异常</option>
                             </select>
                         </c:when>
                         <c:when test="${detail.sensorState eq 0}">
                             <select class="form-control" id="sensorState" name="sensorState" placeholder="请输入传感器状态">
-                                <option value="0" id="sensorState4" style="background-color: #ff1a15">异常</option>
-                                <option value="1" id="sensorState3" style="background-color:#10adff">正常工作</option>
+                                <option value="1" id="sensorState4" style="background-color: #ff1a15">异常</option>
+                                <option value="0" id="sensorState3" style="background-color:#10adff">正常工作</option>
                             </select>
                         </c:when>
                     </c:choose>

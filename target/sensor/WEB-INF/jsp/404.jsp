@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="static/images/404.png" rel="shortcut icon">
     <meta charset="utf-8">
     <title>404 Not Find:(</title>
     <style>

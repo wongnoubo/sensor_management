@@ -10,7 +10,7 @@
 <html>
 <head>
     <link href="static/images/tv-outline.png" rel="shortcut icon">
-    <title>家+安全系统登录</title>
+    <title>安居系统登录</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
@@ -53,7 +53,7 @@
         window.location.href="login.html";
     </script>
 </c:if>
-<h2 style="text-align: center;font-family: 'Adobe 楷体 Std R';color: palevioletred">家 + 安 全 系 统</h2>
+<h2 style="text-align: center;font-family: 'Adobe 楷体 Std R';color: palevioletred">安 居 系 统</h2>
 <div style="float:right;" id="github_iframe"></div>
 <script>
     ! function() {

@@ -19,7 +19,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="/admin_main.html">家+安全系统</a>
+            <a class="navbar-brand" href="/admin_main.html">安居系统</a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -39,7 +39,7 @@
                         密码修改
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_repasswd">密码修改</a></li>
+                        <li><a href="/admin_repasswd.html">密码修改</a></li>
                     </ul>
                 </li>
                 <li >

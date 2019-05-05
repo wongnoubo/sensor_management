@@ -10,7 +10,7 @@
 <html>
 <head>
     <link href="static/images/tv-outline.png" rel="shortcut icon">
-    <title>家+安全系统登录</title>
+    <title>安居系统登录</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
@@ -53,7 +53,7 @@
         window.location.href="login.html";
     </script>
 </c:if>
-<h2 style="text-align: center;font-family: 'Adobe 楷体 Std R';color: palevioletred">家 + 安 全 系 统</h2>
+<h2 style="text-align: center;font-family: 'Adobe 楷体 Std R';color: palevioletred">安 居 系 统</h2>
 <div style="float:right;" id="github_iframe"></div>
 <script>
     ! function() {
@@ -177,13 +177,13 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="img/82839-106.jpg" alt="第一张">
+            <img src="img/first.jpg" alt="第一张">
         </div>
         <div class="item">
-            <img src="img/105905-106.jpg" alt="第二张">
+            <img src="img/second.jpg" alt="第二张">
         </div>
         <div class="item">
-            <img src="img/296494-106.jpg" alt="第三张">
+            <img src="img/third.jpg" alt="第三张">
         </div>
 
     </div>
@@ -213,7 +213,7 @@
             </label>
             <a style="margin-left: 5%" href="admin_register.html">注册用户</a>
             <a style="margin-left: 10%" href="admin_findpassword.html">忘记密码?</a>
-            <a style="margin-left: 15%" href="admin_findusername.html">忘记用户?</a>
+            <%--<a style="margin-left: 15%" href="admin_findusername.html">忘记用户?</a>--%>
         </div>
 
         <p style="text-align: right;color: #d3bfff;position: absolute" id="info"></p><br/>
