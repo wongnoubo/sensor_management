@@ -2,31 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbb05a87-93a4-4c2f-ad08-c8cef7e3f126" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/docs/全部传感器.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/增加传感器.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/实时监控.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/密码修改.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/找回密码.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/有毒气体浓度.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/树莓派cpu温度.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/注册用户.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/温度传感器.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/湿度传感器.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/登录界面.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/红外人体传感器.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/远程控制.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs/首页.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sensor/utils/EmailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sensor/utils/EmailUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_control.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_control.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admininformation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admininformation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/adminvideo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/adminvideo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sensor/utils/EmailUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sensor/utils/EmailUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/utils/EmailUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/classes/com/sensor/utils/EmailUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/404.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/404.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_repasswd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_repasswd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensor_edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensors.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admin_sensors.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admininformation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/admininformation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/adminvideo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/adminvideo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/sensor/WEB-INF/jsp/index.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -42,7 +32,7 @@
       <file leaf-file-name="EmailUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/utils/EmailUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5151">
+            <state relative-caret-position="5610">
               <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -54,7 +44,7 @@
       <file leaf-file-name="SensorController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4867">
+            <state relative-caret-position="14490">
               <caret line="484" column="33" selection-start-line="484" selection-start-column="33" selection-end-line="484" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,7 +58,7 @@
       <file leaf-file-name="Sensor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="690">
               <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="45" />
             </state>
           </provider>
@@ -77,7 +67,7 @@
       <file leaf-file-name="admin_repasswd.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
+            <state relative-caret-position="840">
               <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
             </state>
           </provider>
@@ -86,7 +76,7 @@
       <file leaf-file-name="admin_sensor_detail.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
+            <state relative-caret-position="4560">
               <caret line="152" column="55" selection-start-line="152" selection-start-column="55" selection-end-line="152" selection-end-column="55" />
             </state>
           </provider>
@@ -95,8 +85,8 @@
       <file leaf-file-name="admin_sensor_edit.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="109" column="48" selection-start-line="109" selection-start-column="48" selection-end-line="109" selection-end-column="48" />
+            <state relative-caret-position="120">
+              <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -104,7 +94,7 @@
       <file leaf-file-name="admin_sensors.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="1920">
               <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="57" />
             </state>
           </provider>
@@ -113,7 +103,7 @@
       <file leaf-file-name="admininformation.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admininformation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="1230">
               <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
             </state>
           </provider>
@@ -122,7 +112,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4907">
+            <state relative-caret-position="5130">
               <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
             </state>
           </provider>
@@ -131,7 +121,7 @@
       <file leaf-file-name="welcome.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/welcome.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
+            <state relative-caret-position="990">
               <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
             </state>
           </provider>
@@ -234,18 +224,16 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1929" />
+    <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
-    <option name="height" value="1058" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -262,87 +250,15 @@
               <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
               <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sensor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sensor_management" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,7 +471,8 @@
       <workItem from="1556209606781" duration="8000" />
       <workItem from="1556544950884" duration="522000" />
       <workItem from="1556548162089" duration="643000" />
-      <workItem from="1557043510928" duration="7318000" />
+      <workItem from="1557043510928" duration="8281000" />
+      <workItem from="1557107729875" duration="2816000" />
     </task>
     <task id="LOCAL-00001" summary="修复单元测试bug">
       <created>1552057797920</created>
@@ -585,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556117018514</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="有毒气体传感器echarts绘图">
+      <created>1557064478573</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1557064478574</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -621,7 +545,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100401000" />
+    <option name="totallyTimeSpent" value="104180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -633,8 +557,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1929" y="-9" width="1938" height="1058" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32872927" />
@@ -652,19 +575,19 @@
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.32711306" />
+      <window_info anchor="bottom" id="Version Control" order="5" visible="true" weight="0.3281027" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.32711306" />
       <window_info anchor="bottom" id="Spring" order="0" />
       <window_info anchor="bottom" x="0" y="293" width="1536" height="238" id="Terminal" order="1" weight="0.32524964" />
-      <window_info content_ui="combo" id="Project" order="6" weight="0.21641791" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.21581769" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Learn" order="4" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32952926" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32952926" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="7" />
@@ -672,10 +595,9 @@
     <layout-to-restore>
       <window_info id="Designer" order="0" />
       <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.32711306" />
       <window_info anchor="bottom" id="Spring" order="0" />
       <window_info id="Image Layers" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.32711306" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -683,24 +605,25 @@
       <window_info anchor="bottom" x="0" y="293" width="1536" height="238" id="Terminal" order="1" weight="0.32524964" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32872927" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32952926" />
       <window_info anchor="bottom" id="TODO" order="13" weight="0.32952926" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="right" id="Maven Projects" order="0" visible="true" weight="0.21108742" />
-      <window_info anchor="bottom" id="Find" order="7" />
       <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.21641791" />
       <window_info id="Learn" order="4" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32952926" />
+      <window_info anchor="right" id="Database" order="2" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="7" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
     </layout-to-restore>
   </component>
@@ -715,7 +638,8 @@
     <MESSAGE value="传感器细节显示不能显示最新数据bug修复" />
     <MESSAGE value="人体传感器散点图绘制" />
     <MESSAGE value="修改背景" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改背景" />
+    <MESSAGE value="有毒气体传感器echarts绘图" />
+    <option name="LAST_COMMIT_MESSAGE" value="有毒气体传感器echarts绘图" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/SensorGrid.java">
@@ -873,9 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -883,9 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1006,14 +924,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/welcome.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
+        <state relative-caret-position="990">
           <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/utils/EmailUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5151">
+        <state relative-caret-position="5610">
           <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1023,35 +941,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_repasswd.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
+        <state relative-caret-position="840">
           <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensors.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="1920">
           <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admininformation.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="1230">
           <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4907">
+        <state relative-caret-position="5130">
           <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/web/SensorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4867">
+        <state relative-caret-position="14490">
           <caret line="484" column="33" selection-start-line="484" selection-start-column="33" selection-end-line="484" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1063,22 +981,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sensor/domain/Sensor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="690">
           <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
+        <state relative-caret-position="4560">
           <caret line="152" column="55" selection-start-line="152" selection-start-column="55" selection-end-line="152" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin_sensor_edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="109" column="48" selection-start-line="109" selection-start-column="48" selection-end-line="109" selection-end-column="48" />
+        <state relative-caret-position="120">
+          <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
         </state>
       </provider>
     </entry>
